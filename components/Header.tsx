@@ -20,13 +20,12 @@ export function Header() {
     <header className="site-header">
       <div className="header-inner">
         <Link href="/" className="brand" aria-label="DrivePEI home">
-          <span className="brand-mark">
-            D<span>→</span>
-          </span>
-          <span>
-            DRIVE<span className="brand-pei">PEI</span>
-            <small>Cars. Credit. Confidence.</small>
-          </span>
+          <img
+            src="/images/drivepei-logo.png"
+            alt="DrivePEI"
+            width={2172}
+            height={724}
+          />
         </Link>
         <nav className={open ? 'nav open' : 'nav'} aria-label="Main navigation">
           {links.map(([label, href]) => (
@@ -60,8 +59,12 @@ export function Footer() {
       <div className="footer-top">
         <div>
           <Link href="/" className="footer-brand">
-            DRIVE<span>PEI</span>
-            <b>↗</b>
+            <img
+              src="/images/drivepei-logo.png"
+              alt="DrivePEI"
+              width={2172}
+              height={724}
+            />
           </Link>
           <p>Better ways to find your next drive on Prince Edward Island.</p>
         </div>

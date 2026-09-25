@@ -49,7 +49,7 @@ Before launch, confirm the Dealertrack iframe allows embedding on the final doma
 
 ## Design assets
 
-`public/images/pei-coastal-drive.webp` and `public/images/pei-next-drive.webp` are original AI-generated editorial images for DrivePEI. They are illustrative; vehicle listing photos come from the inventory source.
+`public/images/drivepei-logo.png` is the supplied DrivePEI logo; the palette is documented in `docs/brand.md`. `public/images/pei-coastal-drive.webp` and `public/images/pei-next-drive.webp` are original AI-generated editorial images for DrivePEI. They are illustrative; vehicle listing photos come from the inventory source.
 
 # Deployment note
 
