@@ -1,35 +1,6 @@
 import type { Metadata } from 'next';
-import { getVehicles } from '@/lib/inventory';
-import { InventoryExplorer } from '@/components/InventoryExplorer';
-export const metadata: Metadata = {
-  title: 'Used Cars in Charlottetown, PEI',
-  description:
-    'Find used cars, SUVs and trucks in the Charlottetown area. Search DrivePEI current off-make inventory.',
-  alternates: { canonical: '/used-cars-charlottetown' },
-};
+import { InventoryLanding } from '@/components/InventoryLanding';
+import { charlottetownLanding } from '@/lib/landing';
+export const metadata: Metadata = { title: 'Used Cars in Charlottetown, PEI', description: 'Explore current off-make used cars, SUVs and trucks near Charlottetown, PEI. Filter live inventory and read a local used-car buying checklist.', alternates: { canonical: '/used-cars-charlottetown' }, openGraph: { title: 'Used Cars in Charlottetown, PEI | DrivePEI', description: 'Shop current used inventory serving Charlottetown and PEI.', url: '/used-cars-charlottetown' } };
 export const revalidate = 900;
-export default async function Page() {
-  return (
-    <main>
-      <section className="page-hero inventory-hero">
-        <div className="container">
-          <span className="eyebrow light">CHARLOTTETOWN AND BEYOND</span>
-          <h1>
-            Used cars
-            <br />
-            <em>close to home.</em>
-          </h1>
-          <p>
-            Shop current used inventory serving drivers across Charlottetown and
-            PEI.
-          </p>
-        </div>
-      </section>
-      <section className="section inventory-section">
-        <div className="container">
-          <InventoryExplorer vehicles={await getVehicles()} />
-        </div>
-      </section>
-    </main>
-  );
-}
+export default function Page() { return <InventoryLanding content={charlottetownLanding}/>; }

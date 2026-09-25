@@ -10,7 +10,8 @@ An independent, mobile-first PEI used-vehicle site. The public site contains **n
 - Secure Dealertrack credit application iframe with an external-link fallback.
 - Car Finder, sell/trade, finance question, and contact forms.
 - Activepieces webhook delivery for leads. PostgreSQL storage and admin retry are available later when a database is provisioned.
-- Inventory sync, inactive vehicle handling, featured vehicle controls, sync logs, sitemap, robots, structured vehicle data, GTM hook, and UTM capture.
+- Inventory sync, inactive vehicle handling, featured vehicle controls, sync logs, a live XML sitemap, robots.txt, structured vehicle and article data, GTM hook, and UTM capture.
+- PEI buying-guide hub, six source-backed articles and distinct inventory landing pages for SUVs, AWD/4WD, Charlottetown, Honda, Kia and Nissan.
 
 ## Run locally
 
@@ -46,6 +47,10 @@ npm run typecheck
 ```
 
 Before launch, confirm the Dealertrack iframe allows embedding on the final domain, submit a controlled test lead and confirm Activepieces stored it, and verify the GTM/GA4 and Search Console setup. The Activepieces storage and notification flow must be active before customer traffic is sent to the site.
+
+## Search content and sitemap
+
+The editorial map, publishing checklist and Search Console submission steps are in `docs/seo-content-plan.md`. The sitemap is generated at `/sitemap.xml` and listed in `/robots.txt`; set `NEXT_PUBLIC_SITE_URL` to the final canonical domain before deployment. New guide pages must be added to `lib/guides.ts`; the sitemap includes them automatically. Add other new routes to `app/sitemap.ts`.
 
 ## Design assets
 

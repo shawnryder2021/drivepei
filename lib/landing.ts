@@ -1,0 +1,48 @@
+import type { LandingContent } from '@/components/InventoryLanding';
+export const suvLanding: LandingContent = {
+  eyebrow: 'SPACE FOR YOUR NEXT CHAPTER', heading: 'Used SUVs', accent: 'in PEI.',
+  intro: 'Compare current used SUVs across makes, prices and kilometres, then choose the space and capability you actually need.', body: 'SUV',
+  sections: [
+    { heading: 'Choose the right size of SUV', paragraphs: ['Compact SUVs are often easier to park and can be a practical fit for a daily commute. Larger models may give passengers and cargo more room, but compare fuel, tire and insurance costs as well as the asking price.', 'Bring your child seat, stroller or sports gear when you view a vehicle. Photos rarely show how much usable space remains with everyone aboard.'] },
+    { heading: 'Compare the features that matter on PEI', paragraphs: ['Check the drivetrain, tires, service history and visibility before choosing by model name alone. AWD can help with traction in some conditions, while suitable tires and careful driving remain essential for winter roads.'], bullets: ['Filter by price and kilometres to find a realistic shortlist.', 'Check cargo access, rear-seat room and the condition of the tires.', 'Ask about warranty terms, inspection and any reconditioning completed.'] },
+    { heading: 'What if the right SUV is not here today?', paragraphs: ['The inventory feed changes as vehicles arrive and sell. If the current list does not fit, use Car Finder to tell us your preferred size, budget, features and timeline.'] },
+  ],
+  guideLinks: [{ label: 'How to choose a used SUV', href: '/guides/used-suv-buying-guide-pei' }, { label: 'Compare AWD and FWD', href: '/guides/awd-vs-fwd-pei' }, { label: 'Browse every used vehicle', href: '/used' }],
+};
+export const awdLanding: LandingContent = {
+  eyebrow: 'TRACTION FOR ISLAND ROUTES', heading: 'Used AWD & 4WD', accent: 'in PEI.',
+  intro: 'Explore currently listed all-wheel-drive and four-wheel-drive vehicles and compare them on price, mileage and everyday fit.', drive: 'awd',
+  sections: [
+    { heading: 'Start with the roads you drive', paragraphs: ['An AWD or 4WD vehicle may be useful for an unplowed driveway, rural route or regular travel before roads are cleared. The best fit still depends on the specific vehicle, tires, driver and conditions. AWD helps a vehicle get moving in slippery conditions; it does not guarantee shorter braking distance.'] },
+    { heading: 'Check the total ownership cost', paragraphs: ['Compare fuel use, tire replacement costs, insurance and maintenance alongside the price. A front-wheel-drive alternative with suitable tires may also be worth considering if your driving is mostly on maintained roads.'], bullets: ['Ask about tire age, tread and whether the set matches the vehicle requirements.', 'Review service history for the specific drivetrain system.', 'Test drive the vehicle on the kinds of roads you use regularly.'] },
+    { heading: 'Keep your shortlist flexible', paragraphs: ['Our current AWD and 4WD selection depends on the live inventory feed. If the options below do not fit your budget or body-style needs, share those details through Car Finder and we can follow up when a closer match is available.'] },
+  ],
+  guideLinks: [{ label: 'AWD versus FWD on PEI', href: '/guides/awd-vs-fwd-pei' }, { label: 'Shop used SUVs', href: '/used-suvs-pei' }, { label: 'Used-car buying checklist', href: '/guides/buying-a-used-car-in-pei' }],
+};
+export const charlottetownLanding: LandingContent = {
+  eyebrow: 'SHOP LOCAL, DRIVE ISLAND-WIDE', heading: 'Used cars near', accent: 'Charlottetown.',
+  intro: 'Browse current off-make used cars, SUVs and trucks serving Charlottetown and drivers across Prince Edward Island.',
+  sections: [
+    { heading: 'A local starting point for your search', paragraphs: ['Shopping near Charlottetown lets you compare several kinds of used vehicles in one place. Start with body style, budget and mileage, then inspect the details of a few specific vehicles instead of trying to choose from every listing at once.', 'The vehicles shown above come from our current feed. Availability can change, so ask us to confirm a vehicle before making a trip.'] },
+    { heading: 'Compare beyond the sticker price', paragraphs: ['A good shortlist accounts for condition, maintenance, tires, insurance and the total cost of financing. Test drive the routes you use regularly, and ask about history, inspection and any included coverage.'], bullets: ['Use the filters for make, body style, price, kilometres and drivetrain.', 'Open a vehicle page to review its VIN, features and photos.', 'Send a question on the vehicle page when you are ready for more detail.'] },
+    { heading: 'Looking from elsewhere on the Island?', paragraphs: ['You can research inventory online from Summerside, Stratford, Cornwall and other PEI communities. Share the vehicles you like and arrange the next step with our team. If no listing fits, use Car Finder and describe what you need.'] },
+  ],
+  guideLinks: [{ label: 'PEI used-car checklist', href: '/guides/buying-a-used-car-in-pei' }, { label: 'Compare used SUVs', href: '/used-suvs-pei' }, { label: 'Explore financing', href: '/finance' }],
+};
+export const makeLandings: Record<string, LandingContent> = {
+  honda: { eyebrow: 'CURRENT HONDA SELECTION', heading: 'Used Honda vehicles', accent: 'in PEI.', intro: 'Explore current used Honda cars and SUVs in our off-make lineup, with live pricing and vehicle details.', make: 'Honda', sections: [
+    { heading: 'Compare the Honda that fits your day', paragraphs: ['A Honda badge can cover very different vehicles. Compare the specific model’s passenger room, cargo space, fuel needs and features against your daily route. A compact car and an SUV can solve different problems even when the price is similar.'] },
+    { heading: 'Review each vehicle on its own merits', paragraphs: ['Price, kilometres, condition and service history matter more than a general reputation. Open each listing for the VIN and equipment, then ask about inspection, past claims and available maintenance records.'], bullets: ['Check tires and brakes against your expected driving.', 'Try the cabin and cargo area in person.', 'Compare the full purchase and financing cost, not only the payment.'] },
+    { heading: 'If the model you want is missing', paragraphs: ['The live selection can change quickly. Tell us the Honda model, year range, budget and features you are looking for through Car Finder.'] },
+  ], guideLinks: [{ label: 'Used-car buying checklist', href: '/guides/buying-a-used-car-in-pei' }, { label: 'Browse all used vehicles', href: '/used' }] },
+  kia: { eyebrow: 'CURRENT KIA SELECTION', heading: 'Used Kia vehicles', accent: 'in PEI.', intro: 'Compare current used Kia vehicles in PEI, including price, kilometres, body style and available equipment.', make: 'Kia', sections: [
+    { heading: 'Match the model to your routine', paragraphs: ['Kia cars and SUVs span different sizes and purposes. Think about passengers, parking, cargo and winter routes before narrowing the list. Check the actual trim and equipment on each vehicle rather than assuming features from the model name.'] },
+    { heading: 'Questions worth asking', paragraphs: ['For each listing, review the VIN, service history, tire condition and included coverage. Warranty transfer rules can depend on the vehicle and program, so request the exact terms in writing if warranty is important to your decision.'], bullets: ['Compare the price with kilometres and condition.', 'Test visibility, seating and cargo access.', 'Review financing terms and total ownership costs.'] },
+    { heading: 'Keep the search open', paragraphs: ['If the Kia you want is not in the live inventory, tell us your preferred model, budget and timeline in Car Finder.'] },
+  ], guideLinks: [{ label: 'Used SUV buying guide', href: '/guides/used-suv-buying-guide-pei' }, { label: 'Browse all used vehicles', href: '/used' }] },
+  nissan: { eyebrow: 'CURRENT NISSAN SELECTION', heading: 'Used Nissan vehicles', accent: 'in PEI.', intro: 'Browse current used Nissan vehicles from the off-make inventory feed and compare the details that shape ownership.', make: 'Nissan', sections: [
+    { heading: 'Start with the model and how you drive', paragraphs: ['Choose the body style that suits your passengers, cargo and regular routes. Then compare trims and actual equipment. A vehicle’s condition and maintenance history should carry weight alongside its year and kilometres.'] },
+    { heading: 'Inspect and compare thoughtfully', paragraphs: ['Ask for service records, inspection information and vehicle history when available. On a test drive, check how the vehicle shifts, brakes, steers and handles everyday road speeds. A qualified independent inspection can be useful before buying a higher-kilometre vehicle.'], bullets: ['Compare price and mileage with similar vehicles.', 'Check tire type and condition for your routes.', 'Review all written sale and financing terms.'] },
+    { heading: 'Need a different Nissan?', paragraphs: ['The listings above reflect current availability. Use Car Finder with your model, budget and feature preferences if nothing matches today.'] },
+  ], guideLinks: [{ label: 'PEI used-car checklist', href: '/guides/buying-a-used-car-in-pei' }, { label: 'Browse all used vehicles', href: '/used' }] },
+};

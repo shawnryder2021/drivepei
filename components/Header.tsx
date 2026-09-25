@@ -12,6 +12,7 @@ const links = [
     '/finance',
   ],
   ['Car Finder', '/car-finder'],
+  ['Buying Guides', '/guides'],
   ['Sell / Trade', '/trade'],
 ];
 export function Header() {
@@ -74,6 +75,9 @@ export function Footer() {
           <Link href="/used-suvs-pei">Used SUVs PEI</Link>
           <Link href="/used-awd-pei">Used AWD PEI</Link>
           <Link href="/used-cars-charlottetown">Charlottetown inventory</Link>
+          <Link href="/used-honda-pei">Used Honda PEI</Link>
+          <Link href="/used-kia-pei">Used Kia PEI</Link>
+          <Link href="/used-nissan-pei">Used Nissan PEI</Link>
         </div>
         <div>
           <h3>Make your move</h3>
@@ -90,6 +94,7 @@ export function Footer() {
         <div>
           <h3>About DrivePEI</h3>
           <Link href="/why-drivepei">Why buy with us</Link>
+          <Link href="/guides">PEI buying guides</Link>
           <p>Serving drivers across Prince Edward Island from Charlottetown.</p>
         </div>
       </div>

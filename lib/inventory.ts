@@ -88,12 +88,12 @@ export async function getVehicles(): Promise<Vehicle[]> {
         await query<Vehicle>(`select vin, stock, year, make, model, trim, price::float8 as price,
         kilometres, body, drivetrain, transmission, fuel, colour, image, source_url as "sourceUrl",
         status, featured, description, updated_at::text as "updatedAt" from vehicles where status='active' and lower(make) <> 'volkswagen' order by featured desc, updated_at desc`);
-      if (result.rows.length) return result.rows;
+      if (result.rows.length) return result.rows.map((vehicle) => ({ ...vehicle, sourceUrl: '' }));
     } catch (error) {
       console.error('Database inventory unavailable', error);
     }
   }
-  return getFeedVehicles();
+  return (await getFeedVehicles()).map((vehicle) => ({ ...vehicle, sourceUrl: '' }));
 }
 export async function getVehicle(slug: string) {
   const vin = slug.split('-').at(-1)?.toUpperCase();

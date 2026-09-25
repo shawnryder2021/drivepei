@@ -8,13 +8,15 @@ export function InventoryExplorer({
   vehicles,
   initialBody = '',
   initialDrive = '',
+  initialMake = '',
 }: {
   vehicles: Vehicle[];
   initialBody?: string;
   initialDrive?: string;
+  initialMake?: string;
 }) {
   const [q, setQ] = useState(''),
-    [make, setMake] = useState(''),
+    [make, setMake] = useState(initialMake),
     [model, setModel] = useState(''),
     [body, setBody] = useState(initialBody),
     [drive, setDrive] = useState(initialDrive),
@@ -242,7 +244,7 @@ export function InventoryExplorer({
           </small>
         </div>
       </aside>
-      <div className="inventory-results">
+      <div className="inventory-results" id="inventory-results">
         <div className="results-toolbar">
           <div>
             <span className="eyebrow">THE CURRENT LINEUP</span>

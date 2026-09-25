@@ -1,38 +1,6 @@
 import type { Metadata } from 'next';
-import { getVehicles } from '@/lib/inventory';
-import { InventoryExplorer } from '@/components/InventoryExplorer';
-export const metadata: Metadata = {
-  title: 'Used AWD Vehicles in PEI',
-  description:
-    'Explore used AWD and 4WD vehicles in Prince Edward Island, with current pricing and kilometres.',
-  alternates: { canonical: '/used-awd-pei' },
-};
+import { InventoryLanding } from '@/components/InventoryLanding';
+import { awdLanding } from '@/lib/landing';
+export const metadata: Metadata = { title: 'Used AWD & 4WD Vehicles in PEI', description: 'Shop current used AWD and 4WD vehicles in PEI. Compare price, kilometres, tires, drivetrain and total ownership costs.', alternates: { canonical: '/used-awd-pei' }, openGraph: { title: 'Used AWD & 4WD Vehicles in PEI | DrivePEI', description: 'Explore live AWD and 4WD inventory for Prince Edward Island roads.', url: '/used-awd-pei' } };
 export const revalidate = 900;
-export default async function Page() {
-  return (
-    <main>
-      <section className="page-hero inventory-hero">
-        <div className="container">
-          <span className="eyebrow light">CONFIDENCE IN EVERY SEASON</span>
-          <h1>
-            Used AWD
-            <br />
-            <em>on PEI.</em>
-          </h1>
-          <p>
-            See the all-wheel and four-wheel drive vehicles in our current
-            inventory.
-          </p>
-        </div>
-      </section>
-      <section className="section inventory-section">
-        <div className="container">
-          <InventoryExplorer
-            vehicles={await getVehicles()}
-            initialDrive="awd"
-          />
-        </div>
-      </section>
-    </main>
-  );
-}
+export default function Page() { return <InventoryLanding content={awdLanding}/>; }
