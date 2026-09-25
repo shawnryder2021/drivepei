@@ -5,7 +5,12 @@ import { ArrowUpRight, Menu, X } from 'lucide-react';
 const links = [
   ['Shop Used', '/used'],
   ['Shop by Payment', '/used?payment=1'],
-  ['Get Pre-Approved', '/finance'],
+  [
+    process.env.NEXT_PUBLIC_CREDIT_IFRAME_URL
+      ? 'Get Pre-Approved'
+      : 'Explore Financing',
+    '/finance',
+  ],
   ['Car Finder', '/car-finder'],
   ['Sell / Trade', '/trade'],
 ];
@@ -69,7 +74,11 @@ export function Footer() {
         </div>
         <div>
           <h3>Make your move</h3>
-          <Link href="/finance">Get pre-approved</Link>
+          <Link href="/finance">
+            {process.env.NEXT_PUBLIC_CREDIT_IFRAME_URL
+              ? 'Get pre-approved'
+              : 'Explore financing'}
+          </Link>
           <Link href="/car-finder">Car Finder</Link>
           <Link href="/trade">Sell or trade</Link>
           <Link href="/contact">Contact</Link>

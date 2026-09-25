@@ -39,7 +39,10 @@ export default async function Home() {
               Shop used vehicles <ArrowUpRight size={18} />
             </Link>
             <Link className="button button-outline" href="/finance">
-              Get pre-approved <ArrowRight size={18} />
+              {process.env.NEXT_PUBLIC_CREDIT_IFRAME_URL
+                ? 'Get pre-approved'
+                : 'Explore financing'}{' '}
+              <ArrowRight size={18} />
             </Link>
           </div>
           <div className="hero-caption">

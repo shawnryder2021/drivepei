@@ -209,7 +209,10 @@ export default async function VehiclePage({ params }: Props) {
               Check availability <ArrowRight size={16} />
             </a>
             <Link href="/finance" className="button button-soft">
-              Get pre-approved <ArrowUpRight size={16} />
+              {process.env.NEXT_PUBLIC_CREDIT_IFRAME_URL
+                ? 'Get pre-approved'
+                : 'Explore financing'}{' '}
+              <ArrowUpRight size={16} />
             </Link>
             <Link href="/trade" className="text-link">
               Value my trade <ArrowUpRight size={16} />
