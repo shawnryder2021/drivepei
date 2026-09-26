@@ -5,6 +5,7 @@ import './globals.css';
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://drivepei.ca';
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  verification: { google: 'ILYPw0m7CJwbrEOgya6sPXJfW1U4c9RzRz_EXwdlQUs' },
   title: {
     default: 'DrivePEI | Used Cars & Financing in Prince Edward Island',
     template: '%s | DrivePEI',
