@@ -63,8 +63,8 @@ At day 30, treat the first month as the baseline. At day 90, compare non-brand c
 
 ## Search verification status, 26 September 2026
 
-- Google Search Console: `https://drivepei.ca/` property verified with the permanent HTML meta tag. `https://drivepei.ca/sitemap.xml` submitted. Google showed “Couldn't fetch” immediately after submission while the public XML and robots file both returned HTTP 200 and parsed; recheck after its next crawl before changing the sitemap.
-- Bing Webmaster Tools: `https://drivepei.ca/` verified with the permanent `msvalidate.01` meta tag. `https://drivepei.ca/sitemap.xml` submitted successfully and was processing at the time of the check.
+- Google Search Console: `https://drivepei.ca/` property verified with the permanent HTML meta tag. `https://drivepei.ca/sitemap.xml` submitted and resubmitted after the current release and HTTPS certificate were live. Google still showed “Couldn't fetch” immediately afterward while the public XML and robots file returned HTTP 200 and parsed; recheck after its next crawl before changing the sitemap.
+- Bing Webmaster Tools: `https://drivepei.ca/` verified with the permanent `msvalidate.01` meta tag. `https://drivepei.ca/sitemap.xml` submitted successfully; Bing's first crawl succeeded and discovered the previous 34-URL version. The current live sitemap has 39 URLs and 40 approved vehicle image entries for the next crawl.
 - DrivePEI Facebook and Instagram accounts do not exist yet. The first two post drafts above are ready for brand-account publication once those accounts are created. No post has been sent from a personal or franchise account.
 - The production-configured Activepieces webhook returned HTTP 200 with a lead ID for one synthetic, clearly labeled contact-form test on 26 September 2026. That confirms delivery acknowledgment; the flow's storage step should also be checked in Activepieces.
 - Standalone Google Business Profile: not part of this plan because DrivePEI has no separate staffed customer-facing location or permanent DrivePEI signage.
