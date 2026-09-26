@@ -182,5 +182,35 @@ export const guides: Guide[] = [
     relatedPaths: [{ label: 'Explore financing', href: '/finance' }, { label: 'Shop by payment estimate', href: '/used?payment=1' }],
     sources: [{ label: 'FCAC: financing a car', href: 'https://www.canada.ca/en/financial-consumer-agency/services/loans/financing-car.html' }, { label: 'FCAC: financial risks when buying a car', href: 'https://www.canada.ca/en/financial-consumer-agency/services/loans/financing-car/risks.html' }],
   },
+  {
+    slug: 'used-volkswagen-checklist-pei',
+    title: 'Used Volkswagen in PEI: what to check before you buy',
+    description: 'A model-neutral checklist for comparing used Volkswagen cars and SUVs in PEI, including trim, service history, tires and a practical test drive.',
+    category: 'Vehicle choice',
+    lead: 'There can be a big difference between two Volkswagens with the same model name. Start with the exact year, trim and condition of the vehicle in front of you.',
+    published: '2026-09-26', updated: '2026-09-26', readMinutes: 4,
+    sections: [
+      { heading: 'Confirm which vehicle you are comparing', paragraphs: ['Open the listing and note the VIN, stock number, year, model, trim, kilometres and asking price. Equipment can vary by year and trim, and a badge or photo may not prove a feature is installed. Ask about the specific vehicle if heated seats, driver assistance, towing equipment or a second tire set matters to you.', 'Compare several live listings with similar kilometres and equipment. A lower asking price can reflect different age, condition or features, so a quick price-only comparison can be misleading.'] },
+      { heading: 'Review maintenance and condition', paragraphs: ['Ask for available service records and whether recommended maintenance for that model and year has been completed. Check tires, brakes, warning lights, visible corrosion and the condition of the interior. If an all-wheel-drive vehicle is on your list, ask about the maintenance history of its drivetrain and the tires fitted to it.', 'A vehicle history report can help you ask better questions about ownership, reported damage and recorded kilometres. It does not show every repair. An independent pre-purchase inspection can add a separate assessment of the actual vehicle.'] },
+      { heading: 'Test it for your Island routine', paragraphs: ['Try the seating position, controls and visibility before driving. On a safe route similar to your commute, note how the vehicle accelerates, brakes, turns and rides over ordinary pavement. Bring the cargo or child seat you regularly use; a compact car and a larger SUV may suit very different routines.', 'If winter traction is a concern, compare the condition and type of tires as well as the drivetrain. AWD can help a vehicle get moving on slippery surfaces, but it does not replace appropriate tires or shorten stopping distance on ice.'] },
+      { heading: 'Ask for the complete written deal', bullets: ['Confirm the current asking price, applicable taxes, fees and any optional products.', 'Ask what inspection, reconditioning or warranty information is available for this VIN.', 'If financing, compare the rate, term, amount financed and total cost of borrowing.', 'Confirm availability and book a viewing before travelling to see it.'] },
+    ],
+    relatedPaths: [{ label: 'Shop used Volkswagen in PEI', href: '/used-volkswagen-pei' }, { label: 'Read the vehicle-history guide', href: '/guides/read-a-vehicle-history-report' }],
+  },
+  {
+    slug: 'questions-to-ask-about-used-car-listing-pei',
+    title: 'Questions to ask about a used-car listing before visiting',
+    description: 'A short list of specific questions to ask about a used car in PEI before you book a viewing or test drive.',
+    category: 'Buying',
+    lead: 'A useful first message can save you a trip and make the eventual test drive more productive. Ask about the exact car, then follow up on anything the listing cannot confirm.',
+    published: '2026-09-26', updated: '2026-09-26', readMinutes: 3,
+    sections: [
+      { heading: 'Start with identity and availability', paragraphs: ['Copy the VIN or stock number from the listing and ask whether that specific vehicle is still available. Confirm the advertised year, trim, kilometres and asking price. Inventory moves quickly, and similar vehicles can have different equipment or condition.', 'If a must-have feature is not clearly listed, ask for a photo or a direct confirmation. A generic model description is not enough to verify equipment on one used vehicle.'] },
+      { heading: 'Ask what is known about its history', bullets: ['Is a current vehicle history report available, and does it include a lien check?', 'Are maintenance records or recent repair invoices available?', 'When was the vehicle last inspected, and can I review the inspection information?', 'Are there any known issues or upcoming maintenance items I should budget for?', 'Which tires, keys and accessories come with this vehicle?'] },
+      { heading: 'Plan the visit around your needs', paragraphs: ['Ask whether you can drive a route that reflects your normal use and whether an independent pre-purchase inspection can be arranged. If you need room for a child seat, sports gear or mobility equipment, mention it before the appointment so you can check the fit.', 'For a trade-in, bring its year, make, model, kilometres and any loan payout information. Ask for the trade allowance and the purchase price as separate written figures so you can compare the whole transaction.'] },
+      { heading: 'A message you can adapt', paragraphs: ['“I am interested in the vehicle with VIN [VIN]. Is it available to view? Could you confirm the price, kilometres and included tires, and tell me what history and inspection information is available? I would like to book a test drive and ask about an independent inspection.” Replace the bracketed VIN with the one on the listing and add your own priorities.', 'Avoid putting a social insurance number, banking details or full credit history in a general inquiry. Use a dedicated secure application if you choose to apply for financing.'] },
+    ],
+    relatedPaths: [{ label: 'Browse current vehicles', href: '/used' }, { label: 'Read the test-drive checklist', href: '/guides/used-car-test-drive-checklist-pei' }],
+  },
 ];
 export const guideBySlug = (slug: string) => guides.find((guide) => guide.slug === slug);

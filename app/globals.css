@@ -1839,6 +1839,10 @@ h2 em {
 .vdp-staff-notes { border-top: 1px solid var(--line); padding-top: 20px; margin-top: 20px; }
 .vdp-note-link { border-top: 1px solid var(--line); padding-top: 18px; margin: 18px 0 0; }
 .vdp-note-link a { color: var(--forest); text-decoration: underline; text-underline-offset: 3px; }
+.vdp-research { border: 1px solid var(--line); background: var(--cream); padding: 28px; margin: 28px 0; }
+.vdp-research h2 { font-size: clamp(24px, 2.5vw, 32px); margin: 10px 0 20px; }
+.vdp-research > div { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 24px; }
+.vdp-research a { display: flex; justify-content: space-between; align-items: center; gap: 12px; border-top: 1px solid var(--line); padding: 13px 0; color: var(--forest); font-size: 14px; font-weight: 700; }
 .application-ready { border: 1px solid var(--line); }
 .application-ready > svg { color: var(--forest); }
 .application-ready h3 { font-size: 26px; margin: 17px 0 8px; }
@@ -1858,6 +1862,7 @@ h2 em {
   .article-aside { position: static; }
   .guide-hub-intro { grid-template-columns: 1fr; gap: 18px; }
   .vdp-note-grid { grid-template-columns: 1fr; gap: 8px; }
+  .vdp-research > div { grid-template-columns: 1fr; }
 }
 @media (max-width: 700px) {
   .guide-grid { grid-template-columns: 1fr; }

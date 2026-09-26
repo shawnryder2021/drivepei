@@ -2,6 +2,17 @@ import 'server-only';
 import { z } from 'zod';
 import { createHash, timingSafeEqual } from 'node:crypto';
 import { query } from './store';
+import { getVehicles } from './inventory';
+import { buildAdf, type AdfLead } from './adf';
+
+async function inventoryForVin(vin?: string | null) {
+  if (!vin) return undefined;
+  try {
+    return (await getVehicles()).find((vehicle) => vehicle.vin === vin.toUpperCase());
+  } catch {
+    return undefined;
+  }
+}
 
 export const leadSchema = z.object({
   kind: z.enum([
@@ -117,7 +128,11 @@ export async function deliverLead(id: string) {
           ? { Authorization: `Bearer ${process.env.LEAD_WEBHOOK_BEARER_TOKEN}` }
           : {}),
       },
-      body: JSON.stringify({ event: 'drivepei.lead.created', lead }),
+      body: JSON.stringify({
+        event: 'drivepei.lead.created',
+        lead,
+        adf_xml: buildAdf(lead as AdfLead, await inventoryForVin(lead.vehicle_vin as string | null)),
+      }),
       signal: AbortSignal.timeout(10000),
       cache: 'no-store',
     });
@@ -147,6 +162,20 @@ export async function deliverDirect(lead: LeadInput, ip: string) {
     until: previous && previous.until > now ? previous.until : now + 3600000,
   });
   const id = crypto.randomUUID();
+  const payloadLead: AdfLead = {
+    id,
+    created_at: new Date().toISOString(),
+    kind: lead.kind,
+    name: lead.name,
+    email: lead.email,
+    phone: lead.phone,
+    message: lead.message,
+    vehicle_vin: lead.vehicleVin || null,
+    details: lead.details,
+    utm: lead.utm,
+    landing_page: lead.landingPage || null,
+  };
+  const adfXml = buildAdf(payloadLead, await inventoryForVin(lead.vehicleVin));
   const response = await fetch(process.env.LEAD_WEBHOOK_URL, {
     method: 'POST',
     headers: {
@@ -158,20 +187,8 @@ export async function deliverDirect(lead: LeadInput, ip: string) {
     },
     body: JSON.stringify({
       event: 'drivepei.lead.created',
-      lead: {
-        id,
-        created_at: new Date().toISOString(),
-        kind: lead.kind,
-        name: lead.name,
-        email: lead.email,
-        phone: lead.phone,
-        message: lead.message,
-        vehicle_vin: lead.vehicleVin || null,
-        details: lead.details,
-        consent: lead.consent,
-        utm: lead.utm,
-        landing_page: lead.landingPage || null,
-      },
+      lead: { ...payloadLead, consent: lead.consent },
+      adf_xml: adfXml,
     }),
     signal: AbortSignal.timeout(12000),
     cache: 'no-store',

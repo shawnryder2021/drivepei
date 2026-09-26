@@ -207,6 +207,17 @@ export default async function VehiclePage({ params }: Props) {
             </p>
           </div>
           <VehicleBuyingNotes vehicle={v} />
+          <nav className="vdp-research" aria-label="Research this purchase">
+            <span className="eyebrow">RESEARCH THIS PURCHASE</span>
+            <h2>Questions worth asking about this vehicle.</h2>
+            <div>
+              <Link href="/guides/questions-to-ask-about-used-car-listing-pei">Before you visit: questions for this listing <ArrowUpRight size={16}/></Link>
+              <Link href="/guides/read-a-vehicle-history-report">How to read its history report <ArrowUpRight size={16}/></Link>
+              {v.make.toLowerCase() === 'volkswagen' && <Link href="/guides/used-volkswagen-checklist-pei">Used Volkswagen checklist <ArrowUpRight size={16}/></Link>}
+              {v.price <= 25000 && <Link href="/used-cars-under-25000-pei">Compare vehicles under $25,000 <ArrowUpRight size={16}/></Link>}
+              <Link href="/guides/compare-used-car-financing-offers">Compare written finance offers <ArrowUpRight size={16}/></Link>
+            </div>
+          </nav>
           <PaymentEstimator price={v.price} />
         </div>
         <aside className="vdp-aside">
