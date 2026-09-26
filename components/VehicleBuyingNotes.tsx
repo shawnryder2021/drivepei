@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Vehicle } from '@/lib/vehicle';
-import { number } from '@/lib/vehicle';
+import { drivetrainLabel, number } from '@/lib/vehicle';
 
 function useCase(body: string) {
   const style = body.toLowerCase();
@@ -18,7 +18,7 @@ export function VehicleBuyingNotes({ vehicle }: { vehicle: Vehicle }) {
     <div className="vdp-note-grid">
       <div><h3>Everyday fit</h3><p>{useCase(vehicle.body)}</p></div>
       <div><h3>Condition and records</h3><p>With {number(vehicle.kilometres)} km listed, ask about service records, the current inspection, tires and any upcoming maintenance. Consider an independent inspection before purchase.</p></div>
-      <div><h3>Confirm the equipment</h3><p>{awd ? `The feed lists ${vehicle.drivetrain}. Ask us to confirm the tires and how this vehicle’s drivetrain works.` : 'Check the features you need on this exact vehicle and ask which equipment is included.'} Verify any feature that matters to you during a viewing.</p></div>
+      <div><h3>Confirm the equipment</h3><p>{awd ? `The feed lists ${drivetrainLabel(vehicle.drivetrain)}. Ask us to confirm the tires and how this vehicle’s drivetrain works.` : 'Check the features you need on this exact vehicle and ask which equipment is included.'} Verify any feature that matters to you during a viewing.</p></div>
     </div>
     {vehicle.description && <div className="vdp-staff-notes"><h3>Vehicle notes</h3><p>{vehicle.description}</p></div>}
     <p className="vdp-note-link">For a fuller checklist, see our <Link href="/guides/used-car-test-drive-checklist-pei">PEI test-drive guide</Link> or <Link href="/guides/read-a-vehicle-history-report">history-report guide</Link>.</p>

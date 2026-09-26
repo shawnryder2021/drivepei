@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { CarFront, ChevronLeft, ChevronRight } from 'lucide-react';
+import { imageAtSize } from '@/lib/vehicle';
 export function VehicleGallery({
   images,
   title,
@@ -12,13 +13,13 @@ export function VehicleGallery({
   if (!images.length)
     return (
       <div className="vdp-image">
-        <div className="image-fallback">DrivePEI</div>
+        <div className="image-fallback" role="img" aria-label={`Photos not yet available for ${title}`}><CarFront aria-hidden="true" /><span>Vehicle photos coming soon</span></div>
       </div>
     );
   return (
     <div className="gallery">
       <div className="vdp-image">
-        <img src={images[selected]} alt={`${title} photo ${selected + 1}`} />
+        <img src={images[selected]} alt={`${title} photo ${selected + 1}`} loading={selected === 0 ? 'eager' : 'lazy'} decoding="async" />
         {images.length > 1 && (
           <>
             <button
@@ -55,7 +56,7 @@ export function VehicleGallery({
               aria-label={`Show photo ${i + 1}`}
               onClick={() => setSelected(i)}
             >
-              <img src={url} alt="" loading="lazy" />
+              <img src={imageAtSize(url, 'mb')} alt="" loading="lazy" />
             </button>
           ))}
         </div>

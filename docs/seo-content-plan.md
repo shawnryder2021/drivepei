@@ -2,7 +2,7 @@
 
 ## Site intent
 
-Help PEI shoppers compare real off-make used inventory and make informed buying, financing and trade decisions. Keep listing pages tied to the live feed; keep guides useful when a specific vehicle sells. Do not imply a make, model, price, rate, approval or location is available unless the current source confirms it.
+Help PEI shoppers compare real used inventory across makes and make informed buying, financing and trade decisions. Keep listing pages tied to the live feed; keep guides useful when a specific vehicle sells. Do not imply a make, model, price, rate, approval or location is available unless the current source confirms it.
 
 ## Current page map
 
@@ -13,7 +13,7 @@ Help PEI shoppers compare real off-make used inventory and make informed buying,
 | Used SUVs PEI | `/used-suvs-pei` | SUV inventory plus size and capability guidance |
 | Used AWD PEI | `/used-awd-pei` | AWD/4WD inventory plus ownership guidance |
 | Used cars Charlottetown | `/used-cars-charlottetown` | Local inventory entry point |
-| Used Honda, Kia, Nissan PEI | `/used-honda-pei`, `/used-kia-pei`, `/used-nissan-pei` | Current make filters with distinct buying guidance |
+| Used Volkswagen, Honda, Kia, Nissan PEI | `/used-volkswagen-pei`, `/used-honda-pei`, `/used-kia-pei`, `/used-nissan-pei` | Current make filters with distinct buying guidance |
 | Research before purchase | `/guides` and ten article pages | Buying, vehicle choice, financing and trade knowledge |
 | Specific VIN or model | `/vehicles/[slug]` | Live vehicle details and inquiry |
 

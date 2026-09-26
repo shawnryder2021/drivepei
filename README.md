@@ -1,17 +1,17 @@
 # DrivePEI
 
-An independent, mobile-first PEI used-vehicle site. The public site contains **no dealership franchise branding** and initially lists **active non-Volkswagen used inventory only**.
+An independent, mobile-first PEI used-vehicle site. The public site contains **no dealership franchise branding** and lists **all active vehicles in the used-inventory feed**, including Volkswagen.
 
 ## Features
 
-- Live public inventory spreadsheet feed, normalized on the server and filtered to active off-make stock; checked-in last-known snapshot keeps the site usable if the sheet is briefly unavailable.
+- Live public used-inventory spreadsheet feed, normalized on the server and filtered to active stock; checked-in last-known snapshot keeps the site usable if the sheet is briefly unavailable.
 - Search and filters for make, body, price, kilometres, year, AWD/4WD, and an optional payment target using a shopper-supplied rate and term.
 - Vehicle pages with curated source photo galleries, VIN-specific shopping questions, details, payment exploration, inquiry form, similar vehicles, and fallback for unavailable stock.
 - Secure Dealertrack credit application iframe with an external-link fallback.
 - Car Finder, sell/trade, finance question, and contact forms.
 - Activepieces webhook delivery for leads. PostgreSQL storage and admin retry are available later when a database is provisioned.
 - Inventory sync, inactive vehicle handling, featured vehicle controls, sync logs, a live image-aware XML sitemap, robots.txt, structured vehicle and article data, GTM hook, and UTM capture.
-- PEI buying-guide hub, ten source-backed articles and distinct inventory landing pages for SUVs, AWD/4WD, vehicles under $25,000, Charlottetown, Honda, Kia and Nissan.
+- PEI buying-guide hub, ten source-backed articles and distinct inventory landing pages for SUVs, AWD/4WD, vehicles under $25,000, Charlottetown, Volkswagen, Honda, Kia and Nissan.
 - Google and Bing site-verification tags, successful-lead and credit-application click events in the GTM data layer, and a 90-day traffic operations guide.
 
 ## Run locally
@@ -36,7 +36,7 @@ Fill `.env.local` with real values. Do not commit the file. The site and lead fo
 
 ## Data flow
 
-The site reads the public `Used Inventory` sheet produced by the existing daily Apps Script. The server ignores Volkswagen and inactive rows. Inventory data is refreshed every 15 minutes in the Next.js cache. `lib/photo-policy.json` lists approved, brand-neutral photo angles for current VINs; new units show a neutral placeholder until reviewed. The optional PostgreSQL importer upserts by VIN, preserves `featured` and `description` overrides, and deactivates missing units only after a successful feed read.
+The site reads the public `Used Inventory` sheet produced by the existing daily Apps Script. The server ignores inactive rows. Inventory data is refreshed every 15 minutes in the Next.js cache. `lib/photo-policy.json` lists approved, brand-neutral photo angles for current VINs. Validated listing photos use the source CDN's 1200 × 900 version on vehicle pages; cards use 800 × 600 and thumbnails use 380 × 285. Vehicles without genuine photos show a sharp vector placeholder rather than the source's generic 480 × 640 missing-photo image. Review new VINs before adding approved angles to the policy. The optional PostgreSQL importer upserts by VIN, preserves `featured` and `description` overrides, and deactivates missing units only after a successful feed read.
 
 Forms accept contact details and context only. The full credit application is handled within Dealertrack; sensitive credit details are not collected by DrivePEI. With no database, each lead is sent as a JSON `drivepei.lead.created` event directly to Activepieces, which must store it. A webhook failure returns an error to the shopper. With PostgreSQL configured later, leads are stored first; failed delivery is visible in `/admin` for retry.
 
@@ -51,7 +51,7 @@ Before launch, confirm the Dealertrack iframe allows embedding on the final doma
 
 ## Search content and sitemap
 
-The editorial map and publishing checklist are in `docs/seo-content-plan.md`; the weekly publishing and measurement process is in `docs/traffic-operations.md`. The sitemap is generated at `/sitemap.xml` and listed in `/robots.txt`; set `NEXT_PUBLIC_SITE_URL` to the final canonical domain before deployment. New guide pages must be added to `lib/guides.ts`; the sitemap includes them automatically. Add other new routes to `app/sitemap.ts`.
+The editorial map and publishing checklist are in `docs/seo-content-plan.md`; the weekly publishing and measurement process is in `docs/traffic-operations.md`. The current photo review is in `docs/inventory-image-audit.md`. The sitemap is generated at `/sitemap.xml` and listed in `/robots.txt`; set `NEXT_PUBLIC_SITE_URL` to the final canonical domain before deployment. New guide pages must be added to `lib/guides.ts`; the sitemap includes them automatically. Add other new routes to `app/sitemap.ts`.
 
 ## Design assets
 

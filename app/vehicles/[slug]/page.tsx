@@ -25,6 +25,7 @@ import { PaymentEstimator } from '@/components/PaymentEstimator';
 import { VehicleCard } from '@/components/VehicleCard';
 import { VehicleGallery } from '@/components/VehicleGallery';
 import { VehicleBuyingNotes } from '@/components/VehicleBuyingNotes';
+import { drivetrainLabel } from '@/lib/vehicle';
 export const revalidate = 900;
 type Props = { params: Promise<{ slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -155,7 +156,7 @@ export default async function VehiclePage({ params }: Props) {
             <div>
               <Settings2 />
               <span>Drivetrain</span>
-              <strong>{v.drivetrain || 'Ask us'}</strong>
+              <strong>{drivetrainLabel(v.drivetrain)}</strong>
             </div>
             <div>
               <Fuel />

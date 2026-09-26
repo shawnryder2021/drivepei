@@ -1,18 +1,18 @@
 import Link from 'next/link';
-import { ArrowUpRight, Gauge, MapPin } from 'lucide-react';
-import { type Vehicle, money, number, slugFor } from '@/lib/vehicle';
+import { ArrowUpRight, CarFront, Gauge, MapPin } from 'lucide-react';
+import { type Vehicle, imageAtSize, money, number, slugFor } from '@/lib/vehicle';
 export function VehicleCard({ vehicle: v }: { vehicle: Vehicle }) {
   return (
     <article className="vehicle-card">
       <Link href={`/vehicles/${slugFor(v)}`} className="vehicle-image">
         {v.image ? (
           <img
-            src={v.image}
+            src={imageAtSize(v.image, 's8')}
             alt={`Used ${v.year} ${v.make} ${v.model}${v.trim ? ` ${v.trim}` : ''} in PEI`}
             loading="lazy"
           />
         ) : (
-          <div className="image-fallback">DrivePEI</div>
+          <div className="image-fallback" role="img" aria-label="Vehicle photos coming soon"><CarFront aria-hidden="true" /><span>Photos coming soon</span></div>
         )}
         <span className="image-pill">USED • {v.make.toUpperCase()}</span>
       </Link>

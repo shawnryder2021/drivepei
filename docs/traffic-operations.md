@@ -1,6 +1,6 @@
 # DrivePEI organic traffic operations — first 90 days
 
-DrivePEI publishes active, non-Volkswagen used inventory only. This plan uses real vehicle photos and verified listing details. Staff observations about condition or equipment should appear only after a person who saw the vehicle confirms them. Do not present a payment estimate as a financing offer.
+DrivePEI publishes all active vehicles in the used-inventory feed, including Volkswagen, while keeping the site brand independent. This plan uses real vehicle photos and verified listing details. Staff observations about condition or equipment should appear only after a person who saw the vehicle confirms them. Do not present a payment estimate as a financing offer.
 
 ## Weekly production rhythm
 
@@ -31,7 +31,7 @@ These captions use only the feed fields. The approved photos are on the linked v
 >
 > Asking price excludes applicable taxes and fees. Details and availability can change.
 
-For Instagram, use the same approved image and concise caption, and attach the corresponding vehicle URL to a Story link sticker with `utm_source=instagram`. Do not describe the caption URL as clickable. Check the live VDP and feed on publication day; replace a vehicle if it has sold or its price changed. Use the approved `/4/` image for each VIN; do not repost the source dealership's branding.
+For Instagram, use the same approved image and concise caption, and attach the corresponding vehicle URL to a Story link sticker with `utm_source=instagram`. Do not describe the caption URL as clickable. Check the live VDP and feed on publication day; replace a vehicle if it has sold or its price changed. Use an approved photo angle for each VIN; do not repost an image that shows franchise signage or the source dealership's branding.
 
 ## Staff vehicle-note intake
 
@@ -64,7 +64,7 @@ At day 30, treat the first month as the baseline. At day 90, compare non-brand c
 ## Search verification status, 26 September 2026
 
 - Google Search Console: `https://drivepei.ca/` property verified with the permanent HTML meta tag. `https://drivepei.ca/sitemap.xml` submitted and resubmitted after the current release and HTTPS certificate were live. Google still showed “Couldn't fetch” immediately afterward while the public XML and robots file returned HTTP 200 and parsed; recheck after its next crawl before changing the sitemap.
-- Bing Webmaster Tools: `https://drivepei.ca/` verified with the permanent `msvalidate.01` meta tag. `https://drivepei.ca/sitemap.xml` submitted successfully; Bing's first crawl succeeded and discovered the previous 34-URL version. The current live sitemap has 39 URLs and 40 approved vehicle image entries for the next crawl.
+- Bing Webmaster Tools: `https://drivepei.ca/` verified with the permanent `msvalidate.01` meta tag. `https://drivepei.ca/sitemap.xml` submitted successfully; Bing's first crawl succeeded. The sitemap updates from the live inventory feed, so discovered URL and image counts change as vehicles arrive and sell.
 - DrivePEI Facebook and Instagram accounts do not exist yet. The first two post drafts above are ready for brand-account publication once those accounts are created. No post has been sent from a personal or franchise account.
 - The production-configured Activepieces webhook returned HTTP 200 with a lead ID for one synthetic, clearly labeled contact-form test on 26 September 2026. That confirms delivery acknowledgment; the flow's storage step should also be checked in Activepieces.
 - Standalone Google Business Profile: not part of this plan because DrivePEI has no separate staffed customer-facing location or permanent DrivePEI signage.

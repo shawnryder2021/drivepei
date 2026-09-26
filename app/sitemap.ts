@@ -17,6 +17,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/used-awd-pei',
     '/used-cars-charlottetown',
     '/used-honda-pei',
+    '/used-volkswagen-pei',
     '/used-kia-pei',
     '/used-nissan-pei',
     '/used-cars-under-25000-pei',

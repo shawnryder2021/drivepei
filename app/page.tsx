@@ -16,6 +16,12 @@ import { guides } from '@/lib/guides';
 export const revalidate = 900;
 export default async function Home() {
   const vehicles = await getVehicles();
+  const byMake = vehicles.filter((vehicle, index) =>
+    vehicles.findIndex((candidate) => candidate.make === vehicle.make) === index
+  );
+  const featuredVehicles = [...byMake, ...vehicles]
+    .filter((vehicle, index, all) => all.findIndex((candidate) => candidate.vin === vehicle.vin) === index)
+    .slice(0, 3);
   return (
     <main>
       <section className="hero">
@@ -80,7 +86,7 @@ export default async function Home() {
               Worth a closer look<span className="accent-dot">.</span>
             </h2>
             <p>
-              Handpicked from today’s off-make used inventory. Every listing
+              Selected from today’s used inventory. Every listing
               links to the latest vehicle details.
             </p>
           </div>
@@ -89,7 +95,7 @@ export default async function Home() {
           </Link>
         </div>
         <div className="vehicle-grid featured-grid">
-          {vehicles.slice(0, 3).map((v) => (
+          {featuredVehicles.map((v) => (
             <VehicleCard key={v.vin} vehicle={v} />
           ))}
         </div>

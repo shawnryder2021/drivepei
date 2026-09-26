@@ -33,3 +33,18 @@ export function slugFor(v: Vehicle) {
 }
 export const vehicleTitle = (v: Vehicle) =>
   `${v.year} ${v.make} ${v.model}${v.trim ? ` ${v.trim}` : ''}`;
+
+export function imageAtSize(url: string, size: 's8' | 'mb') {
+  return url.replace(/^(https:\/\/imagescdn\.d2cmedia\.ca\/)cba([a-z0-9]+\/)/i, `$1${size}$2`);
+}
+
+export function drivetrainLabel(value: string) {
+  const key = value.replace(/[^a-z0-9]/gi, '').toLowerCase();
+  const labels: Record<string, string> = {
+    allwheeldrive: 'All-wheel drive',
+    fourwheeldrive: 'Four-wheel drive',
+    frontwheeldrive: 'Front-wheel drive',
+    rearwheeldrive: 'Rear-wheel drive',
+  };
+  return labels[key] || value || 'Ask us';
+}

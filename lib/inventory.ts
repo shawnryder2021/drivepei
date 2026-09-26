@@ -13,16 +13,38 @@ const numeric = (value: string) =>
   Number(String(value || '').replace(/[^0-9.]/g, '')) || 0;
 const clean = (value: string) => String(value || '').trim();
 const approvedPhotos = photoPolicy as Record<string, number[]>;
+function photoAtAngle(raw: string, angle: number) {
+  try {
+    const url = new URL(raw);
+    const parts = url.pathname.split('/');
+    if (
+      url.protocol !== 'https:' ||
+      url.hostname !== 'imagescdn.d2cmedia.ca' ||
+      !/^(mb|s8|cba)[a-z0-9]+$/i.test(parts[1] || '') ||
+      !/^\d+$/.test(parts[2] || '') ||
+      !/^\d+$/.test(parts[3] || '') ||
+      !/^\d+$/.test(parts[4] || '') ||
+      !parts[5]
+    ) return '';
+    parts[1] = parts[1].replace(/^(mb|s8|cba)/i, 'cba');
+    parts[4] = String(angle);
+    url.pathname = parts.join('/');
+    url.search = '';
+    return url.toString();
+  } catch {
+    return '';
+  }
+}
 function curatedImage(vin: string, raw: string) {
   const first = approvedPhotos[vin]?.[0];
-  return first && raw.includes('/1/') ? raw.replace('/1/', `/${first}/`) : '';
+  return first ? photoAtAngle(raw, first) : '';
 }
 export function normalizeRow(row: Record<string, string>): Vehicle | null {
   const make = clean(row.Make);
   const status = clean(row.Status);
   const vin = clean(row.VIN).toUpperCase();
   if (
-    make.toLowerCase() === 'volkswagen' ||
+    !make ||
     status.toLowerCase() !== 'active' ||
     !/^[A-HJ-NPR-Z0-9]{17}$/.test(vin)
   )
@@ -67,7 +89,7 @@ export async function getFeedVehicles(
     });
     if (!res.ok) throw new Error(`Inventory feed HTTP ${res.status}`);
     const parsed = parseInventory(await res.text());
-    if (!parsed.length) throw new Error('Inventory feed had no off-make stock');
+    if (!parsed.length) throw new Error('Inventory feed had no active used stock');
     return parsed;
   } catch (error) {
     if (!allowSnapshot) throw error;
@@ -87,8 +109,8 @@ export async function getVehicles(): Promise<Vehicle[]> {
       const result =
         await query<Vehicle>(`select vin, stock, year, make, model, trim, price::float8 as price,
         kilometres, body, drivetrain, transmission, fuel, colour, image, source_url as "sourceUrl",
-        status, featured, description, updated_at::text as "updatedAt" from vehicles where status='active' and lower(make) <> 'volkswagen' order by featured desc, updated_at desc`);
-      if (result.rows.length) return result.rows.map((vehicle) => ({ ...vehicle, sourceUrl: '' }));
+        status, featured, description, updated_at::text as "updatedAt" from vehicles where status='active' order by featured desc, updated_at desc`);
+      if (result.rows.length) return result.rows.map((vehicle) => ({ ...vehicle, image: curatedImage(vehicle.vin, vehicle.image), sourceUrl: '' }));
     } catch (error) {
       console.error('Database inventory unavailable', error);
     }
@@ -102,7 +124,6 @@ export async function getVehicle(slug: string) {
 
 export async function getVehicleGallery(v: Vehicle): Promise<string[]> {
   const approved = approvedPhotos[v.vin] || [];
-  const first = approved[0];
-  if (!first || !v.image.includes(`/${first}/`)) return [];
-  return approved.map((index) => v.image.replace(`/${first}/`, `/${index}/`));
+  if (!approved.length || !v.image) return [];
+  return approved.map((index) => photoAtAngle(v.image, index)).filter(Boolean);
 }
