@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { getVehicles, slugFor } from '@/lib/inventory';
+import { getVehicleGallery, getVehicles, slugFor } from '@/lib/inventory';
 import { guides } from '@/lib/guides';
 export const revalidate = 900;
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -19,9 +19,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/used-honda-pei',
     '/used-kia-pei',
     '/used-nissan-pei',
+    '/used-cars-under-25000-pei',
     '/guides',
   ];
   const vehicles = await getVehicles();
+  const vehicleEntries = await Promise.all(vehicles.map(async (vehicle) => ({
+    url: `${base}/vehicles/${slugFor(vehicle)}`,
+    images: await getVehicleGallery(vehicle),
+    ...(vehicle.updatedAt && !Number.isNaN(Date.parse(vehicle.updatedAt)) ? { lastModified: new Date(vehicle.updatedAt) } : {}),
+    changeFrequency: 'daily' as const,
+    priority: 0.6,
+  })));
   return [
     ...paths.map((path) => ({
       url: base + path,
@@ -34,11 +42,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     })),
-    ...vehicles.map((v) => ({
-      url: `${base}/vehicles/${slugFor(v)}`,
-      ...(v.updatedAt && !Number.isNaN(Date.parse(v.updatedAt)) ? { lastModified: new Date(v.updatedAt) } : {}),
-      changeFrequency: 'daily' as const,
-      priority: 0.6,
-    })),
+    ...vehicleEntries,
   ];
 }

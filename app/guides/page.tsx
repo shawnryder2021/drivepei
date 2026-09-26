@@ -18,7 +18,7 @@ export default function GuidesPage() {
     </div></section>
     <section className="section"><div className="container">
       <div className="guide-hub-intro"><div><span className="eyebrow">START WITH THE QUESTION YOU HAVE</span><h2>Useful advice for the road ahead.</h2></div><p>Use these guides to plan your budget, narrow your vehicle choices and prepare for the next conversation. Then compare the advice with real vehicles in today’s inventory.</p></div>
-      <div className="guide-grid">{guides.map((guide) => <Link className="guide-card" href={`/guides/${guide.slug}`} key={guide.slug}>
+      <div className="guide-grid">{[...guides].sort((a, b) => b.published.localeCompare(a.published)).map((guide) => <Link className="guide-card" href={`/guides/${guide.slug}`} key={guide.slug}>
         <span className="eyebrow">{guide.category} · {guide.readMinutes} MIN READ</span>
         <h2>{guide.title}</h2><p>{guide.description}</p><span className="guide-card-link">Read guide <ArrowUpRight size={17}/></span>
       </Link>)}</div>

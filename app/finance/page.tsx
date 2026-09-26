@@ -7,6 +7,7 @@ import {
   MessageCircle,
 } from 'lucide-react';
 import { LeadForm } from '@/components/LeadForm';
+import { CreditApplication } from '@/components/CreditApplication';
 export const metadata: Metadata = {
   title: 'Car Financing in PEI',
   description:
@@ -92,23 +93,7 @@ export default function Finance() {
             <LockKeyhole size={30} />
           </div>
           {iframe ? (
-            <>
-              <div className="iframe-wrap">
-                <iframe
-                  src={iframe}
-                  title="Secure Dealertrack credit application"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
-              <p className="iframe-fallback">
-                If the application does not appear,{' '}
-                <a href={iframe} target="_blank" rel="noopener noreferrer">
-                  open it in a new tab <ArrowUpRight size={14} />
-                </a>
-                .
-              </p>
-            </>
+            <CreditApplication url={iframe} />
           ) : (
             <div className="application-unavailable">
               <h3>We’re updating the secure application link.</h3>

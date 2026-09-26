@@ -24,6 +24,7 @@ import { LeadForm } from '@/components/LeadForm';
 import { PaymentEstimator } from '@/components/PaymentEstimator';
 import { VehicleCard } from '@/components/VehicleCard';
 import { VehicleGallery } from '@/components/VehicleGallery';
+import { VehicleBuyingNotes } from '@/components/VehicleBuyingNotes';
 export const revalidate = 900;
 type Props = { params: Promise<{ slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -35,6 +36,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `Used ${vehicleTitle(v)} in PEI`,
     description: `Explore this used ${vehicleTitle(v)} in PEI. ${number(v.kilometres)} km, ${money(v.price)}. Ask DrivePEI about availability.`,
     alternates: { canonical: `/vehicles/${slugFor(v)}` },
+    openGraph: {
+      title: `Used ${vehicleTitle(v)} in PEI | DrivePEI`,
+      description: `${number(v.kilometres)} km. Asking price ${money(v.price)}. Ask about availability.`,
+      url: `/vehicles/${slugFor(v)}`,
+      ...(v.image ? { images: [{ url: v.image, alt: vehicleTitle(v) }] } : {}),
+    },
   };
 }
 export default async function VehiclePage({ params }: Props) {
@@ -91,7 +98,7 @@ export default async function VehiclePage({ params }: Props) {
       value: v.kilometres,
       unitCode: 'KMT',
     },
-    image: v.image || undefined,
+    image: gallery.length ? gallery : undefined,
     offers: {
       '@type': 'Offer',
       price: v.price,
@@ -198,6 +205,7 @@ export default async function VehiclePage({ params }: Props) {
               before making a purchase decision.
             </p>
           </div>
+          <VehicleBuyingNotes vehicle={v} />
           <PaymentEstimator price={v.price} />
         </div>
         <aside className="vdp-aside">

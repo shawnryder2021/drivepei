@@ -6,12 +6,13 @@ An independent, mobile-first PEI used-vehicle site. The public site contains **n
 
 - Live public inventory spreadsheet feed, normalized on the server and filtered to active off-make stock; checked-in last-known snapshot keeps the site usable if the sheet is briefly unavailable.
 - Search and filters for make, body, price, kilometres, year, AWD/4WD, and an optional payment target using a shopper-supplied rate and term.
-- Vehicle pages with curated source photo galleries, details, payment exploration, inquiry form, similar vehicles, and fallback for unavailable stock.
+- Vehicle pages with curated source photo galleries, VIN-specific shopping questions, details, payment exploration, inquiry form, similar vehicles, and fallback for unavailable stock.
 - Secure Dealertrack credit application iframe with an external-link fallback.
 - Car Finder, sell/trade, finance question, and contact forms.
 - Activepieces webhook delivery for leads. PostgreSQL storage and admin retry are available later when a database is provisioned.
-- Inventory sync, inactive vehicle handling, featured vehicle controls, sync logs, a live XML sitemap, robots.txt, structured vehicle and article data, GTM hook, and UTM capture.
-- PEI buying-guide hub, six source-backed articles and distinct inventory landing pages for SUVs, AWD/4WD, Charlottetown, Honda, Kia and Nissan.
+- Inventory sync, inactive vehicle handling, featured vehicle controls, sync logs, a live image-aware XML sitemap, robots.txt, structured vehicle and article data, GTM hook, and UTM capture.
+- PEI buying-guide hub, ten source-backed articles and distinct inventory landing pages for SUVs, AWD/4WD, vehicles under $25,000, Charlottetown, Honda, Kia and Nissan.
+- Google and Bing site-verification tags, successful-lead and credit-application click events in the GTM data layer, and a 90-day traffic operations guide.
 
 ## Run locally
 
@@ -29,7 +30,7 @@ Fill `.env.local` with real values. Do not commit the file. The site and lead fo
 
 1. Set `LEAD_WEBHOOK_URL`, `NEXT_PUBLIC_CREDIT_IFRAME_URL`, and `NEXT_PUBLIC_SITE_URL` in Netlify environment variables. `LEAD_WEBHOOK_BEARER_TOKEN` is optional if the webhook requires it.
 2. Configure the Activepieces flow to save each inbound JSON lead and send notifications or CRM updates. The website treats only an HTTP 2xx response as success. Use the `lead.id` value to deduplicate retries.
-3. Add `NEXT_PUBLIC_GTM_ID` after creating the GTM container. Set `TURNSTILE_SECRET_KEY` and `NEXT_PUBLIC_TURNSTILE_SITE_KEY` together to enable Cloudflare Turnstile on forms. Verify Search Console after domain setup.
+3. Add `NEXT_PUBLIC_GTM_ID` after creating the GTM container and configure the GA4 events described in `docs/traffic-operations.md`. Set `TURNSTILE_SECRET_KEY` and `NEXT_PUBLIC_TURNSTILE_SITE_KEY` together to enable Cloudflare Turnstile on forms. Google and Bing verification tags are included in the site header.
 4. In Netlify, import this repository as a Next.js site. Build command: `npm run build`; publish directory: `.next`. The included `netlify.toml` supplies these values.
 5. Optional later: create PostgreSQL, run `db/001_init.sql`, and set `DATABASE_URL`, `ADMIN_TOKEN`, and `SYNC_TOKEN`. Then import inventory via `/admin` or `POST /api/admin/sync`. Add the GitHub Actions secrets `DRIVEPEI_SITE_URL` and `DRIVEPEI_SYNC_TOKEN` to schedule hourly imports. Until then, the site reads the live sheet directly.
 
@@ -50,7 +51,7 @@ Before launch, confirm the Dealertrack iframe allows embedding on the final doma
 
 ## Search content and sitemap
 
-The editorial map, publishing checklist and Search Console submission steps are in `docs/seo-content-plan.md`. The sitemap is generated at `/sitemap.xml` and listed in `/robots.txt`; set `NEXT_PUBLIC_SITE_URL` to the final canonical domain before deployment. New guide pages must be added to `lib/guides.ts`; the sitemap includes them automatically. Add other new routes to `app/sitemap.ts`.
+The editorial map and publishing checklist are in `docs/seo-content-plan.md`; the weekly publishing and measurement process is in `docs/traffic-operations.md`. The sitemap is generated at `/sitemap.xml` and listed in `/robots.txt`; set `NEXT_PUBLIC_SITE_URL` to the final canonical domain before deployment. New guide pages must be added to `lib/guides.ts`; the sitemap includes them automatically. Add other new routes to `app/sitemap.ts`.
 
 ## Design assets
 

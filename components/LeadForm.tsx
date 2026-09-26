@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import Script from 'next/script';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { captureAttribution, firstLandingPage, trackEvent, trafficSource } from '@/lib/analytics';
 const labels: Record<string, string> = {
   vehicle: 'Ask about this vehicle',
   car_finder: 'Tell us what you want',
@@ -93,25 +94,7 @@ export function LeadForm({
   const [error, setError] = useState('');
   const [utm, setUtm] = useState<Record<string, string>>({});
   useEffect(() => {
-    const keys = [
-      'utm_source',
-      'utm_medium',
-      'utm_campaign',
-      'utm_content',
-      'utm_term',
-      'gclid',
-      'fbclid',
-    ];
-    const q = new URLSearchParams(location.search);
-    const next: Record<string, string> = {};
-    for (const key of keys) {
-      const val = q.get(key) || sessionStorage.getItem(key);
-      if (val) {
-        next[key] = val.slice(0, 200);
-        sessionStorage.setItem(key, val.slice(0, 200));
-      }
-    }
-    setUtm(next);
+    setUtm(captureAttribution());
   }, []);
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -134,7 +117,7 @@ export function LeadForm({
       consent: form.get('consent') === 'on',
       honeypot: form.get('website'),
       utm,
-      landingPage: location.pathname,
+      landingPage: firstLandingPage(),
       turnstileToken: String(form.get('cf-turnstile-response') || ''),
     };
     try {
@@ -146,11 +129,14 @@ export function LeadForm({
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || 'Could not submit');
       setStatus('success');
-      (window as Window & { dataLayer?: unknown[] }).dataLayer?.push({
-        event: 'lead_submit',
-        lead_type: kind,
-        vehicle_vin: vehicleVin || undefined,
-      });
+      if (data.id) {
+        trackEvent('generate_lead', {
+          lead_type: kind,
+          traffic_source: trafficSource(utm.utm_source),
+          page_path: location.pathname,
+          vehicle_vin: vehicleVin || undefined,
+        });
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Please try again.');
       setStatus('error');

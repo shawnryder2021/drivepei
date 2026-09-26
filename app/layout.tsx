@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import { Header, Footer } from '@/components/Header';
+import { AttributionCapture } from '@/components/AttributionCapture';
 import './globals.css';
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://drivepei.ca';
 export const metadata: Metadata = {
@@ -35,6 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en-CA">
       <body>
+        <AttributionCapture />
         {gtm && (
           <Script
             id="gtm"

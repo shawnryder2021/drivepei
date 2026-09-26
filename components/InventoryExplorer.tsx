@@ -9,18 +9,26 @@ export function InventoryExplorer({
   initialBody = '',
   initialDrive = '',
   initialMake = '',
+  initialMaxPrice = '',
+  priceCeiling,
+  emptyHref = '/car-finder',
+  emptyLabel = 'Use Car Finder',
 }: {
   vehicles: Vehicle[];
   initialBody?: string;
   initialDrive?: string;
   initialMake?: string;
+  initialMaxPrice?: string;
+  priceCeiling?: number;
+  emptyHref?: string;
+  emptyLabel?: string;
 }) {
   const [q, setQ] = useState(''),
     [make, setMake] = useState(initialMake),
     [model, setModel] = useState(''),
     [body, setBody] = useState(initialBody),
     [drive, setDrive] = useState(initialDrive),
-    [maxPrice, setMaxPrice] = useState(''),
+    [maxPrice, setMaxPrice] = useState(initialMaxPrice),
     [maxKm, setMaxKm] = useState(''),
     [minYear, setMinYear] = useState(''),
     [maxPayment, setMaxPayment] = useState(''),
@@ -63,6 +71,7 @@ export function InventoryExplorer({
             (!body || v.body.toLowerCase().includes(body.toLowerCase())) &&
             (!drive || /all|four|4|awd/i.test(v.drivetrain)) &&
             (!maxPrice || v.price <= Number(maxPrice)) &&
+            (!priceCeiling || v.price <= priceCeiling) &&
             (!maxKm || v.kilometres <= Number(maxKm)) &&
             (!minYear || v.year >= Number(minYear)) &&
             (!maxPayment || estimated <= Number(maxPayment))
@@ -87,6 +96,7 @@ export function InventoryExplorer({
       body,
       drive,
       maxPrice,
+      priceCeiling,
       maxKm,
       minYear,
       maxPayment,
@@ -101,7 +111,7 @@ export function InventoryExplorer({
     setModel('');
     setBody('');
     setDrive('');
-    setMaxPrice('');
+    setMaxPrice(initialMaxPrice);
     setMaxKm('');
     setMinYear('');
     setMaxPayment('');
@@ -168,11 +178,13 @@ export function InventoryExplorer({
             onChange={(e) => setMaxPrice(e.target.value)}
           >
             <option value="">Any price</option>
-            {[15000, 20000, 25000, 30000, 35000, 40000, 50000].map((x) => (
+            {[15000, 20000, 25000, 30000, 35000, 40000, 50000]
+              .filter((x) => !priceCeiling || x <= priceCeiling)
+              .map((x) => (
               <option key={x} value={x}>
                 ${x.toLocaleString()}
               </option>
-            ))}
+              ))}
           </select>
         </label>
         <label>
@@ -273,8 +285,8 @@ export function InventoryExplorer({
           <div className="empty-results">
             <h3>No exact matches right now.</h3>
             <p>Try a wider search or tell us what you’re looking for.</p>
-            <a className="button button-dark" href="/car-finder">
-              Use Car Finder →
+            <a className="button button-dark" href={emptyHref}>
+              {emptyLabel} →
             </a>
           </div>
         )}

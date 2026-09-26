@@ -78,6 +78,7 @@ export function Footer() {
           <Link href="/used-honda-pei">Used Honda PEI</Link>
           <Link href="/used-kia-pei">Used Kia PEI</Link>
           <Link href="/used-nissan-pei">Used Nissan PEI</Link>
+          <Link href="/used-cars-under-25000-pei">Under $25,000</Link>
         </div>
         <div>
           <h3>Make your move</h3>

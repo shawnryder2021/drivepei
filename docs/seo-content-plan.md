@@ -9,21 +9,22 @@ Help PEI shoppers compare real off-make used inventory and make informed buying,
 | Search intent | Page | Role |
 | --- | --- | --- |
 | Used cars PEI | `/used` | Main live inventory hub |
+| Used cars under $25,000 PEI | `/used-cars-under-25000-pei` | Live budget inventory with an alert path when nothing matches |
 | Used SUVs PEI | `/used-suvs-pei` | SUV inventory plus size and capability guidance |
 | Used AWD PEI | `/used-awd-pei` | AWD/4WD inventory plus ownership guidance |
 | Used cars Charlottetown | `/used-cars-charlottetown` | Local inventory entry point |
 | Used Honda, Kia, Nissan PEI | `/used-honda-pei`, `/used-kia-pei`, `/used-nissan-pei` | Current make filters with distinct buying guidance |
-| Research before purchase | `/guides` and six article pages | Buying, vehicle choice, financing and trade knowledge |
+| Research before purchase | `/guides` and ten article pages | Buying, vehicle choice, financing and trade knowledge |
 | Specific VIN or model | `/vehicles/[slug]` | Live vehicle details and inquiry |
 
-## Next articles to produce from actual shopper questions
+## Published in the first expansion
 
-1. What to ask when viewing a high-kilometre used car in PEI.
-2. How to read a vehicle history report and service records.
-3. Compact SUV versus sedan for an Island commute.
-4. How to compare two written vehicle-financing offers.
-5. What to bring to a used-car test drive.
-6. Selling a car with an outstanding loan in PEI.
+- What to ask when viewing a high-kilometre used car in PEI.
+- How to read a vehicle history report and service records.
+- What to bring to a used-car test drive.
+- How to compare two written vehicle-financing offers.
+
+Future guides should come from real shopper questions and first-hand team observations. Candidates include comparing a compact SUV with a sedan for an Island commute and selling a vehicle with an outstanding loan in PEI. Review overlap with existing guides before publishing.
 
 Publish a new piece only when it answers a distinct question with specific examples or verified local detail. Add first-hand observations, original photos or comparisons from the team where available. Avoid near-duplicate city or make pages. Review provincial and federal source links and finance guidance at least quarterly, and update article `updated` dates only when the content changes.
 
@@ -39,4 +40,4 @@ Publish a new piece only when it answers a distinct question with specific examp
 
 ## Sitemap submission after domain launch
 
-Set `NEXT_PUBLIC_SITE_URL=https://drivepei.ca` (or the final canonical domain) in Netlify and redeploy. Check `https://drivepei.ca/robots.txt` and `https://drivepei.ca/sitemap.xml` in a browser. The sitemap contains canonical static pages, guides and current active vehicle URLs. Verify the domain property in Google Search Console, open **Sitemaps**, and submit `https://drivepei.ca/sitemap.xml`. Inspect any processing errors and sample URLs afterward. A sitemap helps discovery but does not guarantee indexing.
+The canonical domain is `https://drivepei.ca`. The sitemap contains canonical static pages, guides and current active vehicle URLs with approved listing images. Google Search Console and Bing Webmaster Tools both have the sitemap submitted as of 26 September 2026. Check their processing results and sample URLs after the next crawl. A sitemap helps discovery but does not guarantee indexing.

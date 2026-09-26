@@ -8,7 +8,7 @@ export function VehicleCard({ vehicle: v }: { vehicle: Vehicle }) {
         {v.image ? (
           <img
             src={v.image}
-            alt={`${v.year} ${v.make} ${v.model}`}
+            alt={`Used ${v.year} ${v.make} ${v.model}${v.trim ? ` ${v.trim}` : ''} in PEI`}
             loading="lazy"
           />
         ) : (
