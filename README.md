@@ -11,7 +11,7 @@ An independent, mobile-first PEI used-vehicle site. The public site contains **n
 - Car Finder, sell/trade, finance question, and contact forms.
 - Activepieces webhook delivery with an ADF 1.0 XML copy of every lead. PostgreSQL storage and admin retry are available later when a database is provisioned.
 - Inventory sync, inactive vehicle handling, featured vehicle controls, sync logs, a live image-aware XML sitemap, robots.txt, structured vehicle and article data, GTM hook, and UTM capture.
-- PEI buying-guide hub, twelve practical articles and distinct inventory landing pages for SUVs, AWD/4WD, vehicles under $25,000, Charlottetown, Volkswagen, Honda, Kia and Nissan.
+- PEI buying-guide hub, sixteen practical articles and distinct inventory landing pages for SUVs, AWD/4WD, vehicles under $25,000, Charlottetown, Volkswagen, Honda, Kia and Nissan.
 - Google and Bing site-verification tags, successful-lead and credit-application click events in the GTM data layer, and a 90-day traffic operations guide.
 
 ## Run locally

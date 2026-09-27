@@ -48,7 +48,7 @@ export default async function GuidePage({ params }: Props) {
       <h1>{guide.title}</h1><p>{guide.lead}</p>
     </div></section>
     <div className="container article-layout"><article className="guide-article">
-      <p className="article-date">Published {new Date(`${guide.published}T12:00:00Z`).toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</p>
+      <p className="article-date">By DrivePEI · Published {new Date(`${guide.published}T12:00:00Z`).toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</p>
       {guide.sections.map((section) => <section key={section.heading}>
         <h2>{section.heading}</h2>
         {section.paragraphs?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}

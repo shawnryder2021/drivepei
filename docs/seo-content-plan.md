@@ -14,7 +14,7 @@ Help PEI shoppers compare real used inventory across makes and make informed buy
 | Used AWD PEI | `/used-awd-pei` | AWD/4WD inventory plus ownership guidance |
 | Used cars Charlottetown | `/used-cars-charlottetown` | Local inventory entry point |
 | Used Volkswagen, Honda, Kia, Nissan PEI | `/used-volkswagen-pei`, `/used-honda-pei`, `/used-kia-pei`, `/used-nissan-pei` | Current make filters with distinct buying guidance |
-| Research before purchase | `/guides` and ten article pages | Buying, vehicle choice, financing and trade knowledge |
+| Research before purchase | `/guides` and sixteen article pages | Buying, vehicle choice, financing and trade knowledge |
 | Specific VIN or model | `/vehicles/[slug]` | Live vehicle details and inquiry |
 
 ## Published in the first expansion
@@ -24,7 +24,16 @@ Help PEI shoppers compare real used inventory across makes and make informed buy
 - What to bring to a used-car test drive.
 - How to compare two written vehicle-financing offers.
 
-Future guides should come from real shopper questions and first-hand team observations. Candidates include comparing a compact SUV with a sedan for an Island commute and selling a vehicle with an outstanding loan in PEI. Review overlap with existing guides before publishing.
+## Added buying-guide clusters in September 2026
+
+- Choosing between a used sedan and compact SUV with a worked fuel-use comparison.
+- Checking a used vehicle for PEI winter, with tire, visibility and underbody questions.
+- Understanding the difference between PEI’s annual MVI and a separate pre-purchase inspection.
+- Comparing a used hybrid with a gasoline alternative using model-year fuel ratings and vehicle-specific condition checks.
+
+The guide hub groups these topics by buying, vehicle choice, financing and trade-in. Each new article links to relevant live inventory or a useful next step, and the SUV, AWD, Honda and budget inventory pages link back to the matching guide. The sitemap reads `lib/guides.ts`, so new guide URLs appear automatically.
+
+Future guides should come from real shopper questions and first-hand team observations. A possible next topic is selling a vehicle with an outstanding loan in PEI. Review overlap with existing guides before publishing.
 
 Publish a new piece only when it answers a distinct question with specific examples or verified local detail. Add first-hand observations, original photos or comparisons from the team where available. Avoid near-duplicate city or make pages. Review provincial and federal source links and finance guidance at least quarterly, and update article `updated` dates only when the content changes.
 
