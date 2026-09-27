@@ -5,7 +5,7 @@ Every successful form submission sends the existing JSON event to Activepieces. 
 - `lead`: the structured contact and form data already used by the flow.
 - `adf_xml`: one complete UTF-8 ADF 1.0 XML document, beginning with the XML declaration and ADF processing instruction.
 
-Store both fields in Activepieces. Use `lead.id` as the deduplication key. If a CRM needs an ADF email, have Activepieces send **only the `adf_xml` string** as the plain email body, or as an `application/xml` MIME part. Do not wrap XML in HTML or prepend notes to its body. The webhook itself remains JSON so existing storage and routing steps continue to work.
+The published DrivePEI Activepieces flow writes `adf_xml` to project Storage with `lead.id` as its key. The full JSON event is also visible in the flow run. If a CRM needs an ADF email, have Activepieces send **only the `adf_xml` string** as the plain email body, or as an `application/xml` MIME part. Do not wrap XML in HTML or prepend notes to its body. The webhook itself remains JSON so existing routing steps continue to work.
 
 The mapping follows the user-supplied ADF 1.0 specification and the structure of vehicle, trade, car-finder and finance lead emails reviewed in the owner's Gmail. The reference emails contain vendor-specific tags that are outside the attached standard; those are intentionally represented in standard `<comments>` instead of copied into DrivePEI XML.
 
