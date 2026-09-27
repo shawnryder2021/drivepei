@@ -10,12 +10,27 @@ import {
   ShieldCheck,
   Sparkles,
 } from 'lucide-react';
-import { getVehicles } from '@/lib/inventory';
+import { getVehicles, money, slugFor } from '@/lib/inventory';
 import { VehicleCard } from '@/components/VehicleCard';
 import { guides } from '@/lib/guides';
 export const revalidate = 900;
-export default async function Home() {
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: Promise<{ hero?: string }>;
+}) {
   const vehicles = await getVehicles();
+  const { hero: heroChoice } = await searchParams;
+  const preferredVin =
+    heroChoice === 'kia' ? '3KPF34AD6NE445481' : '4S4BSDGC7K3267790';
+  const heroVins = [
+    preferredVin,
+    ...['4S4BSDGC7K3267790', '3KPF34AD6NE445481', '3VVLX7B27NM070424']
+      .filter((vin) => vin !== preferredVin),
+  ];
+  const heroVehicle = heroVins
+    .map((vin) => vehicles.find((vehicle) => vehicle.vin === vin && vehicle.image))
+    .find(Boolean);
   const byMake = vehicles.filter((vehicle, index) =>
     vehicles.findIndex((candidate) => candidate.make === vehicle.make) === index
   );
@@ -24,9 +39,10 @@ export default async function Home() {
     .slice(0, 3);
   return (
     <main>
-      <section className="hero">
-        <div className="hero-photo" />
-        <div className="hero-shade" />
+      <section className={`hero${heroVehicle ? ' hero-inventory' : ''}`}>
+        {!heroVehicle && <div className="hero-photo" />}
+        {!heroVehicle && <div className="hero-shade" />}
+        <div className="hero-inner">
         <div className="hero-content">
           <div className="hero-kicker">
             <span className="kicker-line" /> MADE FOR THE ISLAND. BUILT FOR YOUR
@@ -56,6 +72,32 @@ export default async function Home() {
             <MapPin size={15} /> PRINCE EDWARD ISLAND <span /> ALL MAKES. ALL
             POSSIBILITIES.
           </div>
+        </div>
+        {heroVehicle && (
+          <Link
+            className="hero-vehicle"
+            href={`/vehicles/${slugFor(heroVehicle)}`}
+            aria-label={`View the ${heroVehicle.year} ${heroVehicle.make} ${heroVehicle.model}`}
+          >
+            <span className="hero-vehicle-photo">
+              <img
+                src={heroVehicle.image}
+                alt={`Actual ${heroVehicle.year} ${heroVehicle.make} ${heroVehicle.model} from current DrivePEI used inventory`}
+                width="1200"
+                height="900"
+                fetchPriority="high"
+              />
+              <span className="hero-vehicle-tag">FROM CURRENT INVENTORY</span>
+            </span>
+            <span className="hero-vehicle-info">
+              <span>
+                <strong>{heroVehicle.year} {heroVehicle.make} {heroVehicle.model}</strong>
+                <small>See photos and vehicle details</small>
+              </span>
+              <b>{money(heroVehicle.price)} <ArrowUpRight size={18} /></b>
+            </span>
+          </Link>
+        )}
         </div>
         <div className="hero-side">01 / YOUR DRIVE STARTS HERE</div>
       </section>
