@@ -35,6 +35,16 @@ export default function RootLayout({
   const gtm = process.env.NEXT_PUBLIC_GTM_ID;
   return (
     <html lang="en-CA">
+      <head>
+        <script
+          data-host="https://shawnryder.site"
+          data-dnt="false"
+          src="https://shawnryder.site/js/script.js"
+          id="ZwSg9rf6GA"
+          async
+          defer
+        />
+      </head>
       <body>
         <AttributionCapture />
         {gtm && (
