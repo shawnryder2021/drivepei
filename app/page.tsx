@@ -10,7 +10,9 @@ import {
   ShieldCheck,
   Sparkles,
 } from 'lucide-react';
-import { getVehicles, money, slugFor } from '@/lib/inventory';
+import { getFeedVehicles, money, slugFor, type Vehicle } from '@/lib/inventory';
+import { inventoryReadyForHomepage, inventoryStatus } from '@/lib/inventory-status';
+import { pickHomepageHero } from '@/lib/home-inventory';
 import { VehicleCard } from '@/components/VehicleCard';
 import { guides } from '@/lib/guides';
 export const revalidate = 900;
@@ -19,18 +21,16 @@ export default async function Home({
 }: {
   searchParams: Promise<{ hero?: string }>;
 }) {
-  const vehicles = await getVehicles();
+  let feedVehicles: Vehicle[] = [];
+  try {
+    feedVehicles = await getFeedVehicles(false);
+  } catch (error) {
+    console.error('Homepage inventory feed unavailable', error);
+  }
+  const inventoryReady = inventoryReadyForHomepage(feedVehicles);
+  const vehicles = inventoryReady ? feedVehicles : [];
   const { hero: heroChoice } = await searchParams;
-  const preferredVin =
-    heroChoice === 'kia' ? '3KPF34AD6NE445481' : '4S4BSDGC7K3267790';
-  const heroVins = [
-    preferredVin,
-    ...['4S4BSDGC7K3267790', '3KPF34AD6NE445481', '3VVLX7B27NM070424']
-      .filter((vin) => vin !== preferredVin),
-  ];
-  const heroVehicle = heroVins
-    .map((vin) => vehicles.find((vehicle) => vehicle.vin === vin && vehicle.image))
-    .find(Boolean);
+  const heroVehicle = pickHomepageHero(vehicles, heroChoice);
   const byMake = vehicles.filter((vehicle, index) =>
     vehicles.findIndex((candidate) => candidate.make === vehicle.make) === index
   );
@@ -127,23 +127,31 @@ export default async function Home({
             <h2>
               Worth a closer look<span className="accent-dot">.</span>
             </h2>
-            <p>
-              Selected from today’s used inventory. Every listing
-              links to the latest vehicle details.
-            </p>
+            <p>{inventoryReady
+              ? 'Selected from our latest verified used inventory. Every listing links to its vehicle details.'
+              : 'We’re confirming the latest inventory update. Tell us what you’re looking for and we’ll follow up.'}</p>
           </div>
           <Link href="/used" className="text-link">
             View all vehicles <ArrowUpRight size={17} />
           </Link>
         </div>
-        <div className="vehicle-grid featured-grid">
-          {featuredVehicles.map((v) => (
-            <VehicleCard key={v.vin} vehicle={v} />
-          ))}
-        </div>
+        {inventoryReady ? (
+          <div className="vehicle-grid featured-grid">
+            {featuredVehicles.map((v) => (
+              <VehicleCard key={v.vin} vehicle={v} />
+            ))}
+          </div>
+        ) : (
+          <div className="empty-results">
+            <h3>Looking for a particular vehicle?</h3>
+            <p>Send us your wish list and we’ll help you find a current match.</p>
+            <Link href="/car-finder" className="text-link">Try Car Finder <ArrowUpRight size={17} /></Link>
+          </div>
+        )}
         <div className="inventory-note">
-          <span className="pulse" /> Inventory is updated from our live feed.
-          Vehicle availability can change.
+          <span className="pulse" /> {inventoryReady
+            ? `Inventory source updated ${inventoryStatus(feedVehicles).label}. Vehicle availability can change.`
+            : 'Vehicle spotlights will return after the latest inventory update is verified.'}
         </div>
       </section>
       <section className="path-section">

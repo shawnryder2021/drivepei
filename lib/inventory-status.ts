@@ -37,3 +37,23 @@ export function inventoryStatus(vehicles: Vehicle[], now = new Date()) {
       : '',
   };
 }
+
+// The source sync is scheduled for 6–7 a.m. Atlantic. Give the feed two hours
+// to publish, then stop featuring vehicles until today's complete update arrives.
+export function inventoryReadyForHomepage(vehicles: Vehicle[], now = new Date()) {
+  if (!vehicles.length) return false;
+  const { lastSynced } = inventoryStatus(vehicles, now);
+  if (!lastSynced || vehicles.some((vehicle) => !vehicle.updatedAt?.startsWith(lastSynced))) {
+    return false;
+  }
+  const today = peiDate(now);
+  if (lastSynced === today) return true;
+  const hour = Number(new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'America/Halifax',
+    hour: '2-digit',
+    hourCycle: 'h23',
+  }).format(now));
+  const yesterday = new Date(`${today}T12:00:00Z`);
+  yesterday.setUTCDate(yesterday.getUTCDate() - 1);
+  return hour < 9 && lastSynced === yesterday.toISOString().slice(0, 10);
+}
