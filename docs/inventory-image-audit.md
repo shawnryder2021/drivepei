@@ -9,3 +9,9 @@ Photo angles 4–7 were checked for every active VIN by content type and dimensi
 Eleven VINs have no genuine photo in the source feed: `3VV4B7AX9RM042212`, `3VVGX7B24RM015484`, `WVWFB7CD4RW225592`, `1V2FE2CA9MC228125`, `3VV2B7AX1MM039773`, `3VV8B7AX6PM032641`, `3CZRU6H30LM103296`, `3VWG57AU2KM013937`, `3VV4B7AX8PM122758`, `3VV4B7AX3RM142564`, and `3VV8B7AXXNM162502`. Their URLs return the image provider's identical 480 × 640 placeholder. DrivePEI shows its own vector “photos coming soon” panel on those listings. Add real, approved photos when available; do not present a generic graphic as a photo of the vehicle.
 
 All 43 vehicle detail routes were checked locally. Each returned HTTP 200 and displayed either an approved full-size gallery or the honest no-photo panel. New feed VINs appear in inventory automatically but need photo review before their images are added to `lib/photo-policy.json`.
+
+## Follow-up — 2 October 2026
+
+The active feed again has 43 vehicles. Two Tiguans previously without approved photos, VINs `3VV4B7AX8PM122758` and `3VV4B7AX3RM142564`, now have genuine vehicle images. Their angles 4–7 each returned HTTP 200 at 1200 × 900 and were visually reviewed without Brown's signage. Angles showing the building sign remain excluded. The policy now approves photos for 32 of the 43 active VINs.
+
+The remaining 11 active VINs lack approved vehicle photos: `3VV4B7AX9RM042212`, `3VVGX7B24RM015484`, `1V2FE2CA9MC228125`, `3VV2B7AX1MM039773`, `3VV8B7AXXNM162502`, `3VWH17AU0JM761245`, `3VV2X7B20PM312520`, `3VVVX7B24RM020837`, `1N6AA1E53HN530812`, `3CZRZ2H56PM107841`, and `1GTP6BEKXR1235046`. Their source images are either a generic placeholder or a make logo; they remain on DrivePEI's no-photo panel until genuine, brand-neutral photos arrive.
