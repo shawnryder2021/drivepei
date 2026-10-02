@@ -25,6 +25,9 @@ import { PaymentEstimator } from '@/components/PaymentEstimator';
 import { VehicleCard } from '@/components/VehicleCard';
 import { VehicleGallery } from '@/components/VehicleGallery';
 import { VehicleBuyingNotes } from '@/components/VehicleBuyingNotes';
+import { CompareButton } from '@/components/CompareButton';
+import { InventoryFreshness } from '@/components/InventoryFreshness';
+import { inventoryStatus } from '@/lib/inventory-status';
 import { drivetrainLabel } from '@/lib/vehicle';
 export const revalidate = 900;
 type Props = { params: Promise<{ slug: string }> };
@@ -104,7 +107,7 @@ export default async function VehiclePage({ params }: Props) {
       '@type': 'Offer',
       price: v.price,
       priceCurrency: 'CAD',
-      availability: 'https://schema.org/InStock',
+      ...(inventoryStatus(all).fresh ? { availability: 'https://schema.org/InStock' } : {}),
       url,
     },
   };
@@ -141,6 +144,8 @@ export default async function VehiclePage({ params }: Props) {
       </section>
       <section className="vdp-main container">
         <div>
+          <InventoryFreshness vehicles={all} />
+          <CompareButton vin={v.vin} />
           <VehicleGallery images={gallery} title={vehicleTitle(v)} />
           <div className="vdp-stats">
             <div>

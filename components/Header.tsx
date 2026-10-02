@@ -12,6 +12,7 @@ const links = [
     '/finance',
   ],
   ['Car Finder', '/car-finder'],
+  ['Compare', '/compare'],
   ['Buying Guides', '/guides'],
   ['Sell / Trade', '/trade'],
 ];
@@ -72,6 +73,7 @@ export function Footer() {
         <div>
           <h3>Find your drive</h3>
           <Link href="/used">Shop used vehicles</Link>
+          <Link href="/compare">Compare vehicles</Link>
           <Link href="/used-suvs-pei">Used SUVs PEI</Link>
           <Link href="/used-awd-pei">Used AWD PEI</Link>
           <Link href="/used-cars-charlottetown">Charlottetown inventory</Link>

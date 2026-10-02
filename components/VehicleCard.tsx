@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ArrowUpRight, CarFront, Gauge, MapPin } from 'lucide-react';
 import { type Vehicle, imageAtSize, money, number, slugFor } from '@/lib/vehicle';
+import { CompareButton } from './CompareButton';
 export function VehicleCard({ vehicle: v }: { vehicle: Vehicle }) {
   return (
     <article className="vehicle-card">
@@ -47,6 +48,7 @@ export function VehicleCard({ vehicle: v }: { vehicle: Vehicle }) {
             View details <ArrowUpRight size={15} />
           </Link>
         </div>
+        <CompareButton vin={v.vin} />
       </div>
     </article>
   );

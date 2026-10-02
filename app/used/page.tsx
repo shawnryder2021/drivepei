@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { getVehicles } from '@/lib/inventory';
 import { InventoryExplorer } from '@/components/InventoryExplorer';
+import { InventoryFreshness } from '@/components/InventoryFreshness';
 export const metadata: Metadata = {
   title: 'Used Cars for Sale in PEI',
   description:
@@ -31,6 +32,7 @@ export default async function Used() {
       </section>
       <section className="section inventory-section">
         <div className="container">
+          <InventoryFreshness vehicles={vehicles} />
           <InventoryExplorer vehicles={vehicles} />
         </div>
       </section>
