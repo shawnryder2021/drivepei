@@ -13,8 +13,12 @@ Help PEI shoppers compare real used inventory across makes and make informed buy
 | Used SUVs PEI | `/used-suvs-pei` | SUV inventory plus size and capability guidance |
 | Used AWD PEI | `/used-awd-pei` | AWD/4WD inventory plus ownership guidance |
 | Used cars Charlottetown | `/used-cars-charlottetown` | Local inventory entry point |
+| Used cars Summerside | `/used-cars-summerside-pei` | Online shopping and viewing-planning entry point; no Summerside storefront claim |
+| Used trucks PEI | `/used-trucks-pei` | Live pickup inventory and vehicle-specific work/towing questions |
+| Used Tiguan PEI | `/used-volkswagen-tiguan-pei` | Live Tiguan-only results and model/trim comparison |
+| Used Atlas PEI | `/used-volkswagen-atlas-pei` | Live Atlas and Atlas Cross Sport results with distinct model guidance |
 | Used Volkswagen, Honda, Kia, Nissan PEI | `/used-volkswagen-pei`, `/used-honda-pei`, `/used-kia-pei`, `/used-nissan-pei` | Current make filters with distinct buying guidance |
-| Research before purchase | `/guides` and eighteen article pages | Buying, vehicle choice, financing and trade knowledge |
+| Research before purchase | `/guides` and 21 article pages | Buying, vehicle choice, financing and trade knowledge |
 | Specific VIN or model | `/vehicles/[slug]` | Live vehicle details and inquiry |
 
 ## Published in the first expansion
@@ -42,11 +46,15 @@ Published in this update:
 - `/guides/used-subaru-buying-checklist-pei` answers make-specific research intent with model-fit, service, tire, history and inspection questions. It links to a live Subaru-filtered inventory view, which can honestly show no matches. A Subaru inventory landing page was deferred because only one Subaru was active in the 4 October feed; a near-empty make page would add little value.
 - `/guides/used-car-financing-rates-pei` answers rate questions with a clearly hypothetical calculation and a checklist for comparing real written quotes. It does not advertise a current rate or imply approval. The finance page and related financing guides now link to it.
 
+The next 4 October expansion followed the active feed: 3 pickups, 11 Tiguans, and 9 Atlas or Atlas Cross Sport vehicles. The truck, Tiguan and Atlas-family landing pages scope the inventory itself, so resetting client-side filters cannot show unrelated stock. They display the latest feed timestamp and matching count; if stock sells out, visitors still have a Car Finder path. The Summerside page helps western PEI shoppers plan an appointment and expressly says DrivePEI has no separate Summerside storefront.
+
+Three distinct buyer questions now have dedicated guides: PEI registration and ownership transfer, winter tire choices and studded-tire dates, and dealer versus Kijiji private-sale comparisons. The articles link to the PEI government and the federal Office of Consumer Affairs for rules and buyer checks. Existing inventory and guide pages link into these topics. Review legal and seasonal details against official sources at each substantive refresh.
+
 Next content briefs, ordered by shopper usefulness and evidence needed:
 
 1. **What an all-in used-car quote includes in PEI.** Show a worked quote with selling price, applicable taxes, disclosed fees, trade allowance, down payment and amount financed. Verify current PEI rules with official sources and use an approved, anonymized real example before publication. Link from `/finance`, `/trade` and the existing payment guide.
 2. **How to prepare for a trade-in appraisal in Charlottetown.** Explain the documents, condition notes, keys, tires and loan-payout information that make an appraisal useful. Add the team's actual appraisal process before publishing; link from `/trade` and the equity guide.
-3. **How to plan a used-car viewing when travelling across PEI.** Use real appointment and availability procedures supplied by the team. Improve the existing Charlottetown page and relevant vehicle pages instead of creating near-identical town pages.
+3. **Improve the Summerside appointment flow.** Use real appointment and availability procedures supplied by the team to make the Summerside page more useful. Avoid near-identical town pages.
 4. **Model comparisons from vehicles the team has inspected.** Build a specific comparison only after two or more relevant VINs, verified equipment, original photos and first-hand observations are available. Until then, the live filters and current VIN pages answer model searches more honestly.
 
 At the next Search Console review, prioritize pages gaining impressions without clicks. Check the query, snippet, page title and whether the page answers the intent before adding a new URL. Avoid targeting “Subaru dealer” searches with dealership claims; DrivePEI is a multi-make used-vehicle site.

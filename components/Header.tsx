@@ -77,6 +77,10 @@ export function Footer() {
           <Link href="/used-suvs-pei">Used SUVs PEI</Link>
           <Link href="/used-awd-pei">Used AWD PEI</Link>
           <Link href="/used-cars-charlottetown">Charlottetown inventory</Link>
+          <Link href="/used-cars-summerside-pei">Shop from Summerside</Link>
+          <Link href="/used-trucks-pei">Used trucks PEI</Link>
+          <Link href="/used-volkswagen-tiguan-pei">Used Tiguan PEI</Link>
+          <Link href="/used-volkswagen-atlas-pei">Used Atlas PEI</Link>
           <Link href="/used-honda-pei">Used Honda PEI</Link>
           <Link href="/used-volkswagen-pei">Used Volkswagen PEI</Link>
           <Link href="/used-kia-pei">Used Kia PEI</Link>

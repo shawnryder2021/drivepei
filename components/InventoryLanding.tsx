@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { getVehicles } from '@/lib/inventory';
 import { InventoryExplorer } from '@/components/InventoryExplorer';
+import { InventoryFreshness } from '@/components/InventoryFreshness';
 
 type Section = { heading: string; paragraphs: string[]; bullets?: string[] };
 export type LandingContent = {
@@ -12,11 +13,19 @@ export type LandingContent = {
   body?: string;
   drive?: string;
   make?: string;
+  models?: string[];
   sections: Section[];
   guideLinks: { label: string; href: string }[];
 };
 export async function InventoryLanding({ content }: { content: LandingContent }) {
-  const vehicles = await getVehicles();
+  const allVehicles = await getVehicles();
+  // Keep category pages scoped even when a visitor resets the explorer filters.
+  const vehicles = allVehicles.filter((vehicle) =>
+    (!content.body || vehicle.body.toLowerCase().includes(content.body.toLowerCase())) &&
+    (!content.drive || /all|four|4|awd/i.test(vehicle.drivetrain)) &&
+    (!content.make || vehicle.make.toLowerCase() === content.make.toLowerCase()) &&
+    (!content.models || content.models.some((model) => model.toLowerCase() === vehicle.model.toLowerCase()))
+  );
   return <main>
     <section className="page-hero inventory-hero"><div className="container">
       <span className="eyebrow light">{content.eyebrow}</span>
@@ -25,6 +34,8 @@ export async function InventoryLanding({ content }: { content: LandingContent })
       <a className="button button-outline inventory-jump" href="#inventory-results">View current vehicles <ArrowUpRight size={17}/></a>
     </div></section>
     <section className="section inventory-section"><div className="container">
+      <InventoryFreshness vehicles={allVehicles} />
+      <p className="inventory-freshness">{vehicles.length} {vehicles.length === 1 ? 'vehicle' : 'vehicles'} matching this page in the latest inventory feed. Ask us to confirm a specific vehicle before travelling.</p>
       <InventoryExplorer vehicles={vehicles} initialBody={content.body} initialDrive={content.drive} initialMake={content.make}/>
     </div></section>
     <section className="section landing-editorial"><div className="container landing-editorial-grid"><div className="landing-copy">
