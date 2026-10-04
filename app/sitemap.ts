@@ -23,6 +23,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/used-cars-under-25000-pei',
     '/guides',
   ];
+  const guideHubUpdated = new Date(`${guides.map((guide) => guide.updated).sort().at(-1)}T12:00:00Z`);
   const vehicles = await getVehicles();
   const vehicleEntries = await Promise.all(vehicles.map(async (vehicle) => ({
     url: `${base}/vehicles/${slugFor(vehicle)}`,
@@ -34,6 +35,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     ...paths.map((path) => ({
       url: base + path,
+      ...(path === '/guides' ? { lastModified: guideHubUpdated } : {}),
       changeFrequency: path === '/guides' ? 'monthly' as const : 'weekly' as const,
       priority: path === '/' ? 1 : path === '/used' ? 0.9 : 0.7,
     })),

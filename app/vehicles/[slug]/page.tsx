@@ -219,6 +219,7 @@ export default async function VehiclePage({ params }: Props) {
               <Link href="/guides/questions-to-ask-about-used-car-listing-pei">Before you visit: questions for this listing <ArrowUpRight size={16}/></Link>
               <Link href="/guides/read-a-vehicle-history-report">How to read its history report <ArrowUpRight size={16}/></Link>
               {v.make.toLowerCase() === 'volkswagen' && <Link href="/guides/used-volkswagen-checklist-pei">Used Volkswagen checklist <ArrowUpRight size={16}/></Link>}
+              {v.make.toLowerCase() === 'subaru' && <Link href="/guides/used-subaru-buying-checklist-pei">Used Subaru buying checklist <ArrowUpRight size={16}/></Link>}
               {v.price <= 25000 && <Link href="/used-cars-under-25000-pei">Compare vehicles under $25,000 <ArrowUpRight size={16}/></Link>}
               <Link href="/guides/compare-used-car-financing-offers">Compare written finance offers <ArrowUpRight size={16}/></Link>
             </div>

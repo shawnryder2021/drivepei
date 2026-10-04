@@ -76,6 +76,7 @@ export default function Finance() {
               </p>
             </div>
           </div>
+          <p className="fine-print">Comparing rates? <Link href="/guides/used-car-financing-rates-pei">Learn how to assess a written used-car financing quote <ArrowUpRight size={14} /></Link>.</p>
         </div>
       </section>
       <section className="section application-section" id="apply">
