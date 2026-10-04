@@ -1,6 +1,6 @@
 # DrivePEI generated image prompts
 
-Both site images were generated with the built-in image generation tool and saved as optimized WebP files. They are editorial illustrations, not photos of a listed vehicle. The homepage now shows a live, approved inventory photo; the coastal image remains its fallback when no reviewed hero vehicle is active.
+Both site images were generated with the built-in image generation tool and saved as optimized WebP files. They are editorial illustrations, not photos of a listed vehicle. The homepage now rotates among live vehicles with approved inventory photos; the coastal image remains its fallback when the current feed cannot be verified or no photographed vehicle is active.
 
 ## `public/images/pei-coastal-drive.webp`
 

@@ -10,17 +10,14 @@ import {
   ShieldCheck,
   Sparkles,
 } from 'lucide-react';
-import { getFeedVehicles, money, slugFor, type Vehicle } from '@/lib/inventory';
+import { getFeedVehicles, type Vehicle } from '@/lib/inventory';
 import { inventoryReadyForHomepage, inventoryStatus } from '@/lib/inventory-status';
-import { pickHomepageHero } from '@/lib/home-inventory';
+import { selectHomepageHeroes } from '@/lib/home-inventory';
+import { HomeHeroCarousel } from '@/components/HomeHeroCarousel';
 import { VehicleCard } from '@/components/VehicleCard';
 import { guides } from '@/lib/guides';
 export const revalidate = 900;
-export default async function Home({
-  searchParams,
-}: {
-  searchParams: Promise<{ hero?: string }>;
-}) {
+export default async function Home() {
   let feedVehicles: Vehicle[] = [];
   try {
     feedVehicles = await getFeedVehicles(false);
@@ -29,8 +26,7 @@ export default async function Home({
   }
   const inventoryReady = inventoryReadyForHomepage(feedVehicles);
   const vehicles = inventoryReady ? feedVehicles : [];
-  const { hero: heroChoice } = await searchParams;
-  const heroVehicle = pickHomepageHero(vehicles, heroChoice);
+  const heroVehicles = selectHomepageHeroes(vehicles);
   const byMake = vehicles.filter((vehicle, index) =>
     vehicles.findIndex((candidate) => candidate.make === vehicle.make) === index
   );
@@ -39,9 +35,9 @@ export default async function Home({
     .slice(0, 3);
   return (
     <main>
-      <section className={`hero${heroVehicle ? ' hero-inventory' : ''}`}>
-        {!heroVehicle && <div className="hero-photo" />}
-        {!heroVehicle && <div className="hero-shade" />}
+      <section className={`hero${heroVehicles.length ? ' hero-inventory' : ''}`}>
+        {!heroVehicles.length && <div className="hero-photo" />}
+        {!heroVehicles.length && <div className="hero-shade" />}
         <div className="hero-inner">
         <div className="hero-content">
           <div className="hero-kicker">
@@ -73,31 +69,7 @@ export default async function Home({
             POSSIBILITIES.
           </div>
         </div>
-        {heroVehicle && (
-          <Link
-            className="hero-vehicle"
-            href={`/vehicles/${slugFor(heroVehicle)}`}
-            aria-label={`View the ${heroVehicle.year} ${heroVehicle.make} ${heroVehicle.model}`}
-          >
-            <span className="hero-vehicle-photo">
-              <img
-                src={heroVehicle.image}
-                alt={`Actual ${heroVehicle.year} ${heroVehicle.make} ${heroVehicle.model} from current DrivePEI used inventory`}
-                width="1200"
-                height="900"
-                fetchPriority="high"
-              />
-              <span className="hero-vehicle-tag">FROM CURRENT INVENTORY</span>
-            </span>
-            <span className="hero-vehicle-info">
-              <span>
-                <strong>{heroVehicle.year} {heroVehicle.make} {heroVehicle.model}</strong>
-                <small>See photos and vehicle details</small>
-              </span>
-              <b>{money(heroVehicle.price)} <ArrowUpRight size={18} /></b>
-            </span>
-          </Link>
-        )}
+        {heroVehicles.length > 0 && <HomeHeroCarousel vehicles={heroVehicles} />}
         </div>
         <div className="hero-side">01 / YOUR DRIVE STARTS HERE</div>
       </section>

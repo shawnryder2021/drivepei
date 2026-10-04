@@ -58,7 +58,7 @@ The editorial map and publishing checklist are in `docs/seo-content-plan.md`; th
 
 ## Design assets
 
-`public/images/drivepei-logo.png` is the supplied DrivePEI logo; the palette is documented in `docs/brand.md`. When the latest feed passes the homepage freshness check, its hero spotlights a real, active vehicle using an approved 1200 × 900 inventory photo and links directly to its vehicle page. The default preference is the 2019 Subaru Outback; `/?hero=kia` previews the 2022 Kia Forte version while it remains active. If those vehicles leave the feed, the hero selects another active photographed vehicle. If the feed is delayed or unavailable, the original scenic image appears. `public/images/pei-coastal-drive.webp` and `public/images/pei-next-drive.webp` are original AI-generated editorial images for DrivePEI. They are illustrative; vehicle listing photos come from the inventory source.
+`public/images/drivepei-logo.png` is the supplied DrivePEI logo; the palette is documented in `docs/brand.md`. When the latest feed passes the homepage freshness check, the hero rotates through up to six distinct models with active VINs and approved 1200 × 900 inventory photos. It favors a mix of truck, Tiguan, Atlas-family, sedan and other models when they are in stock. Visitors can choose a model or pause rotation; reduced-motion preferences start it paused. Each slide links to its current vehicle page. Sold models drop out at the next feed refresh. If the feed is delayed or unavailable, the original scenic image appears. `public/images/pei-coastal-drive.webp` and `public/images/pei-next-drive.webp` are original AI-generated editorial images for DrivePEI. They are illustrative; vehicle listing photos come from the inventory source.
 
 # Deployment note
 

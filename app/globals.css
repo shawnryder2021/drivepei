@@ -239,6 +239,10 @@ h2 em {
 .hero-inventory .hero-caption {
   margin-top: 62px;
 }
+.home-hero-carousel {
+  min-width: 0;
+  width: 100%;
+}
 .hero-vehicle {
   display: block;
   color: #fff;
@@ -309,6 +313,59 @@ h2 em {
   gap: 8px;
   color: #1e8532;
   white-space: nowrap;
+}
+.hero-carousel-controls {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 19px;
+}
+.hero-carousel-arrow,
+.hero-carousel-play,
+.hero-carousel-model {
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  color: #fff;
+  background: rgba(2, 35, 64, 0.6);
+}
+.hero-carousel-arrow,
+.hero-carousel-play {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+}
+.hero-carousel-arrow:hover,
+.hero-carousel-play:hover,
+.hero-carousel-model:hover,
+.hero-carousel-arrow:focus-visible,
+.hero-carousel-play:focus-visible,
+.hero-carousel-model:focus-visible {
+  background: #1e8532;
+  border-color: #fff;
+}
+.hero-carousel-models {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 4px 2px 8px;
+  scrollbar-width: thin;
+}
+.hero-carousel-model {
+  flex: none;
+  border-radius: 999px;
+  padding: 7px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.hero-carousel-model.is-active {
+  background: #fff;
+  color: #063b64;
+  border-color: #fff;
 }
 .hero-photo {
   position: absolute;
@@ -1626,6 +1683,9 @@ h2 em {
   .hero-vehicle {
     width: min(100%, 560px);
     transform: none;
+  }
+  .home-hero-carousel {
+    width: min(100%, 560px);
   }
   .hero-vehicle:hover,
   .hero-vehicle:focus-visible {

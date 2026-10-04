@@ -1,22 +1,34 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { pickHomepageHero } from '../lib/home-inventory.ts';
+import { selectHomepageHeroes } from '../lib/home-inventory.ts';
 
-const vehicle = (vin, make, image = 'https://example.com/car.jpg', status = 'active') => ({
-  vin, make, image, status,
+const vehicle = (vin, make, model, body = 'SUV', image = 'https://example.com/car.jpg', status = 'active') => ({
+  vin, make, model, body, image, status,
 });
 
-test('preferred vehicle appears only while active and photographed', () => {
-  const subaru = vehicle('4S4BSDGC7K3267790', 'Subaru');
-  const kia = vehicle('3KPF34AD6NE445481', 'Kia');
-  assert.equal(pickHomepageHero([subaru, kia])?.vin, subaru.vin);
-  assert.equal(pickHomepageHero([subaru, kia], 'kia')?.vin, kia.vin);
-  assert.equal(pickHomepageHero([vehicle(subaru.vin, 'Subaru', '', 'inactive'), kia])?.vin, kia.vin);
+test('homepage rotation uses active photographed stock with distinct models', () => {
+  const stock = [
+    vehicle('taos', 'Volkswagen', 'Taos'),
+    vehicle('tiguan-a', 'Volkswagen', 'Tiguan'),
+    vehicle('tiguan-b', 'Volkswagen', 'Tiguan'),
+    vehicle('atlas', 'Volkswagen', 'Atlas'),
+    vehicle('truck', 'Honda', 'Ridgeline', 'Trucks'),
+    vehicle('sedan', 'Kia', 'Forte', 'Sedan'),
+    vehicle('other', 'Nissan', 'Qashqai'),
+    vehicle('sold', 'Subaru', 'Outback', 'SUV', 'https://example.com/car.jpg', 'inactive'),
+    vehicle('no-photo', 'Audi', 'Q3', 'SUV', ''),
+  ];
+  const selected = selectHomepageHeroes(stock);
+  assert.equal(selected.length, 6);
+  assert.deepEqual(selected.map((v) => v.model).slice(0, 4), ['Ridgeline', 'Tiguan', 'Atlas', 'Forte']);
+  assert.equal(new Set(selected.map((v) => `${v.make} ${v.model}`)).size, selected.length);
+  assert.ok(selected.every((v) => v.status === 'active' && v.image));
 });
 
-test('hero chooses another active photo when preferred vehicles leave inventory', () => {
-  const volkswagen = vehicle('3VVLX7B27NM070424', 'Volkswagen', '', 'inactive');
-  const honda = vehicle('1HGCM82633A004352', 'Honda');
-  assert.equal(pickHomepageHero([volkswagen, honda])?.vin, honda.vin);
-  assert.equal(pickHomepageHero([volkswagen]), undefined);
+test('sold models disappear from the next rotation and empty stock gives no hero', () => {
+  const tiguan = vehicle('tiguan', 'Volkswagen', 'Tiguan');
+  const truck = vehicle('truck', 'Honda', 'Ridgeline', 'Trucks');
+  assert.deepEqual(selectHomepageHeroes([tiguan, truck]).map((v) => v.model), ['Ridgeline', 'Tiguan']);
+  assert.deepEqual(selectHomepageHeroes([{ ...tiguan, status: 'inactive' }, truck]).map((v) => v.model), ['Ridgeline']);
+  assert.deepEqual(selectHomepageHeroes([]), []);
 });
