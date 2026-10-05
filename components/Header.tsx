@@ -112,6 +112,7 @@ export function Footer() {
           Vehicle availability and pricing are subject to change. Financing is
           subject to approval.
         </span>
+        <span className="footer-credit">Site by <a href="https://shawnryder.com" target="_blank" rel="noopener noreferrer">Shawn Ryder</a></span>
       </div>
     </footer>
   );

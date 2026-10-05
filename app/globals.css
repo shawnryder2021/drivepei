@@ -859,6 +859,18 @@ h2 em {
   color: #9bb8c9;
   font-size: 11px;
 }
+.footer-credit {
+  white-space: nowrap;
+}
+.footer-credit a {
+  color: white;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.footer-credit a:hover,
+.footer-credit a:focus-visible {
+  color: #8edcf0;
+}
 .page-hero {
   min-height: 390px;
   background: var(--forest);
