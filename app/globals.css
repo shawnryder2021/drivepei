@@ -463,6 +463,25 @@ h2 em {
   font-size: 25px;
   margin: 3px 0 0;
 }
+.home-topic-links {
+  margin: 0;
+  padding: 18px max(6%, calc((100vw - 1400px) / 2));
+  border-bottom: 1px solid var(--line);
+  background: var(--cream);
+  color: #3e5f73;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.home-topic-links a {
+  color: var(--forest);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.home-topic-links a:hover,
+.home-topic-links a:focus-visible {
+  color: var(--lime);
+}
 .quick-search {
   display: flex;
   min-width: min(650px, 60%);

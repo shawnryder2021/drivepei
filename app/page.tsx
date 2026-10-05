@@ -92,6 +92,9 @@ export default async function Home() {
           </button>
         </form>
       </section>
+      <p className="home-topic-links">
+        Planning your search? Explore <Link href="/used-cars-charlottetown">used cars near Charlottetown</Link> or <Link href="/used-trucks-pei">used trucks in PEI</Link>, and read <Link href="/guides/pei-mvi-vs-prepurchase-inspection">what a PEI MVI does and does not cover</Link> before you visit.
+      </p>
       <section className="section featured-section">
         <div className="section-heading">
           <div>
