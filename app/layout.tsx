@@ -37,6 +37,16 @@ export default function RootLayout({
   return (
     <html lang="en-CA">
       <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MDL2W3N31" />
+        <script
+          id="drivepei-ga4"
+          dangerouslySetInnerHTML={{ __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-1MDL2W3N31');
+          ` }}
+        />
         <script
           data-host="https://shawnryder.site"
           data-dnt="false"

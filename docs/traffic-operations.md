@@ -45,11 +45,11 @@ For each priority VIN, collect:
 
 The site currently shows practical questions tailored to body style, kilometres and drivetrain on every vehicle page. Add staff-confirmed notes through the existing optional `description` field when the admin database is provisioned, or a reviewed VIN-specific content file in a later site update. Until then, the site does not claim a vehicle's condition or unverified equipment.
 
-## Tracking setup after IDs are supplied
+## Tracking setup
 
-The site already has a GTM injection hook controlled by `NEXT_PUBLIC_GTM_ID`. Set that environment variable in Netlify and publish the container. In GTM, add the GA4 Google tag with the DrivePEI measurement ID; configure a Custom Event trigger for `generate_lead` and send the same GA4 event. The site pushes that event only after `/api/leads` returns success. Map `lead_type`, `traffic_source`, `page_path` and public `vehicle_vin` from the data layer. Mark `generate_lead` as a key event in GA4. Do not pass names, email addresses, phone numbers, message text, click IDs or financial information to GA4.
+The direct Google tag for GA4 measurement ID `G-1MDL2W3N31` is in the shared page head. The site sends `generate_lead` to GA4 only after `/api/leads` returns success, with `lead_type`, `traffic_source`, `page_path` and public `vehicle_vin`. Mark `generate_lead` as a key event in GA4 after verifying an event arrives. Do not pass names, email addresses, phone numbers, message text, click IDs or financial information to GA4. The optional GTM hook remains controlled by `NEXT_PUBLIC_GTM_ID`; if a container is added, do not install a second GA4 Google tag or duplicate these GA4 event tags in it.
 
-The site also pushes `credit_application_click` when someone opens the secure application or its external fallback link. Measure it separately. The cross-origin Dealertrack form cannot tell DrivePEI that an application was completed; do not report a click as an approved or completed application. Existing UTM values continue to be sent to Activepieces with leads.
+The site also sends `credit_application_click` when someone opens the secure application or its external fallback link. Measure it separately. The cross-origin Dealertrack form cannot tell DrivePEI that an application was completed; do not report a click as an approved or completed application. Existing UTM values continue to be sent to Activepieces with leads.
 
 ## Weekly scorecard
 

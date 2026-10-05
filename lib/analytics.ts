@@ -13,6 +13,7 @@ type AnalyticsParams = Record<string, string | number | undefined>;
 declare global {
   interface Window {
     dataLayer?: Array<Record<string, string | number | undefined>>;
+    gtag?: (command: 'event', event: AnalyticsEvent, params: AnalyticsParams) => void;
   }
 }
 
@@ -20,6 +21,7 @@ export function trackEvent(event: AnalyticsEvent, params: AnalyticsParams = {}) 
   if (typeof window === 'undefined') return;
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({ event, ...params });
+  window.gtag?.('event', event, params);
 }
 
 export function captureAttribution() {

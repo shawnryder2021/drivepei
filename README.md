@@ -12,7 +12,7 @@ An independent, mobile-first PEI used-vehicle site. The public site contains **n
 - Activepieces webhook delivery with an ADF 1.0 XML copy of every lead. PostgreSQL storage and admin retry are available later when a database is provisioned.
 - Inventory sync, inactive vehicle handling, featured vehicle controls, sync logs, a live image-aware XML sitemap, robots.txt, structured vehicle and article data, GTM hook, and UTM capture.
 - PEI buying-guide hub, 21 practical articles and distinct live inventory pages for SUVs, AWD/4WD, trucks, Tiguans, Atlas-family SUVs, vehicles under $25,000, Charlottetown, Summerside, Volkswagen, Honda, Kia and Nissan.
-- Google and Bing site-verification tags, successful-lead and credit-application click events in the GTM data layer, and a 90-day traffic operations guide.
+- Google and Bing site-verification tags, a direct GA4 tag (G-1MDL2W3N31), successful-lead and credit-application click events in GA4 and the optional GTM data layer, and a 90-day traffic operations guide.
 
 ## Run locally
 
@@ -30,7 +30,7 @@ Fill `.env.local` with real values. Do not commit the file. The site and lead fo
 
 1. Set `LEAD_WEBHOOK_URL`, `NEXT_PUBLIC_CREDIT_IFRAME_URL`, and `NEXT_PUBLIC_SITE_URL` in Netlify environment variables. `LEAD_WEBHOOK_BEARER_TOKEN` is optional if the webhook requires it.
 2. The published DrivePEI Activepieces flow stores `adf_xml` in project Storage using `lead.id` as the key. If adding notifications or CRM updates, use this stored XML or the same webhook field. The website treats only an HTTP 2xx webhook response as success. See `docs/adf-leads.md` for the field mapping.
-3. Add `NEXT_PUBLIC_GTM_ID` after creating the GTM container and configure the GA4 events described in `docs/traffic-operations.md`. Set `TURNSTILE_SECRET_KEY` and `NEXT_PUBLIC_TURNSTILE_SITE_KEY` together to enable Cloudflare Turnstile on forms. Google and Bing verification tags are included in the site header.
+3. The GA4 tag is already in the shared page head. If adding `NEXT_PUBLIC_GTM_ID` for other tags, do not configure a second GA4 Google tag or duplicate GA4 lead events in GTM. Set `TURNSTILE_SECRET_KEY` and `NEXT_PUBLIC_TURNSTILE_SITE_KEY` together to enable Cloudflare Turnstile on forms. Google and Bing verification tags are included in the site header.
 4. In Netlify, import this repository as a Next.js site. Build command: `npm run build`; publish directory: `.next`. The included `netlify.toml` supplies these values.
 5. Optional later: create PostgreSQL, run `db/001_init.sql`, and set `DATABASE_URL`, `ADMIN_TOKEN`, and `SYNC_TOKEN`. Then import inventory via `/admin` or `POST /api/admin/sync`. Add the GitHub Actions secrets `DRIVEPEI_SITE_URL` and `DRIVEPEI_SYNC_TOKEN` to schedule hourly imports. Until then, the site reads the live sheet directly.
 
@@ -50,7 +50,7 @@ npm run typecheck
 npm test
 ```
 
-Before launch, confirm the Dealertrack iframe allows embedding on the final domain, submit a controlled test lead and confirm Activepieces stored it, and verify the GTM/GA4 and Search Console setup. The Activepieces storage and notification flow must be active before customer traffic is sent to the site.
+Before launch, confirm the Dealertrack iframe allows embedding on the final domain, submit a controlled test lead and confirm Activepieces stored it, and verify GA4 and Search Console. The Activepieces storage and notification flow must be active before customer traffic is sent to the site.
 
 ## Search content and sitemap
 
