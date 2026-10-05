@@ -19,9 +19,9 @@ export default async function Used() {
         <div className="container">
           <span className="eyebrow light">YOUR NEXT DRIVE IS OUT THERE</span>
           <h1>
-            Used cars.
+            Used Cars for Sale
             <br />
-            <em>New possibilities.</em>
+            <em>in PEI.</em>
           </h1>
           <p>
             Explore our changing lineup of used vehicles across makes and
