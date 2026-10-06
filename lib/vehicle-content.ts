@@ -98,7 +98,7 @@ export function vehicleContent(vehicle: Vehicle): { sections: Section[]; faq: Qu
     faq: [
       {
         question: `Is this ${name} still available in PEI?`,
-        answer: `The listing comes from a regularly refreshed used-inventory feed, but a vehicle can be sold between updates. Send an availability request for VIN ${vehicle.vin} before travelling, and ask where to view it. DrivePEI does not operate a separate storefront.`,
+        answer: `The listing comes from a regularly refreshed used-inventory feed, but a vehicle can be sold between updates. Send an availability request for VIN ${vehicle.vin}, then confirm it can be viewed at the address shown on this page. DrivePEI does not operate a separate storefront.`,
       },
       {
         question: `What should I ask about the PEI inspection for this ${vehicle.model}?`,

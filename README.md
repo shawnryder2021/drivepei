@@ -2,6 +2,8 @@
 
 An independent, mobile-first PEI used-vehicle site. The public site contains **no dealership franchise branding** and lists **all active vehicles in the used-inventory feed**, including Volkswagen.
 
+Vehicle viewings are arranged at 190 Sherwood Rd, Charlottetown, PE C1E 0E5. This is a viewing location, not a separate DrivePEI storefront. The address is centralized in `lib/location.ts` and shown on the Contact page, every vehicle page and the site footer; shoppers are asked to confirm the specific VIN before travelling.
+
 ## Features
 
 - Live public used-inventory spreadsheet feed, normalized on the server and filtered to active stock; checked-in last-known snapshot keeps the site usable if the sheet is briefly unavailable.

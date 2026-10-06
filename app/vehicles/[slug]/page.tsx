@@ -29,6 +29,7 @@ import { CompareButton } from '@/components/CompareButton';
 import { InventoryFreshness } from '@/components/InventoryFreshness';
 import { inventoryStatus } from '@/lib/inventory-status';
 import { drivetrainLabel } from '@/lib/vehicle';
+import { VIEWING_DIRECTIONS_URL, VIEWING_LOCATION } from '@/lib/location';
 export const revalidate = 900;
 type Props = { params: Promise<{ slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -247,6 +248,15 @@ export default async function VehiclePage({ params }: Props) {
             <Link href="/trade" className="text-link">
               Value my trade <ArrowUpRight size={16} />
             </Link>
+            <div className="vdp-viewing-location">
+              <strong>View by appointment</strong>
+              <address>
+                {VIEWING_LOCATION.street}<br />
+                {VIEWING_LOCATION.city}, {VIEWING_LOCATION.province} {VIEWING_LOCATION.postalCode}
+              </address>
+              <p>Confirm this VIN is available before you travel.</p>
+              <a href={VIEWING_DIRECTIONS_URL} target="_blank" rel="noopener noreferrer">Directions <ArrowUpRight size={14} /></a>
+            </div>
           </div>
           <div id="vehicle-inquiry">
             <LeadForm

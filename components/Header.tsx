@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
+import { VIEWING_DIRECTIONS_URL, VIEWING_LOCATION } from '@/lib/location';
 const links = [
   ['Shop Used', '/used'],
   ['Shop by Payment', '/used?payment=1'],
@@ -104,6 +105,15 @@ export function Footer() {
           <Link href="/why-drivepei">Why buy with us</Link>
           <Link href="/guides">PEI buying guides</Link>
           <p>Serving drivers across Prince Edward Island from Charlottetown.</p>
+          <div className="footer-viewing-location">
+            <h4>Vehicle viewing location</h4>
+            <address>
+              {VIEWING_LOCATION.street}<br />
+              {VIEWING_LOCATION.city}, {VIEWING_LOCATION.province} {VIEWING_LOCATION.postalCode}
+            </address>
+            <p>Arrange a viewing and confirm your vehicle before visiting.</p>
+            <a href={VIEWING_DIRECTIONS_URL} target="_blank" rel="noopener noreferrer">Get directions <ArrowUpRight size={13} /></a>
+          </div>
         </div>
       </div>
       <div className="footer-bottom">
