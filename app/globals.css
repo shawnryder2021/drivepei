@@ -2079,12 +2079,21 @@ h2 em {
 .inventory-count-intro { color: var(--muted); line-height: 1.6; margin-bottom: 24px; }
 .vdp-buying-notes { margin: 34px 0; padding: 32px; background: var(--cream); border: 1px solid var(--line); }
 .vdp-buying-notes h2 { font-size: clamp(25px, 2.3vw, 34px); margin: 10px 0 23px; }
-.vdp-note-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
-.vdp-note-grid h3, .vdp-staff-notes h3 { font-size: 16px; margin-bottom: 8px; }
-.vdp-note-grid p, .vdp-staff-notes p, .vdp-note-link { color: #344d60; font-size: 13px; line-height: 1.7; }
+.vdp-content-disclosure { color: var(--muted); font-size: 13px; line-height: 1.6; margin: -8px 0 22px; }
+.vdp-editorial-sections { display: grid; gap: 22px; }
+.vdp-editorial-sections > section { border-top: 1px solid var(--line); padding-top: 19px; }
+.vdp-editorial-sections h3, .vdp-staff-notes h3 { font-size: 18px; margin: 0 0 9px; }
+.vdp-editorial-sections p, .vdp-staff-notes p, .vdp-note-link { color: #344d60; font-size: 14px; line-height: 1.75; }
+.vdp-editorial-sections p:last-child { margin-bottom: 0; }
 .vdp-staff-notes { border-top: 1px solid var(--line); padding-top: 20px; margin-top: 20px; }
 .vdp-note-link { border-top: 1px solid var(--line); padding-top: 18px; margin: 18px 0 0; }
 .vdp-note-link a { color: var(--forest); text-decoration: underline; text-underline-offset: 3px; }
+.vdp-local-faq { margin: 34px 0; padding: 30px 32px; border: 1px solid var(--line); background: #f8fbfd; }
+.vdp-local-faq h2 { font-size: clamp(25px, 2.3vw, 34px); margin: 10px 0 21px; }
+.vdp-faq-list > div { border-top: 1px solid var(--line); padding: 17px 0; }
+.vdp-faq-list > div:last-child { padding-bottom: 0; }
+.vdp-faq-list h3 { font-size: 16px; margin: 0 0 7px; }
+.vdp-faq-list p { color: #344d60; font-size: 14px; line-height: 1.7; margin: 0; }
 .vdp-research { border: 1px solid var(--line); background: var(--cream); padding: 28px; margin: 28px 0; }
 .vdp-research h2 { font-size: clamp(24px, 2.5vw, 32px); margin: 10px 0 20px; }
 .vdp-research > div { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 24px; }
@@ -2200,7 +2209,6 @@ h2 em {
   .guide-hub-intro { grid-template-columns: 1fr; gap: 18px; }
   .guide-topic-heading { display: block; }
   .guide-topic-heading p { margin-top: 12px; }
-  .vdp-note-grid { grid-template-columns: 1fr; gap: 8px; }
   .vdp-research > div { grid-template-columns: 1fr; }
 }
 @media (max-width: 700px) {

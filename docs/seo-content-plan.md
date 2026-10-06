@@ -21,6 +21,8 @@ Help PEI shoppers compare real used inventory across makes and make informed buy
 | Research before purchase | `/guides` and 21 article pages | Buying, vehicle choice, financing and trade knowledge |
 | Specific VIN or model | `/vehicles/[slug]` | Live vehicle details and inquiry |
 
+Each active VIN page now has a 300-plus-word editorial baseline assembled from feed facts (year, make, model, trim, price, kilometres, body and drivetrain) and a three-question PEI FAQ about availability, inspection and winter suitability. This applies to future feed arrivals through the shared vehicle-page template. The text explicitly asks shoppers to verify condition, equipment and paperwork; it does not claim an unverified inspection or included feature. The length is a DrivePEI editorial requirement, not a Google ranking threshold. Add team-confirmed observations and genuine photos to priority VINs so pages offer more than shared buying advice.
+
 ## Published in the first expansion
 
 - What to ask when viewing a high-kilometre used car in PEI.

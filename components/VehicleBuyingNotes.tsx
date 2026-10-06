@@ -1,26 +1,32 @@
 import Link from 'next/link';
 import type { Vehicle } from '@/lib/vehicle';
-import { drivetrainLabel, number } from '@/lib/vehicle';
-
-function useCase(body: string) {
-  const style = body.toLowerCase();
-  if (style.includes('suv')) return 'Bring the people and gear you carry regularly. Check rear-seat access, visibility and the usable cargo space with passengers aboard.';
-  if (style.includes('minivan')) return 'Try access to every seating row and bring a child seat, stroller or other bulky gear to confirm the cabin works for your routine.';
-  if (style.includes('truck')) return 'Confirm the bed dimensions, payload and towing details for this exact trim before deciding whether it suits your work or recreation.';
-  return 'Test the seating position, parking visibility, luggage space and comfort on the routes you drive most often.';
-}
+import { vehicleContent } from '@/lib/vehicle-content';
 
 export function VehicleBuyingNotes({ vehicle }: { vehicle: Vehicle }) {
-  const awd = /all|four|4|awd/i.test(vehicle.drivetrain);
-  return <section className="vdp-buying-notes">
-    <span className="eyebrow">MAKE AN INFORMED CHOICE</span>
-    <h2>Questions for this {vehicle.make} {vehicle.model}.</h2>
-    <div className="vdp-note-grid">
-      <div><h3>Everyday fit</h3><p>{useCase(vehicle.body)}</p></div>
-      <div><h3>Condition and records</h3><p>With {number(vehicle.kilometres)} km listed, ask about service records, the current inspection, tires and any upcoming maintenance. Consider an independent inspection before purchase.</p></div>
-      <div><h3>Confirm the equipment</h3><p>{awd ? `The feed lists ${drivetrainLabel(vehicle.drivetrain)}. Ask us to confirm the tires and how this vehicle’s drivetrain works.` : 'Check the features you need on this exact vehicle and ask which equipment is included.'} Verify any feature that matters to you during a viewing.</p></div>
-    </div>
-    {vehicle.description && <div className="vdp-staff-notes"><h3>Vehicle notes</h3><p>{vehicle.description}</p></div>}
-    <p className="vdp-note-link">For a fuller checklist, see our <Link href="/guides/used-car-test-drive-checklist-pei">PEI test-drive guide</Link> or <Link href="/guides/read-a-vehicle-history-report">history-report guide</Link>.</p>
-  </section>;
+  const { sections, faq } = vehicleContent(vehicle);
+  return <>
+    <section className="vdp-buying-notes" aria-labelledby="vehicle-overview-heading">
+      <span className="eyebrow">ABOUT THIS EXACT VEHICLE</span>
+      <h2 id="vehicle-overview-heading">A closer look at this {vehicle.year} {vehicle.make} {vehicle.model}.</h2>
+      <p className="vdp-content-disclosure">Based on the current inventory feed and practical PEI buying questions. Condition, equipment and inspection details should be confirmed on the vehicle.</p>
+      <div className="vdp-editorial-sections">
+        {sections.map((section) => <section key={section.heading}>
+          <h3>{section.heading}</h3>
+          {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+        </section>)}
+      </div>
+      {vehicle.description && <div className="vdp-staff-notes"><h3>Vehicle notes</h3><p>{vehicle.description}</p></div>}
+      <p className="vdp-note-link">Keep researching with our <Link href="/guides/used-car-test-drive-checklist-pei">PEI test-drive checklist</Link>, <Link href="/guides/read-a-vehicle-history-report">vehicle-history guide</Link>, and <Link href="/guides/pei-mvi-vs-prepurchase-inspection">MVI and pre-purchase inspection guide</Link>.</p>
+    </section>
+    <section className="vdp-local-faq" aria-labelledby="vehicle-faq-heading">
+      <span className="eyebrow">LOCAL QUESTIONS</span>
+      <h2 id="vehicle-faq-heading">PEI questions about this {vehicle.make} {vehicle.model}.</h2>
+      <div className="vdp-faq-list">
+        {faq.map((item) => <div key={item.question}>
+          <h3>{item.question}</h3>
+          <p>{item.answer}</p>
+        </div>)}
+      </div>
+    </section>
+  </>;
 }
