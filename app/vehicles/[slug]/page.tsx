@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
 import {
   ArrowLeft,
   ArrowRight,
@@ -8,7 +7,6 @@ import {
   CarFront,
   Fuel,
   Gauge,
-  MapPin,
   Settings2,
 } from 'lucide-react';
 import {
@@ -27,9 +25,9 @@ import { VehicleGallery } from '@/components/VehicleGallery';
 import { VehicleBuyingNotes } from '@/components/VehicleBuyingNotes';
 import { CompareButton } from '@/components/CompareButton';
 import { InventoryFreshness } from '@/components/InventoryFreshness';
-import { inventoryStatus } from '@/lib/inventory-status';
 import { drivetrainLabel } from '@/lib/vehicle';
-import { VIEWING_DIRECTIONS_URL, VIEWING_LOCATION } from '@/lib/location';
+import { SELLING_DEALER, VIEWING_DIRECTIONS_URL, VIEWING_LOCATION } from '@/lib/location';
+import { dealerSchema, jsonLd, vehicleSchema } from '@/lib/structured-data';
 export const revalidate = 900;
 type Props = { params: Promise<{ slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -89,35 +87,14 @@ export default async function VehiclePage({ params }: Props) {
   const similar = all
     .filter((x) => x.vin !== v.vin && (x.body === v.body || x.make === v.make))
     .slice(0, 3);
-  const url = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://drivepei.ca'}/vehicles/${slugFor(v)}`;
-  const schema = {
-    '@context': 'https://schema.org',
-    '@type': 'Vehicle',
-    name: vehicleTitle(v),
-    vehicleIdentificationNumber: v.vin,
-    modelDate: v.year,
-    brand: { '@type': 'Brand', name: v.make },
-    model: v.model,
-    mileageFromOdometer: {
-      '@type': 'QuantitativeValue',
-      value: v.kilometres,
-      unitCode: 'KMT',
-    },
-    image: gallery.length ? gallery : undefined,
-    offers: {
-      '@type': 'Offer',
-      price: v.price,
-      priceCurrency: 'CAD',
-      ...(inventoryStatus(all).fresh ? { availability: 'https://schema.org/InStock' } : {}),
-      url,
-    },
-  };
+  const product = vehicleSchema(v, gallery, all);
+  const schema = { '@graph': product ? [dealerSchema(), product] : [dealerSchema()] };
   return (
     <main>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(schema).replace(/</g, '\\u003c'),
+          __html: jsonLd(schema),
         }}
       />
       <section className="vdp-top">
@@ -139,6 +116,7 @@ export default async function VehiclePage({ params }: Props) {
               <span>Asking price</span>
               <strong>{money(v.price)}</strong>
               <small>Plus applicable taxes and fees</small>
+              <p className="vdp-seller">Vehicles offered for sale by <a href={SELLING_DEALER.url}>{SELLING_DEALER.name}</a>.</p>
               <a className="vdp-quick-inquiry" href="#vehicle-inquiry">
                 Ask about this vehicle <ArrowRight size={15} />
               </a>
@@ -154,6 +132,7 @@ export default async function VehiclePage({ params }: Props) {
         </div>
         <aside className="vdp-aside">
           <div id="vehicle-inquiry">
+            <p className="vdp-form-seller">Vehicles offered for sale by <a href={SELLING_DEALER.url}>{SELLING_DEALER.name}</a>.</p>
             <LeadForm
               kind="vehicle"
               vehicleVin={v.vin}

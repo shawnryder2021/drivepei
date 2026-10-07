@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
-import { VIEWING_DIRECTIONS_URL, VIEWING_LOCATION } from '@/lib/location';
+import { SELLING_DEALER, VIEWING_DIRECTIONS_URL, VIEWING_LOCATION } from '@/lib/location';
 const links = [
   ['Shop Used', '/used'],
   ['Shop by Payment', '/used?payment=1'],
@@ -107,10 +107,12 @@ export function Footer() {
           <p>Serving drivers across Prince Edward Island from Charlottetown.</p>
           <div className="footer-viewing-location">
             <h4>Vehicle viewing location</h4>
+            <p>Vehicles offered for sale by <a href={SELLING_DEALER.url}>{SELLING_DEALER.name}</a>.</p>
             <address>
               {VIEWING_LOCATION.street}<br />
               {VIEWING_LOCATION.city}, {VIEWING_LOCATION.province} {VIEWING_LOCATION.postalCode}
             </address>
+            <p>Dealer phone: <a href={SELLING_DEALER.phoneHref}>{SELLING_DEALER.phone}</a></p>
             <p>Arrange a viewing and confirm your vehicle before visiting.</p>
             <a href={VIEWING_DIRECTIONS_URL} target="_blank" rel="noopener noreferrer">Get directions <ArrowUpRight size={13} /></a>
           </div>

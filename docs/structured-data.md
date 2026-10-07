@@ -1,0 +1,9 @@
+# Dealer and vehicle structured data
+
+DrivePEI is the shopping-site brand. Brown's Volkswagen is the seller of the used vehicles and the in-person viewing location at 190 Sherwood Road, Charlottetown, PE C1E 0E4; dealer phone 902-892-5381. The site publishes one reusable `AutoDealer` identity (`/#selling-dealer`) on the homepage, Contact page and active vehicle pages. This identifies the existing dealership; it does not represent DrivePEI as a separate dealership or location.
+
+Active vehicle pages publish a combined `Product` and `Car` node with the canonical URL, VIN, year, make, model, odometer kilometres and approved real photos when available. The `Offer` refers to the Brown's seller node and carries the displayed CAD asking price, used condition and in-stock availability. It is omitted when the inventory feed or that vehicle's update date is older than one PEI calendar day. Removed VINs render an unavailable page with no product or offer markup. No ratings or reviews are synthesized.
+
+This is product-snippet markup for an inquiry site. It does not imply on-site checkout or eligibility for merchant listings. Structured data makes pages eligible for supported search features but does not guarantee display. After each deploy, test a current photographed vehicle and one without approved photos in [Google's Rich Results Test](https://search.google.com/test/rich-results), then watch the **Product snippets** report and URL Inspection in Search Console after recrawl. Also check a removed VIN and a delayed-feed period to ensure no stale offer appears. The automated cases are in `tests/structured-data.test.mjs`.
+
+The shared seller identity and schema builders are in `lib/location.ts` and `lib/structured-data.ts`. Update those constants if Brown's official public contact details change, then verify the visible footer, Contact page and vehicle-page disclosures match the JSON-LD.

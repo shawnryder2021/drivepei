@@ -16,6 +16,7 @@ import { selectHomepageHeroes } from '@/lib/home-inventory';
 import { HomeHeroCarousel } from '@/components/HomeHeroCarousel';
 import { VehicleCard } from '@/components/VehicleCard';
 import { guides } from '@/lib/guides';
+import { dealerSchema, jsonLd } from '@/lib/structured-data';
 export const revalidate = 900;
 export default async function Home() {
   let feedVehicles: Vehicle[] = [];
@@ -35,6 +36,7 @@ export default async function Home() {
     .slice(0, 3);
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(dealerSchema()) }} />
       <section className={`hero${heroVehicles.length ? ' hero-inventory' : ''}`}>
         {!heroVehicles.length && <div className="hero-photo" />}
         {!heroVehicles.length && <div className="hero-shade" />}

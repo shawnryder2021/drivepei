@@ -1,8 +1,8 @@
 # DrivePEI
 
-An independent, mobile-first PEI used-vehicle site. The public site contains **no dealership franchise branding** and lists **all active vehicles in the used-inventory feed**, including Volkswagen.
+An independent, mobile-first PEI used-vehicle site. DrivePEI is the site brand and lists **all active vehicles in the used-inventory feed**, including Volkswagen. Brown's Volkswagen is disclosed as the seller of the vehicles.
 
-Vehicle viewings are arranged at 190 Sherwood Rd, Charlottetown, PE C1E 0E5. This is a viewing location, not a separate DrivePEI storefront. The address is centralized in `lib/location.ts` and shown on the Contact page, every vehicle page and the site footer; shoppers are asked to confirm the specific VIN before travelling.
+Vehicle viewings are arranged at Brown's Volkswagen, 190 Sherwood Road, Charlottetown, PE C1E 0E4. This is not a separate DrivePEI storefront. The address and dealer details are centralized in `lib/location.ts` and shown on the Contact page, every vehicle page and the site footer; shoppers are asked to confirm the specific VIN before travelling.
 
 ## Features
 
@@ -12,7 +12,7 @@ Vehicle viewings are arranged at 190 Sherwood Rd, Charlottetown, PE C1E 0E5. Thi
 - Secure Dealertrack credit application iframe with an external-link fallback.
 - Car Finder, sell/trade, finance question, and contact forms.
 - Activepieces webhook delivery with an ADF 1.0 XML copy of every lead. PostgreSQL storage and admin retry are available later when a database is provisioned.
-- Inventory sync, inactive vehicle handling, featured vehicle controls, sync logs, a live image-aware XML sitemap, robots.txt, structured vehicle and article data, GTM hook, and UTM capture.
+- Inventory sync, inactive vehicle handling, featured vehicle controls, sync logs, a live image-aware XML sitemap, robots.txt, seller-linked `AutoDealer` and `Product`/`Car` structured data, article data, GTM hook, and UTM capture. Vehicle offers appear in JSON-LD only while the feed and the vehicle row are fresh; unavailable VINs have no product markup.
 - PEI buying-guide hub, 21 practical articles and distinct live inventory pages for SUVs, AWD/4WD, trucks, Tiguans, Atlas-family SUVs, vehicles under $25,000, Charlottetown, Summerside, Volkswagen, Honda, Kia and Nissan.
 - Google and Bing site-verification tags, a direct GA4 tag (G-1MDL2W3N31), successful-lead and credit-application click events in GA4 and the optional GTM data layer, and a 90-day traffic operations guide.
 
