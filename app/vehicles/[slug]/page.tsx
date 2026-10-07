@@ -139,15 +139,53 @@ export default async function VehiclePage({ params }: Props) {
               <span>Asking price</span>
               <strong>{money(v.price)}</strong>
               <small>Plus applicable taxes and fees</small>
+              <a className="vdp-quick-inquiry" href="#vehicle-inquiry">
+                Ask about this vehicle <ArrowRight size={15} />
+              </a>
             </div>
           </div>
         </div>
       </section>
       <section className="vdp-main container">
-        <div>
+        <div className="vdp-opening">
           <InventoryFreshness vehicles={all} />
           <CompareButton vin={v.vin} />
           <VehicleGallery images={gallery} title={vehicleTitle(v)} />
+        </div>
+        <aside className="vdp-aside">
+          <div id="vehicle-inquiry">
+            <LeadForm
+              kind="vehicle"
+              vehicleVin={v.vin}
+              vehicleName={vehicleTitle(v)}
+              heading="Ask about this vehicle"
+            />
+          </div>
+          <div className="vdp-actions">
+            <span className="eyebrow">MORE WAYS TO MOVE</span>
+            <h2>Plan your next step.</h2>
+            <p>Explore financing, value your trade or arrange a closer look.</p>
+            <Link href="/finance" className="button button-soft">
+              {process.env.NEXT_PUBLIC_CREDIT_IFRAME_URL
+                ? 'Get pre-approved'
+                : 'Explore financing'}{' '}
+              <ArrowUpRight size={16} />
+            </Link>
+            <Link href="/trade" className="text-link">
+              Value my trade <ArrowUpRight size={16} />
+            </Link>
+            <div className="vdp-viewing-location">
+              <strong>View by appointment</strong>
+              <address>
+                {VIEWING_LOCATION.street}<br />
+                {VIEWING_LOCATION.city}, {VIEWING_LOCATION.province} {VIEWING_LOCATION.postalCode}
+              </address>
+              <p>Confirm this VIN is available before you travel.</p>
+              <a href={VIEWING_DIRECTIONS_URL} target="_blank" rel="noopener noreferrer">Directions <ArrowUpRight size={14} /></a>
+            </div>
+          </div>
+        </aside>
+        <div className="vdp-body">
           <div className="vdp-stats">
             <div>
               <Gauge />
@@ -231,42 +269,6 @@ export default async function VehiclePage({ params }: Props) {
           </nav>
           <PaymentEstimator price={v.price} />
         </div>
-        <aside className="vdp-aside">
-          <div className="vdp-actions">
-            <span className="eyebrow">YOUR NEXT STEP</span>
-            <h2>Like what you see?</h2>
-            <p>Ask about availability or arrange a closer look.</p>
-            <a href="#vehicle-inquiry" className="button button-lime">
-              Check availability <ArrowRight size={16} />
-            </a>
-            <Link href="/finance" className="button button-soft">
-              {process.env.NEXT_PUBLIC_CREDIT_IFRAME_URL
-                ? 'Get pre-approved'
-                : 'Explore financing'}{' '}
-              <ArrowUpRight size={16} />
-            </Link>
-            <Link href="/trade" className="text-link">
-              Value my trade <ArrowUpRight size={16} />
-            </Link>
-            <div className="vdp-viewing-location">
-              <strong>View by appointment</strong>
-              <address>
-                {VIEWING_LOCATION.street}<br />
-                {VIEWING_LOCATION.city}, {VIEWING_LOCATION.province} {VIEWING_LOCATION.postalCode}
-              </address>
-              <p>Confirm this VIN is available before you travel.</p>
-              <a href={VIEWING_DIRECTIONS_URL} target="_blank" rel="noopener noreferrer">Directions <ArrowUpRight size={14} /></a>
-            </div>
-          </div>
-          <div id="vehicle-inquiry">
-            <LeadForm
-              kind="vehicle"
-              vehicleVin={v.vin}
-              vehicleName={vehicleTitle(v)}
-              heading="Ask about this vehicle"
-            />
-          </div>
-        </aside>
       </section>
       {similar.length > 0 && (
         <section className="section similar-section">

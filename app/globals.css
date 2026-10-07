@@ -1132,13 +1132,17 @@ h2 em {
 .vdp-price strong {
   font: 800 34px Manrope;
 }
+.vdp-quick-inquiry { display: inline-flex; align-items: center; justify-content: flex-end; gap: 6px; color: var(--forest); font-size: 13px; font-weight: 700; margin-top: 13px; text-decoration: underline; text-underline-offset: 3px; }
 .vdp-main {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 370px;
-  gap: 35px;
+  column-gap: 35px;
+  row-gap: 14px;
   padding-top: 40px;
   padding-bottom: 90px;
 }
+.vdp-opening { grid-column: 1; grid-row: 1; min-width: 0; }
+.vdp-body { grid-column: 1; grid-row: 2; min-width: 0; }
 .vdp-image {
   height: 520px;
   background: #e7f1f5;
@@ -1209,15 +1213,18 @@ h2 em {
   line-height: 1.6;
 }
 .vdp-aside {
+  grid-column: 2;
+  grid-row: 1 / span 2;
   align-self: start;
   position: sticky;
   top: 15px;
 }
+#vehicle-inquiry { scroll-margin-top: 90px; }
 .vdp-actions {
   padding: 28px;
   background: var(--forest);
   color: white;
-  margin-bottom: 15px;
+  margin-top: 15px;
 }
 .vdp-actions .eyebrow {
   color: var(--lime);
@@ -1671,6 +1678,13 @@ h2 em {
   }
   .vdp-main {
     grid-template-columns: 1fr;
+    row-gap: 26px;
+  }
+  .vdp-opening,
+  .vdp-body,
+  .vdp-aside {
+    grid-column: 1;
+    grid-row: auto;
   }
   .vdp-aside {
     position: static;
