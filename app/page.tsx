@@ -10,13 +10,15 @@ import {
   ShieldCheck,
   Sparkles,
 } from 'lucide-react';
-import { getFeedVehicles, type Vehicle } from '@/lib/inventory';
+import { getFeedVehicles, type Vehicle, vehicleTitle } from '@/lib/inventory';
 import { inventoryReadyForHomepage, inventoryStatus } from '@/lib/inventory-status';
 import { selectHomepageHeroes } from '@/lib/home-inventory';
 import { HomeHeroCarousel } from '@/components/HomeHeroCarousel';
 import { VehicleCard } from '@/components/VehicleCard';
 import { guides } from '@/lib/guides';
 import { dealerSchema, jsonLd } from '@/lib/structured-data';
+import { LeadForm } from '@/components/LeadForm';
+import { SELLING_DEALER, VIEWING_ADDRESS } from '@/lib/location';
 export const revalidate = 900;
 export default async function Home() {
   let feedVehicles: Vehicle[] = [];
@@ -66,6 +68,9 @@ export default async function Home() {
               <ArrowRight size={18} />
             </Link>
           </div>
+          <Link className="hero-test-drive" href="#test-drive">
+            Request a test drive <ArrowRight size={16} />
+          </Link>
           <div className="hero-caption">
             <MapPin size={15} /> PRINCE EDWARD ISLAND <span /> ALL MAKES. ALL
             POSSIBILITIES.
@@ -129,6 +134,28 @@ export default async function Home() {
           <span className="pulse" /> {inventoryReady
             ? `Inventory source updated ${inventoryStatus(feedVehicles).label}. Vehicle availability can change.`
             : 'Vehicle spotlights will return after the latest inventory update is verified.'}
+        </div>
+      </section>
+      <section className="test-drive-section" id="test-drive">
+        <div className="container test-drive-grid">
+          <div className="test-drive-intro">
+            <span className="eyebrow light">READY FOR A CLOSER LOOK?</span>
+            <h2>Take it for<br /><em>a drive.</em></h2>
+            <p>Pick a vehicle and a preferred date and time. We’ll confirm availability and your appointment before you visit.</p>
+            <div className="test-drive-location">
+              <strong>View by appointment</strong>
+              <span>{SELLING_DEALER.name}</span>
+              <span>{VIEWING_ADDRESS}</span>
+            </div>
+          </div>
+          <LeadForm
+            kind="test_drive"
+            vehicleOptions={vehicles.map((vehicle) => ({
+              vin: vehicle.vin,
+              label: `${vehicleTitle(vehicle)} · ${vehicle.stock || vehicle.vin}`,
+              name: `${vehicle.year} ${vehicle.make} ${vehicle.model}`,
+            }))}
+          />
         </div>
       </section>
       <section className="path-section">

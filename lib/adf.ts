@@ -3,7 +3,7 @@ import type { Vehicle } from './vehicle';
 export type AdfLead = {
   id: string;
   created_at: string;
-  kind: 'vehicle' | 'car_finder' | 'trade' | 'finance' | 'contact' | 'inventory_alert';
+  kind: 'vehicle' | 'car_finder' | 'trade' | 'finance' | 'contact' | 'inventory_alert' | 'test_drive';
   name: string;
   email: string;
   phone: string;
@@ -30,6 +30,7 @@ const labelByKind: Record<AdfLead['kind'], string> = {
   finance: 'Financing inquiry',
   contact: 'Contact request',
   inventory_alert: 'Inventory alert request',
+  test_drive: 'Test drive request',
 };
 
 function vehicleBlock(lead: AdfLead, vehicle?: Vehicle) {
@@ -67,7 +68,7 @@ export function buildAdf(lead: AdfLead, vehicle?: Vehicle): string {
     lead.message && `Message: ${lead.message}`,
     ...Object.entries(lead.details)
       .filter(([key, value]) => value !== '' && value !== false && key !== 'vehicleName')
-      .map(([key, value]) => `${key}: ${value}`),
+      .map(([key, value]) => `${key === 'preferredDate' ? 'Preferred test drive date' : key === 'preferredTime' ? 'Preferred time (Atlantic)' : key}: ${value}`),
     lead.landing_page && `Landing page: ${lead.landing_page}`,
     ...Object.entries(lead.utm).filter(([, value]) => value).map(([key, value]) => `${key}: ${value}`),
   ].filter(Boolean).join('\n');

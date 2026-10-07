@@ -22,6 +22,7 @@ export const leadSchema = z.object({
     'finance',
     'contact',
     'inventory_alert',
+    'test_drive',
   ]),
   name: z.string().trim().min(2).max(120),
   email: z.email().max(255),
@@ -41,6 +42,21 @@ export const leadSchema = z.object({
   landingPage: z.string().max(500).optional(),
   honeypot: z.string().max(200).optional(),
   turnstileToken: z.string().optional(),
+}).superRefine((lead, ctx) => {
+  if (lead.kind !== 'test_drive') return;
+  const date = String(lead.details.preferredDate || '');
+  const time = String(lead.details.preferredTime || '');
+  const requestedVehicle = String(lead.details.desiredVehicle || '').trim();
+  const parsedDate = new Date(`${date}T12:00:00Z`);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || Number.isNaN(parsedDate.getTime()) || parsedDate.toISOString().slice(0, 10) !== date) {
+    ctx.addIssue({ code: 'custom', path: ['details', 'preferredDate'], message: 'Choose a valid preferred date.' });
+  }
+  if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(time)) {
+    ctx.addIssue({ code: 'custom', path: ['details', 'preferredTime'], message: 'Choose a valid preferred time.' });
+  }
+  if (!lead.vehicleVin && !requestedVehicle) {
+    ctx.addIssue({ code: 'custom', path: ['details', 'desiredVehicle'], message: 'Choose or describe a vehicle.' });
+  }
 });
 export type LeadInput = z.infer<typeof leadSchema>;
 export function isAdmin(req: Request, scope: 'admin' | 'sync' = 'admin') {

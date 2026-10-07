@@ -10,10 +10,11 @@ const labels: Record<string, string> = {
   finance: 'Ask about financing',
   contact: 'Send us a message',
   inventory_alert: 'Get inventory alerts',
+  test_drive: 'Request a test drive',
 };
 const fields: Record<
   string,
-  { name: string; label: string; placeholder?: string }[]
+  { name: string; label: string; placeholder?: string; type?: 'date' | 'time'; required?: boolean; halfWidth?: boolean }[]
 > = {
   vehicle: [
     {
@@ -70,12 +71,17 @@ const fields: Record<
     },
     { name: 'message', label: 'More details', placeholder: 'Optional' },
   ],
+  test_drive: [
+    { name: 'preferredDate', label: 'Preferred date', type: 'date', required: true, halfWidth: true },
+    { name: 'preferredTime', label: 'Preferred time (Atlantic)', type: 'time', required: true, halfWidth: true },
+  ],
 };
 export function LeadForm({
   kind,
   vehicleVin,
   vehicleName,
   heading,
+  vehicleOptions = [],
 }: {
   kind:
     | 'vehicle'
@@ -83,18 +89,26 @@ export function LeadForm({
     | 'trade'
     | 'finance'
     | 'contact'
-    | 'inventory_alert';
+    | 'inventory_alert'
+    | 'test_drive';
   vehicleVin?: string;
   vehicleName?: string;
   heading?: string;
+  vehicleOptions?: { vin: string; label: string; name: string }[];
 }) {
   const [status, setStatus] = useState<
     'idle' | 'sending' | 'success' | 'error'
   >('idle');
   const [error, setError] = useState('');
   const [utm, setUtm] = useState<Record<string, string>>({});
+  const [minDate, setMinDate] = useState('');
   useEffect(() => {
     setUtm(captureAttribution());
+    const parts = new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'America/Halifax', year: 'numeric', month: '2-digit', day: '2-digit',
+    }).formatToParts(new Date());
+    const part = (type: string) => parts.find((item) => item.type === type)?.value || '';
+    setMinDate(`${part('year')}-${part('month')}-${part('day')}`);
   }, []);
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -106,13 +120,23 @@ export function LeadForm({
       if (f.name !== 'message')
         details[f.name] = String(form.get(f.name) || '').slice(0, 500);
     if (vehicleName) details.vehicleName = vehicleName;
+    const selected = kind === 'test_drive'
+      ? vehicleOptions.find((option) => option.vin === form.get('vehicleVin'))
+      : undefined;
+    if (selected) {
+      details.vehicleName = selected.name;
+      details.desiredVehicle = selected.label;
+    } else if (kind === 'test_drive') {
+      details.desiredVehicle = String(form.get('desiredVehicle') || '').slice(0, 500);
+    }
+    const requestVin = selected?.vin || vehicleVin;
     const payload = {
       kind,
       name: form.get('name'),
       email: form.get('email'),
       phone: form.get('phone'),
       message: String(form.get('message') || ''),
-      vehicleVin,
+      vehicleVin: requestVin,
       details,
       consent: form.get('consent') === 'on',
       honeypot: form.get('website'),
@@ -134,7 +158,7 @@ export function LeadForm({
           lead_type: kind,
           traffic_source: trafficSource(utm.utm_source),
           page_path: location.pathname,
-          vehicle_vin: vehicleVin || undefined,
+          vehicle_vin: requestVin || undefined,
         });
       }
     } catch (err) {
@@ -146,15 +170,19 @@ export function LeadForm({
     return (
       <div className="form-success" role="status">
         <CheckCircle2 size={42} />
-        <h3>Thanks, we’ve got your request.</h3>
-        <p>Our team will follow up using the contact details you provided.</p>
+        <h3>Thanks, we’ve got your {kind === 'test_drive' ? 'test drive request' : 'request'}.</h3>
+        <p>{kind === 'test_drive'
+          ? 'Our team will confirm the vehicle and appointment time with you.'
+          : 'Our team will follow up using the contact details you provided.'}</p>
       </div>
     );
   return (
     <form className="lead-form" onSubmit={submit}>
       <span className="eyebrow">LET’S CONNECT</span>
       <h3>{heading || labels[kind]}</h3>
-      <p>Share a few details and we’ll be in touch.</p>
+      <p>{kind === 'test_drive'
+        ? 'Choose a vehicle and a time that works for you. We’ll confirm both before your visit.'
+        : 'Share a few details and we’ll be in touch.'}</p>
       <div className="form-grid">
         <label>
           Full name{' '}
@@ -168,16 +196,33 @@ export function LeadForm({
           Phone number{' '}
           <input name="phone" type="tel" autoComplete="tel" required />
         </label>
+        {kind === 'test_drive' && (
+          <label className="span-2">
+            Vehicle you’d like to drive
+            {vehicleOptions.length ? (
+              <select name="vehicleVin" required defaultValue="">
+                <option value="" disabled>Choose a current vehicle</option>
+                {vehicleOptions.map((option) => (
+                  <option key={option.vin} value={option.vin}>{option.label}</option>
+                ))}
+              </select>
+            ) : (
+              <input name="desiredVehicle" placeholder="Make, model or type of vehicle" required />
+            )}
+          </label>
+        )}
         {fields[kind].map((f) => (
-          <label key={f.name} className="span-2">
+          <label key={f.name} className={f.halfWidth ? undefined : 'span-2'}>
             {f.label}
             {f.name === 'message' ? (
               <textarea name={f.name} placeholder={f.placeholder} rows={3} />
             ) : (
               <input
                 name={f.name}
+                type={f.type || 'text'}
                 placeholder={f.placeholder}
-                required={['desiredVehicle', 'tradeVehicle'].includes(f.name)}
+                min={f.type === 'date' ? minDate : undefined}
+                required={f.required || ['desiredVehicle', 'tradeVehicle'].includes(f.name)}
               />
             )}
           </label>
@@ -218,7 +263,7 @@ export function LeadForm({
         type="submit"
         disabled={status === 'sending'}
       >
-        {status === 'sending' ? 'Sending…' : 'Send my request'}{' '}
+        {status === 'sending' ? 'Sending…' : kind === 'test_drive' ? 'Request my test drive' : 'Send my request'}{' '}
         <ArrowRight size={17} />
       </button>
       <small>

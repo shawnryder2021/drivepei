@@ -10,7 +10,7 @@ Vehicle viewings are arranged at Brown's Volkswagen, 190 Sherwood Road, Charlott
 - Search and filters for make, body, price, kilometres, year, AWD/4WD, and an optional payment target using a shopper-supplied rate and term.
 - Vehicle pages with curated source photo galleries, VIN-specific shopping questions, details, payment exploration, inquiry form, similar vehicles, and fallback for unavailable stock.
 - Secure Dealertrack credit application iframe with an external-link fallback.
-- Car Finder, sell/trade, finance question, and contact forms.
+- Homepage test drive requests with a current-inventory VIN selector, preferred date and time, plus Car Finder, sell/trade, finance question, and contact forms. Appointment requests are confirmed by the team before a visit.
 - Activepieces webhook delivery with an ADF 1.0 XML copy of every lead. PostgreSQL storage and admin retry are available later when a database is provisioned.
 - Inventory sync, inactive vehicle handling, featured vehicle controls, sync logs, a live image-aware XML sitemap, robots.txt, seller-linked `AutoDealer` and `Product`/`Car` structured data, article data, GTM hook, and UTM capture. Vehicle offers appear in JSON-LD only while the feed and the vehicle row are fresh; unavailable VINs have no product markup.
 - PEI buying-guide hub, 21 practical articles and distinct live inventory pages for SUVs, AWD/4WD, trucks, Tiguans, Atlas-family SUVs, vehicles under $25,000, Charlottetown, Summerside, Volkswagen, Honda, Kia and Nissan.

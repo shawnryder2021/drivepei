@@ -17,6 +17,7 @@ The mapping follows the user-supplied ADF 1.0 specification and the structure of
 | General inquiry or incomplete vehicle request | `vehicle` with explicit `Not specified` values for required year, make and model; requested vehicle text in comments |
 | Shopper contact and message | `customer/contact` and `customer/comments` |
 | Form type, requested details and attribution | `customer/comments`; provider `service` holds the form type |
+| Test drive request | `provider/service` is `Test drive request`; exact selected VIN when available, preferred date and Atlantic time in `customer/comments` |
 | Site identity | `vendor/vendorname` and provider name are `DrivePEI` |
 
 `ADF_VENDOR_EMAIL` is optional. Set it only after a real DrivePEI mailbox exists. The customer contact always contains the email and phone supplied by the shopper. The XML does not contain a credit application or sensitive financial details from Dealertrack.

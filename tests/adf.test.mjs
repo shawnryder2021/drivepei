@@ -42,3 +42,22 @@ test('general requests retain the ADF vehicle block with explicit unknowns', () 
   assert.match(xml, /<year>Not specified<\/year><make>Not specified<\/make><model>Not specified<\/model>/);
   assert.match(xml, /Request type: Contact request/);
 });
+
+test('test drive request includes the exact VIN and preferred appointment details', () => {
+  const xml = buildAdf({
+    ...base,
+    kind: 'test_drive',
+    message: '',
+    details: {
+      vehicleName: '2022 Honda Civic',
+      desiredVehicle: '2022 Honda Civic EX · A123',
+      preferredDate: '2026-10-10',
+      preferredTime: '14:30',
+    },
+  }, vehicle);
+  assert.match(xml, /Request type: Test drive request/);
+  assert.match(xml, /Preferred test drive date: 2026-10-10/);
+  assert.match(xml, /Preferred time \(Atlantic\): 14:30/);
+  assert.match(xml, /<vin>1HGCM82633A004352<\/vin>/);
+  assert.match(xml, /<service>Test drive request<\/service>/);
+});
