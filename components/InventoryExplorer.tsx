@@ -38,11 +38,19 @@ export function InventoryExplorer({
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     setQ(params.get('q') || '');
+    setMake(params.get('make') || initialMake);
+    setBody(params.get('body') || initialBody);
+    setDrive(params.get('drive') === 'awd' ? 'awd' : initialDrive);
+    setMaxPrice(params.get('maxPrice') || initialMaxPrice);
+    setMaxKm(params.get('maxKm') || '');
+    setMinYear(params.get('minYear') || '');
+    const requestedSort = params.get('sort');
+    if (requestedSort && ['featured', 'price-low', 'price-high', 'year', 'km'].includes(requestedSort)) setSort(requestedSort);
     if (params.has('payment'))
       document
         .querySelector('.payment-filter')
         ?.scrollIntoView({ block: 'nearest' });
-  }, []);
+  }, [initialBody, initialDrive, initialMake, initialMaxPrice]);
   const makes = [...new Set(vehicles.map((v) => v.make))].sort();
   const bodies = [
     ...new Set(vehicles.map((v) => v.body).filter(Boolean)),
@@ -148,6 +156,7 @@ export function InventoryExplorer({
             }}
           >
             <option value="">All makes</option>
+            {make && !makes.includes(make) && <option value={make}>{make} (no current matches)</option>}
             {makes.map((x) => (
               <option key={x}>{x}</option>
             ))}
@@ -166,6 +175,7 @@ export function InventoryExplorer({
           Body style
           <select value={body} onChange={(e) => setBody(e.target.value)}>
             <option value="">All body styles</option>
+            {body && !bodies.includes(body) && <option value={body}>{body} (no current matches)</option>}
             {bodies.map((x) => (
               <option key={x}>{x}</option>
             ))}

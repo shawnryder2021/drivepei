@@ -20,11 +20,12 @@ const topics: {
   id: string;
   heading: string;
   intro: string;
+  shopLinks: { label: string; href: string }[];
 }[] = [
-  { category: 'Buying', id: 'buying', heading: 'Buying and inspecting', intro: 'Questions to ask before you visit, on the test drive and before you commit.' },
-  { category: 'Vehicle choice', id: 'vehicle-choice', heading: 'Choosing a vehicle', intro: 'Compare body styles, drivetrains and fuel types for your actual Island routine.' },
-  { category: 'Financing', id: 'financing', heading: 'Payments and financing', intro: 'Understand the written terms and the whole cost of a used vehicle.' },
-  { category: 'Trade-in', id: 'trade-in', heading: 'Selling and trading', intro: 'Prepare your current vehicle and understand how its value affects the next purchase.' },
+  { category: 'Buying', id: 'buying', heading: 'Buying and inspecting', intro: 'Questions to ask before you visit, on the test drive and before you commit.', shopLinks: [{ label: 'Used cars under $25,000', href: '/used-cars-under-25000-pei' }, { label: 'Charlottetown inventory', href: '/used-cars-charlottetown' }] },
+  { category: 'Vehicle choice', id: 'vehicle-choice', heading: 'Choosing a vehicle', intro: 'Compare body styles, drivetrains and fuel types for your actual Island routine.', shopLinks: [{ label: 'Used SUVs', href: '/used-suvs-pei' }, { label: 'AWD and 4WD vehicles', href: '/used-awd-pei' }] },
+  { category: 'Financing', id: 'financing', heading: 'Payments and financing', intro: 'Understand the written terms and the whole cost of a used vehicle.', shopLinks: [{ label: 'Shop by payment estimate', href: '/used?payment=1' }, { label: 'Vehicles under $25,000', href: '/used-cars-under-25000-pei' }] },
+  { category: 'Trade-in', id: 'trade-in', heading: 'Selling and trading', intro: 'Prepare your current vehicle and understand how its value affects the next purchase.', shopLinks: [{ label: 'Browse current vehicles', href: '/used' }, { label: 'See used trucks', href: '/used-trucks-pei' }] },
 ];
 
 export default function GuidesPage() {
@@ -49,6 +50,10 @@ export default function GuidesPage() {
           {topics.map((topic) => (
             <section className="guide-topic-section" id={topic.id} key={topic.id}>
               <div className="guide-topic-heading"><div><span className="eyebrow">{topic.category.toUpperCase()}</span><h2>{topic.heading}</h2></div><p>{topic.intro}</p></div>
+              <nav className="guide-topic-shop" aria-label={`Shop inventory related to ${topic.category.toLowerCase()}`}>
+                <span>Shop related inventory:</span>
+                {topic.shopLinks.map((path) => <Link href={path.href} key={path.href}>{path.label} <ArrowUpRight size={14} /></Link>)}
+              </nav>
               <div className="guide-grid">
                 {guides.filter((guide) => guide.category === topic.category).sort((a, b) => b.published.localeCompare(a.published)).map((guide) => (
                   <Link className="guide-card" href={`/guides/${guide.slug}`} key={guide.slug}>

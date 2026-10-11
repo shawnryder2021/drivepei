@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { Fragment } from 'react';
 import { notFound } from 'next/navigation';
 import { ArrowUpRight } from 'lucide-react';
 import { guideBySlug, guides } from '@/lib/guides';
+import { guideShoppingLinks } from '@/lib/guide-shopping-links';
 
 const base = (process.env.NEXT_PUBLIC_SITE_URL || 'https://drivepei.ca').replace(/\/$/, '');
 type Props = { params: Promise<{ slug: string }> };
@@ -23,6 +25,7 @@ export default async function GuidePage({ params }: Props) {
   const { slug } = await params;
   const guide = guideBySlug(slug);
   if (!guide) notFound();
+  const shopping = guideShoppingLinks[guide.slug];
   const url = `${base}/guides/${guide.slug}`;
   const article = {
     '@context': 'https://schema.org', '@type': 'Article', headline: guide.title,
@@ -49,11 +52,17 @@ export default async function GuidePage({ params }: Props) {
     </div></section>
     <div className="container article-layout"><article className="guide-article">
       <p className="article-date">By DrivePEI · Published {new Date(`${guide.published}T12:00:00Z`).toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</p>
-      {guide.sections.map((section) => <section key={section.heading}>
-        <h2>{section.heading}</h2>
-        {section.paragraphs?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-        {section.bullets && <ul>{section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}
-      </section>)}
+      {guide.sections.map((section, index) => <Fragment key={section.heading}>
+        <section>
+          <h2>{section.heading}</h2>
+          {section.paragraphs?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+          {section.bullets && <ul>{section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}
+        </section>
+        {shopping?.afterSection === index && <div className="guide-shop-inline">
+          <span className="eyebrow">COMPARE LIVE LISTINGS</span>
+          <p>{shopping.intro} <Link href={shopping.links[0].href}>{shopping.links[0].label}</Link> or <Link href={shopping.links[1].href}>{shopping.links[1].label}</Link>.</p>
+        </div>}
+      </Fragment>)}
       {guide.sources && <aside className="guide-sources"><h2>Sources and further reading</h2><ul>{guide.sources.map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noopener noreferrer">{source.label} ↗</a></li>)}</ul><p>Requirements and guidance may change. Confirm current details with the source before making a decision.</p></aside>}
     </article><aside className="article-aside"><div className="article-action"><span className="eyebrow">YOUR NEXT STEP</span><h2>Put the guide to work.</h2><p>Compare real vehicles and ask us about the details that matter to you.</p>{guide.relatedPaths.map((path) => <Link href={path.href} key={path.href}>{path.label}<ArrowUpRight size={16}/></Link>)}</div><div className="article-more"><h2>Related PEI guides</h2>{guides.filter((other) => other.slug !== guide.slug).sort((a, b) => Number(b.category === guide.category) - Number(a.category === guide.category)).slice(0, 3).map((other) => <Link href={`/guides/${other.slug}`} key={other.slug}>{other.title} →</Link>)}<Link href="/guides">View all guides →</Link></div></aside></div>
   </main>;

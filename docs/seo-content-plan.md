@@ -37,7 +37,7 @@ Each active VIN page now has a 300-plus-word editorial baseline assembled from f
 - Understanding the difference between PEI’s annual MVI and a separate pre-purchase inspection.
 - Comparing a used hybrid with a gasoline alternative using model-year fuel ratings and vehicle-specific condition checks.
 
-The guide hub groups these topics by buying, vehicle choice, financing and trade-in. Each new article links to relevant live inventory or a useful next step, and the SUV, AWD, Honda and budget inventory pages link back to the matching guide. The sitemap reads `lib/guides.ts`, so new guide URLs appear automatically.
+The guide hub groups these topics by buying, vehicle choice, financing and trade-in. Each of its topic sections links to relevant live inventory. All 21 article pages also carry two descriptive inventory links inside the article, placed after the section where that comparison is useful. The destinations include canonical category pages and filtered `/used` views; the filter values must continue to work even when the live feed has no matches. The mapping in `lib/guide-shopping-links.ts` and its coverage test must be updated when a guide is added. The SUV, AWD, Honda and budget inventory pages link back to matching guides. The sitemap reads `lib/guides.ts`, so new guide URLs appear automatically; these link changes create no new sitemap URLs.
 
 ## October 2026 additions and next ideas
 
