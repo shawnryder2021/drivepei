@@ -34,7 +34,7 @@ Fill `.env.local` with real values. Do not commit the file. The site and lead fo
 2. The published DrivePEI Activepieces flow stores `adf_xml` in project Storage using `lead.id` as the key. If adding notifications or CRM updates, use this stored XML or the same webhook field. The website treats only an HTTP 2xx webhook response as success. See `docs/adf-leads.md` for the field mapping.
 3. The GA4 tag is already in the shared page head. If adding `NEXT_PUBLIC_GTM_ID` for other tags, do not configure a second GA4 Google tag or duplicate GA4 lead events in GTM. Set `TURNSTILE_SECRET_KEY` and `NEXT_PUBLIC_TURNSTILE_SITE_KEY` together to enable Cloudflare Turnstile on forms. Google and Bing verification tags are included in the site header.
 4. In Netlify, import this repository as a Next.js site. Build command: `npm run build`; publish directory: `.next`. The included `netlify.toml` supplies these values.
-5. Optional later: create PostgreSQL, run `db/001_init.sql`, and set `DATABASE_URL`, `ADMIN_TOKEN`, and `SYNC_TOKEN`. Then import inventory via `/admin` or `POST /api/admin/sync`. Add the GitHub Actions secrets `DRIVEPEI_SITE_URL` and `DRIVEPEI_SYNC_TOKEN` to schedule hourly imports. Until then, the site reads the live sheet directly.
+5. Optional later: create PostgreSQL, run `db/001_init.sql`, and set `DATABASE_URL`, `ADMIN_TOKEN`, and `SYNC_TOKEN`. Then import inventory via `/admin` or `POST /api/admin/sync`. Add the GitHub Actions secrets `DRIVEPEI_SITE_URL` and `DRIVEPEI_SYNC_TOKEN` before manually running the import workflow. Restore its schedule only after the database and secrets are configured. Until then, the site reads the live sheet directly.
 
 ## Data flow
 
