@@ -314,11 +314,11 @@ export const guides: Guide[] = [
   },
   {
     slug: 'pei-used-car-registration-transfer',
-    title: 'Registering a used car in PEI: ownership-transfer checklist',
-    description: 'What PEI buyers and sellers need for a used-vehicle ownership transfer: signed permit, bill of sale, MVI form, insurance and the seven-day steps.',
+    title: 'How to transfer a used car in PEI: seven-day checklist',
+    description: 'PEI ownership transfer: learn the buyer’s seven-day registration deadline, seller’s notice, and the permit, bill of sale, MVI and insurance documents.',
     category: 'Buying',
     lead: 'Before you collect a used vehicle, know which documents will transfer it into your name. PEI sets separate steps for the seller and buyer, so confirm who is doing what in your transaction.',
-    published: '2026-10-04', updated: '2026-10-04', readMinutes: 4,
+    published: '2026-10-04', updated: '2026-10-30', readMinutes: 4,
     sections: [
       { heading: 'Start with the permit and the real seller', paragraphs: ['PEI says the seller must complete and sign the back of the vehicle permit. The seller also completes the Notification of Transfer portion and mails it to the Registrar of Motor Vehicles within seven days of the transfer date. Check that the VIN on the permit matches the vehicle you inspected and the bill of sale.', 'When buying through a dealer, ask which transfer steps the dealership will handle and what documents you will receive. For a private sale, review the completed permit with the seller before money and keys change hands. A listing or text message is not a substitute for a properly completed ownership document.'] },
       { heading: 'The buyer has a seven-day transfer step', paragraphs: ['PEI says the buyer must transfer registration into their name within seven days of the transfer date. Its published list asks the buyer to present the vehicle permit signed by the previous owner, a bill of sale or receipt, the motor vehicle inspection form in the present owner’s or buyer’s name, and a valid insurance card.', 'Contact Access PEI about your specific transaction before you travel, especially if a document is missing, the vehicle comes from outside PEI or a lender has an interest in it. Arrange insurance for the intended use and transfer date; do not assume the previous owner’s coverage follows the car.'] },
