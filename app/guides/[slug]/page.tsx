@@ -4,7 +4,10 @@ import { Fragment } from 'react';
 import { notFound } from 'next/navigation';
 import { ArrowUpRight } from 'lucide-react';
 import { guideBySlug, guides } from '@/lib/guides';
+import { GuideInventory } from '@/components/GuideInventory';
 import { guideShoppingLinks } from '@/lib/guide-shopping-links';
+
+export const revalidate = 900;
 
 const base = (process.env.NEXT_PUBLIC_SITE_URL || 'https://drivepei.ca').replace(/\/$/, '');
 type Props = { params: Promise<{ slug: string }> };
@@ -65,5 +68,6 @@ export default async function GuidePage({ params }: Props) {
       </Fragment>)}
       {guide.sources && <aside className="guide-sources"><h2>Sources and further reading</h2><ul>{guide.sources.map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noopener noreferrer">{source.label} ↗</a></li>)}</ul><p>Requirements and guidance may change. Confirm current details with the source before making a decision.</p></aside>}
     </article><aside className="article-aside"><div className="article-action"><span className="eyebrow">YOUR NEXT STEP</span><h2>Put the guide to work.</h2><p>Compare real vehicles and ask us about the details that matter to you.</p>{guide.relatedPaths.map((path) => <Link href={path.href} key={path.href}>{path.label}<ArrowUpRight size={16}/></Link>)}</div><div className="article-more"><h2>Related PEI guides</h2>{guides.filter((other) => other.slug !== guide.slug).sort((a, b) => Number(b.category === guide.category) - Number(a.category === guide.category)).slice(0, 3).map((other) => <Link href={`/guides/${other.slug}`} key={other.slug}>{other.title} →</Link>)}<Link href="/guides">View all guides →</Link></div></aside></div>
+    <GuideInventory slug={guide.slug} />
   </main>;
 }

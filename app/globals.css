@@ -2269,3 +2269,12 @@ h2 em {
   .guide-article p, .guide-article li { font-size: 15px; }
   .nav { top: 70px; }
 }
+
+/* Live guide inventory uses the same responsive cards as category pages. */
+.guide-inventory { background: #f2f7f8; }
+.guide-inventory .section-heading h2 { max-width: 720px; }
+.guide-inventory .vehicle-grid { margin-top: 24px; }
+.guide-inventory-note { color: #344d60; font-size: 14px; line-height: 1.7; margin-top: 18px; }
+.guide-inventory-note a { text-decoration: underline; }
+.guide-inventory-empty { padding: 28px; background: white; border: 1px solid var(--line); }
+.guide-inventory-empty p { margin: 12px 0 20px; line-height: 1.7; }
