@@ -7,6 +7,49 @@ export type GuideShoppingLinks = {
 };
 
 export const guideShoppingLinks: Record<string, GuideShoppingLinks> = {
+
+  "pei-used-car-bill-of-sale-checklist": {
+    "afterSection": 1,
+    "intro": "Use this purchase checklist when comparing",
+    "links": [
+      {
+        "label": "Charlottetown used inventory",
+        "href": "/used-cars-charlottetown"
+      },
+      {
+        "label": "vehicles under $25,000",
+        "href": "/used-cars-under-25000-pei"
+      }
+    ]
+  },
+  "used-truck-inspection-checklist-pei": {
+    "afterSection": 1,
+    "intro": "Apply these checks to",
+    "links": [
+      {
+        "label": "current used trucks",
+        "href": "/used-trucks-pei"
+      },
+      {
+        "label": "other AWD and 4WD choices",
+        "href": "/used-awd-pei"
+      }
+    ]
+  },
+  "used-tiguan-vs-atlas-pei": {
+    "afterSection": 1,
+    "intro": "Start your comparison with",
+    "links": [
+      {
+        "label": "live Tiguan listings",
+        "href": "/used-volkswagen-tiguan-pei"
+      },
+      {
+        "label": "live Atlas-family listings",
+        "href": "/used-volkswagen-atlas-pei"
+      }
+    ]
+  },
   'buying-a-used-car-in-pei': {
     afterSection: 1,
     intro: 'Use the checklist against real prices and VINs in',

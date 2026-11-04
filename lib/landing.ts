@@ -60,7 +60,7 @@ export const truckLanding: LandingContent = {
     { heading: 'Price the complete truck', paragraphs: ['Look at the VIN, kilometres, tires, underbody, service records and any inspection or reconditioning information. Four-wheel drive and larger tires can affect maintenance and replacement costs. Check whether a hitch, bed cover or second tire set is actually included with the vehicle you are considering.'], bullets: ['Measure parking fit and rear-seat access before you travel.', 'Ask about past commercial or towing use and review the available history.', 'Use a test drive and independent inspection to assess condition.'] },
     { heading: 'When no pickup fits today', paragraphs: ['Truck stock can change quickly. Send your preferred cab, budget, drivetrain and towing or payload requirements through Car Finder, and we can watch for a suitable arrival.'] },
   ],
-  guideLinks: [{ label: 'PEI winter tire decisions', href: '/guides/winter-tires-pei-used-car' }, { label: 'MVI versus independent inspection', href: '/guides/pei-mvi-vs-prepurchase-inspection' }, { label: 'Compare AWD and 4WD vehicles', href: '/used-awd-pei' }, { label: 'Browse all used vehicles', href: '/used' }],
+  guideLinks: [{"label": "Used truck inspection checklist", "href": "/guides/used-truck-inspection-checklist-pei"}, { label: 'PEI winter tire decisions', href: '/guides/winter-tires-pei-used-car' }, { label: 'MVI versus independent inspection', href: '/guides/pei-mvi-vs-prepurchase-inspection' }, { label: 'Compare AWD and 4WD vehicles', href: '/used-awd-pei' }, { label: 'Browse all used vehicles', href: '/used' }],
 };
 
 export const tiguanLanding: LandingContent = {
@@ -71,7 +71,7 @@ export const tiguanLanding: LandingContent = {
     { heading: 'Test the family and commute fit', paragraphs: ['Bring a child seat, stroller, dog crate or work gear to see whether the actual vehicle works for your routine. Try the rear doors and cargo opening, then drive a safe route that includes the town and highway speeds you use. Ask for the current MVI information, service records and any available history report.'], bullets: ['Compare price against year, kilometres, trim and condition.', 'Check tire type, size, wear and what comes with the sale.', 'Review written financing terms and the total purchase cost.'] },
     { heading: 'Watch for a specific Tiguan', paragraphs: ['If your preferred year, budget or equipment is missing, use Car Finder with those details. Current listings may sell before an appointment, so ask us to confirm the VIN before making a trip.'] },
   ],
-  guideLinks: [{ label: 'Used Volkswagen checklist', href: '/guides/used-volkswagen-checklist-pei' }, { label: 'Compare AWD and FWD', href: '/guides/awd-vs-fwd-pei' }, { label: 'PEI winter tire decisions', href: '/guides/winter-tires-pei-used-car' }, { label: 'Compare Atlas-family SUVs', href: '/used-volkswagen-atlas-pei' }],
+  guideLinks: [{"label": "Tiguan versus Atlas comparison", "href": "/guides/used-tiguan-vs-atlas-pei"}, { label: 'Used Volkswagen checklist', href: '/guides/used-volkswagen-checklist-pei' }, { label: 'Compare AWD and FWD', href: '/guides/awd-vs-fwd-pei' }, { label: 'PEI winter tire decisions', href: '/guides/winter-tires-pei-used-car' }, { label: 'Compare Atlas-family SUVs', href: '/used-volkswagen-atlas-pei' }],
 };
 
 export const atlasLanding: LandingContent = {
@@ -82,7 +82,7 @@ export const atlasLanding: LandingContent = {
     { heading: 'Look past the size', paragraphs: ['For each VIN, confirm drivetrain, trim, tires, service history and inspection status. Larger wheels or a different tire size can change your replacement budget. If you use the vehicle for long Island trips, test highway comfort, visibility and the cargo arrangement with the seats set for your family.'], bullets: ['Check how child seats or adult passengers fit.', 'Measure the items that must fit through the cargo opening.', 'Compare year, kilometres and condition before judging the price.'] },
     { heading: 'Set up a targeted search', paragraphs: ['Atlas-family availability changes with the daily feed. If the right layout or price is absent, tell us which model, seating arrangement and budget you need through Car Finder. Ask us to confirm the exact vehicle before travelling.'] },
   ],
-  guideLinks: [{ label: 'Used Volkswagen checklist', href: '/guides/used-volkswagen-checklist-pei' }, { label: 'Used SUV buying guide', href: '/guides/used-suv-buying-guide-pei' }, { label: 'Compare current Tiguans', href: '/used-volkswagen-tiguan-pei' }, { label: 'Browse all used SUVs', href: '/used-suvs-pei' }],
+  guideLinks: [{"label": "Tiguan versus Atlas comparison", "href": "/guides/used-tiguan-vs-atlas-pei"}, { label: 'Used Volkswagen checklist', href: '/guides/used-volkswagen-checklist-pei' }, { label: 'Used SUV buying guide', href: '/guides/used-suv-buying-guide-pei' }, { label: 'Compare current Tiguans', href: '/used-volkswagen-tiguan-pei' }, { label: 'Browse all used SUVs', href: '/used-suvs-pei' }],
 };
 
 export const summersideLanding: LandingContent = {

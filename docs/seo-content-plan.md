@@ -18,7 +18,7 @@ Help PEI shoppers compare real used inventory across makes and make informed buy
 | Used Tiguan PEI | `/used-volkswagen-tiguan-pei` | Live Tiguan-only results and model/trim comparison |
 | Used Atlas PEI | `/used-volkswagen-atlas-pei` | Live Atlas and Atlas Cross Sport results with distinct model guidance |
 | Used Volkswagen, Honda, Kia, Nissan PEI | `/used-volkswagen-pei`, `/used-honda-pei`, `/used-kia-pei`, `/used-nissan-pei` | Current make filters with distinct buying guidance |
-| Research before purchase | `/guides` and 21 article pages | Buying, vehicle choice, financing and trade knowledge |
+| Research before purchase | `/guides` and 24 article pages | Buying, vehicle choice, financing and trade knowledge |
 | Specific VIN or model | `/vehicles/[slug]` | Live vehicle details and inquiry |
 
 Each active VIN page now has a 300-plus-word editorial baseline assembled from feed facts (year, make, model, trim, price, kilometres, body and drivetrain) and a three-question PEI FAQ about availability, inspection and winter suitability. This applies to future feed arrivals through the shared vehicle-page template. The text explicitly asks shoppers to verify condition, equipment and paperwork; it does not claim an unverified inspection or included feature. The length is a DrivePEI editorial requirement, not a Google ranking threshold. Add team-confirmed observations and genuine photos to priority VINs so pages offer more than shared buying advice.
@@ -37,7 +37,7 @@ Each active VIN page now has a 300-plus-word editorial baseline assembled from f
 - Understanding the difference between PEI’s annual MVI and a separate pre-purchase inspection.
 - Comparing a used hybrid with a gasoline alternative using model-year fuel ratings and vehicle-specific condition checks.
 
-The guide hub groups these topics by buying, vehicle choice, financing and trade-in. Each of its topic sections links to relevant live inventory. All 21 article pages also carry two descriptive inventory links inside the article, placed after the section where that comparison is useful. The destinations include canonical category pages and filtered `/used` views; the filter values must continue to work even when the live feed has no matches. The mapping in `lib/guide-shopping-links.ts` and its coverage test must be updated when a guide is added. The SUV, AWD, Honda and budget inventory pages link back to matching guides. The sitemap reads `lib/guides.ts`, so new guide URLs appear automatically; these link changes create no new sitemap URLs.
+The guide hub groups these topics by buying, vehicle choice, financing and trade-in. Each of its topic sections links to relevant live inventory. All 24 article pages also carry two descriptive inventory links inside the article, placed after the section where that comparison is useful. The destinations include canonical category pages and filtered `/used` views; the filter values must continue to work even when the live feed has no matches. The mapping in `lib/guide-shopping-links.ts` and its coverage test must be updated when a guide is added. The SUV, AWD, Honda and budget inventory pages link back to matching guides. The sitemap reads `lib/guides.ts`, so new guide URLs appear automatically; these link changes create no new sitemap URLs.
 
 ## October 2026 additions and next ideas
 
@@ -64,6 +64,30 @@ At the next Search Console review, prioritize pages gaining impressions without 
 Future guides should come from real shopper questions and first-hand team observations. A possible next topic is selling a vehicle with an outstanding loan in PEI. Review overlap with existing guides before publishing.
 
 Publish a new piece only when it answers a distinct question with specific examples or verified local detail. Add first-hand observations, original photos or comparisons from the team where available. Avoid near-duplicate city or make pages. Review provincial and federal source links and finance guidance at least quarterly, and update article `updated` dates only when the content changes.
+
+## November 3 expansion and priorities
+
+The latest reviewed search data (October 22–28) showed 91 Google impressions and no clicks; the registration guide accounted for 74 impressions. This is a discovery signal, not evidence of traffic growth. The November 3 live inventory contained nine Tiguans, seven Atlas-family SUVs and two pickups, supporting useful research content linked to those categories.
+
+Published three distinct guides, bringing the library to 24:
+
+- `/guides/pei-used-car-bill-of-sale-checklist`: purchase-record details and the distinction between a receipt and ownership-transfer paperwork, sourced to PEI government guidance.
+- `/guides/used-truck-inspection-checklist-pei`: practical cab, bed, underbody, load and inspection questions, linked to current truck and AWD inventory.
+- `/guides/used-tiguan-vs-atlas-pei`: a comparison checklist for actual used SUVs, separating Atlas and Atlas Cross Sport and asking buyers to confirm exact equipment. This is not a firsthand vehicle review.
+
+Each guide has contextual inventory links, related guides, sources, unique metadata, a canonical URL, Article and breadcrumb markup, and an automatic sitemap entry. Existing relevant guides and category pages link into the new material. The homepage now selects the three newest published guides by date rather than array position.
+
+Next work, in priority order:
+
+1. **Improve priority VIN pages with original evidence.** Ask staff for approved photographs and three useful observations per vehicle: condition, confirmed equipment and practical fit. Start with photographed Tiguans, Atlas-family SUVs and pickups. Keep observations attached to the exact VIN and remove availability claims when it leaves stock.
+2. **Upgrade the SUV checklist with a real comparison.** Photograph cargo space and seating in two available vehicles and add staff-confirmed measurements and observations. Retain the evergreen guide URL; distinguish model years and trims.
+3. **Publish the appraisal-process and all-in-quote briefs above.** Use the team's actual process and an approved anonymized quote, verifying applicable rules before publication. These should answer questions existing finance pages do not already cover.
+4. **Earn relevant local referral links.** Offer the registration and bill-of-sale guides to PEI newcomer organizations, driving schools and community publishers when useful to their readers. Prepare individual outreach drafts for approval; no outreach or social publication is authorized by this document alone.
+5. **Improve snippets using query evidence.** Review registration-guide queries and page-level click-through rate after recrawl. Match title and opening answer to actual intent; do not repeatedly rewrite titles based on a handful of impressions.
+
+Weekly measurement: Google non-brand clicks and impressions by guide/category, guide-to-inventory visits, vehicle-page visits, successful lead events by source, and qualified outcomes where available. Compare rolling 28-day periods and annotate publication dates. Do not label credit-link clicks as applications. Qualified outcomes and alert-specific baseline counts remain unverified; aggregate them only when the reporting source is available. Avoid claiming ranking gains from new URLs alone.
+
+The submitted sitemap updates automatically. Verify that these URLs appear and return HTTP 200; repeated sitemap submissions are unnecessary. Avoid near-identical town/model pages and prioritize improvements to pages already attracting relevant impressions.
 
 ## Publishing checklist
 

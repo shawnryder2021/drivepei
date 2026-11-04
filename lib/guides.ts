@@ -18,6 +18,254 @@ export type Guide = {
 };
 const date = '2026-09-25';
 export const guides: Guide[] = [
+{
+  "slug": "pei-used-car-bill-of-sale-checklist",
+  "title": "PEI used-car bill of sale: a buyer and seller checklist",
+  "description": "Prepare a clear bill of sale for a used car in PEI: vehicle details, price, included items, signatures and the separate ownership-transfer documents.",
+  "category": "Buying",
+  "lead": "A bill of sale records the deal you agreed to. Before you pay for a used vehicle, make sure that record matches the car, the seller and the promises that influenced your decision.",
+  "sections": [
+    {
+      "heading": "What does PEI ask you to bring?",
+      "paragraphs": [
+        "The Government of PEI lists a bill of sale or receipt among the documents a buyer presents when transferring vehicle registration. It also lists the signed vehicle permit, an MVI form in the present owner’s or buyer’s name, and a valid insurance card. A receipt alone does not complete the ownership transfer.",
+        "The province says the buyer must transfer registration within seven days of the transfer date. The seller has a separate Notification of Transfer to complete and mail within seven days. Use our registration guide for that process; this checklist helps you review the record of the purchase itself."
+      ]
+    },
+    {
+      "heading": "Details to record before money changes hands",
+      "paragraphs": [
+        "The following is a practical purchase-record checklist, rather than an official government form. Ask Access PEI whether additional information or a particular form is needed for your transaction, especially when ownership or paperwork is unusual."
+      ],
+      "bullets": [
+        "Record the buyer and seller names and a way for each party to contact the other.",
+        "Identify the vehicle by VIN, year, make and model; compare the VIN with both the vehicle and permit.",
+        "Record the agreed price, sale date and odometer reading as observed at handover.",
+        "Describe the payment arrangement, any deposit already paid and the balance remaining.",
+        "List included keys, tires, wheels, accessories and any promised work or written coverage.",
+        "Have both parties review and sign the completed record and keep a readable copy."
+      ]
+    },
+    {
+      "heading": "Make the written deal specific",
+      "paragraphs": [
+        "“Winter tires included” leaves questions unanswered. Identify the set you inspected, whether wheels are included and when you receive it. If the seller promises a repair before pickup, record the work and how completion will be confirmed. Avoid signing a document with blank price or vehicle fields.",
+        "For a dealer purchase, ask for the full written purchase agreement and review the vehicle price, fees, taxes, trade allowance and any optional products. A deposit receipt may not contain the full agreement. Keep those documents together so you can follow how the final balance was calculated."
+      ]
+    },
+    {
+      "heading": "Check ownership and payment separately",
+      "paragraphs": [
+        "Matching names and VINs is a useful first check, but a bill of sale does not establish that the vehicle has no lien or that its condition is satisfactory. Review the history and ownership information available, ask about any financing interest, and clarify how an outstanding balance will be handled before paying.",
+        "An inspection and test drive answer different questions from the paperwork. Arrange them before committing if condition is uncertain. Keep copies of the advertisement and written promises with your purchase records, and avoid sending financial or identity documents through an ordinary vehicle inquiry form."
+      ]
+    },
+    {
+      "heading": "Local questions before pickup",
+      "paragraphs": [
+        "Does the bill of sale replace the signed permit? No. PEI lists both the permit signed by the previous owner and the bill of sale or receipt for the buyer’s transfer.",
+        "What if a document is missing? Contact Access PEI before travelling or completing the transaction. Explain whether it is a private sale, dealer purchase or an out-of-province vehicle so you can confirm the applicable requirements.",
+        "Can DrivePEI confirm the documents for a listed vehicle? Send an inquiry from the exact vehicle page and ask what paperwork will be supplied and which registration steps the seller will handle. Confirm availability before arranging a viewing in Charlottetown."
+      ]
+    }
+  ],
+  "relatedPaths": [
+    {
+      "label": "Complete the PEI ownership transfer",
+      "href": "/guides/pei-used-car-registration-transfer"
+    },
+    {
+      "label": "Compare dealer and private purchases",
+      "href": "/guides/dealer-vs-kijiji-used-car-pei"
+    },
+    {
+      "label": "Browse current used vehicles",
+      "href": "/used"
+    },
+    {
+      "label": "Read a vehicle history report",
+      "href": "/guides/read-a-vehicle-history-report"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Government of PEI: vehicle registration ownership transfers",
+      "href": "https://www.princeedwardisland.ca/en/information/transportation-and-infrastructure/vehicle-registration-ownership-transfers"
+    }
+  ],
+  "published": "2026-11-03",
+  "updated": "2026-11-03",
+  "readMinutes": 5
+},
+{
+  "slug": "used-truck-inspection-checklist-pei",
+  "title": "Used truck inspection checklist for PEI buyers",
+  "description": "Check a used pickup for your PEI routine: cab and bed fit, underbody condition, service history, tires, towing equipment and an independent inspection.",
+  "category": "Buying",
+  "lead": "A pickup can look suitable in a listing and still be wrong for your load, parking space or ownership budget. Use this checklist to turn a used-truck viewing into a useful comparison.",
+  "sections": [
+    {
+      "heading": "Describe the job before choosing a truck",
+      "paragraphs": [
+        "Write down your regular passengers, cargo, parking space and any trailer you plan to use. A truck for commuting between Summerside and Charlottetown has different daily priorities from one carrying tools or launching a boat. Measure bulky equipment and your parking space before comparing photographs.",
+        "Separate what you need every day from occasional tasks. Try the rear-seat access with your passengers, measure the usable bed and check how a cover or toolbox changes that space. A larger cab or different bed configuration can change the fit even within the same model."
+      ]
+    },
+    {
+      "heading": "Ask for a clear view of the underbody",
+      "paragraphs": [
+        "Look for visible corrosion, damage, leaks and evidence of repairs around accessible areas of the bed, chassis and suspension. Fresh coatings can make a surface harder to assess; ask what was applied, why and whether earlier inspection photos are available. Appearance alone cannot establish structural condition.",
+        "Have a qualified mechanic inspect underneath using suitable lifting equipment. Do not crawl beneath an unsecured vehicle. Ask the inspector to explain which findings are cosmetic, which need attention and what further diagnosis is necessary. A repair estimate helps you compare the whole purchase cost with another truck."
+      ]
+    },
+    {
+      "heading": "Match equipment to the exact vehicle",
+      "bullets": [
+        "Check the VIN and ask for the owner manual and vehicle-specific payload and towing information.",
+        "Confirm the engine, drivetrain, cab, bed and any towing package on that truck.",
+        "Inspect the hitch and wiring condition; an installed hitch does not establish the vehicle’s towing rating.",
+        "Ask about past towing, commercial use, modifications and available service records.",
+        "Check tire size, condition and replacement cost, including any second set promised in the sale."
+      ]
+    },
+    {
+      "heading": "Use the test drive to collect questions",
+      "paragraphs": [
+        "Begin with the controls, seat adjustment, visibility and parking manoeuvres. On a safe agreed route, notice steering, braking, shifting, vibration and unusual sounds. Ask how any four-wheel-drive modes should be operated before trying them; follow the instructions for the specific vehicle.",
+        "A short drive cannot reproduce every loaded or towing condition. Record anything that needs explanation and give those observations to the inspector. Review service records alongside kilometres: missing records do not prove a defect, but they leave maintenance questions to resolve before deciding."
+      ]
+    },
+    {
+      "heading": "Compare the complete ownership budget",
+      "paragraphs": [
+        "Allow for insurance, fuel, tires and maintenance as well as the price. If a truck needs a tire set or immediate work, add a written estimate to your comparison. Check which accessories are actually included and whether any coverage has exclusions relevant to the way you intend to use the truck.",
+        "Transport Canada recommends checking recalls before buying a used vehicle. Use the manufacturer’s VIN lookup where available and ask for confirmation of any outstanding work. A general model recall search does not establish that a particular truck has already received the repair."
+      ]
+    },
+    {
+      "heading": "PEI truck-shopping questions",
+      "paragraphs": [
+        "Does a current MVI answer every condition question? Ask what the inspection covered and use our MVI guide to understand why a separate pre-purchase inspection can still be useful.",
+        "What if no truck fits my towing or cab requirements? Use Car Finder with your budget, cab and bed needs, and the load you need to discuss. Confirm the exact vehicle’s ratings before choosing it.",
+        "Can I book a test drive from outside Charlottetown? Send the listing link and preferred time, then wait for confirmation that the vehicle and appointment are available before travelling."
+      ]
+    }
+  ],
+  "relatedPaths": [
+    {
+      "label": "Shop current used pickups",
+      "href": "/used-trucks-pei"
+    },
+    {
+      "label": "MVI and independent inspections",
+      "href": "/guides/pei-mvi-vs-prepurchase-inspection"
+    },
+    {
+      "label": "Check PEI winter tires",
+      "href": "/guides/winter-tires-pei-used-car"
+    },
+    {
+      "label": "Request a truck through Car Finder",
+      "href": "/car-finder"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Transport Canada: check recalls before buying a used vehicle",
+      "href": "https://tc.canada.ca/en/road-transportation/defects-recalls-vehicles-tires-child-car-seats/importance-having-recalled-vehicles-repaired"
+    }
+  ],
+  "published": "2026-11-03",
+  "updated": "2026-11-03",
+  "readMinutes": 5
+},
+{
+  "slug": "used-tiguan-vs-atlas-pei",
+  "title": "Used Tiguan vs. Atlas in PEI: compare the actual SUVs",
+  "description": "Compare used Volkswagen Tiguan, Atlas and Atlas Cross Sport listings in PEI by seating, cargo fit, condition, running costs and exact vehicle equipment.",
+  "category": "Vehicle choice",
+  "lead": "Start with the passengers and gear you need to carry, then compare two actual vehicles. Used Tiguan and Atlas-family listings can differ in model year, equipment, kilometres and condition.",
+  "sections": [
+    {
+      "heading": "Build a shortlist around your daily routine",
+      "paragraphs": [
+        "Write down how many people travel with you regularly, which seats need to hold child restraints and what stays in the cargo area. A stroller, dog crate or hockey bag can be more useful at a viewing than a general claim about spaciousness. Bring your usual items and try the layout with the seats in the positions you will use.",
+        "Compare the exact model name as well as the trim. Atlas and Atlas Cross Sport should be treated as separate candidates, with their own seating and cargo layouts verified at the vehicle. Do not assume that every Atlas-family listing meets a requirement for an extra row."
+      ]
+    },
+    {
+      "heading": "Verify seats and equipment by year",
+      "paragraphs": [
+        "Used inventory spans different model years and option packages. Volkswagen’s Canadian 2023 Tiguan buyer guide, for example, lists a third-row package. That illustrates why a model name alone is not enough to confirm seating. Ask for the equipment details for the specific VIN and physically count the seating positions you intend to use.",
+        "Check rear-door access, seat adjustment, cargo-floor height and room remaining when passengers are aboard. Try entry and exit rather than judging only from a photograph. If you use child seats, check the vehicle and restraint instructions and confirm that your intended arrangement works before committing."
+      ]
+    },
+    {
+      "heading": "Compare the commute and parking experience",
+      "paragraphs": [
+        "Use the same safe test route for both vehicles where practical. Include the town streets, parking manoeuvres and higher-speed driving relevant to your Island routine. Notice visibility, seat comfort, road noise, braking and how easily you can place the vehicle in a parking space.",
+        "Try everyday controls while parked: climate settings, defrosting, phone connection and the cargo opening. Ask about equipment that is not shown clearly in the listing. Features available on a new model or a different trim do not establish what an older used example contains."
+      ]
+    },
+    {
+      "heading": "Put the purchase and running costs together",
+      "bullets": [
+        "Record the actual price, kilometres and model year for each VIN.",
+        "Get insurance quotes for both shortlisted vehicles using their exact details.",
+        "Check tire sizes and price a suitable replacement or winter set if needed.",
+        "Review service history and ask which scheduled work is due next.",
+        "Compare written financing quotes using the same down payment and term where possible.",
+        "Include any immediate work identified by an independent inspection in your budget."
+      ]
+    },
+    {
+      "heading": "Let condition influence the decision",
+      "paragraphs": [
+        "A newer year or lower odometer reading is only one part of the comparison. Look at the available maintenance history, condition, inspection findings and written coverage. Ask about unfamiliar warning lights or noises before you decide that one SUV offers better value.",
+        "Check recalls using the VIN and ask for evidence that applicable work was completed. Transport Canada recommends recall checks when buying used vehicles. Keep that question separate from accident history and routine servicing, since those records answer different concerns."
+      ]
+    },
+    {
+      "heading": "Questions PEI shoppers can resolve at a viewing",
+      "paragraphs": [
+        "Which is better for my family? Choose the example that passes your passenger, cargo, budget and condition checks. This guide does not assign a universal winner because the actual used vehicles differ.",
+        "Does the listing guarantee all-wheel drive or a particular seat layout? Confirm the displayed drivetrain and requested equipment on the exact VIN with the seller. Ask about the tires supplied for your winter use as well.",
+        "What if the model I want is missing? The Tiguan and Atlas category pages show current matching stock. Use Car Finder for a specific year, budget or seating requirement, and confirm a vehicle is available before travelling from elsewhere on PEI."
+      ]
+    }
+  ],
+  "relatedPaths": [
+    {
+      "label": "Compare current Tiguans",
+      "href": "/used-volkswagen-tiguan-pei"
+    },
+    {
+      "label": "Compare current Atlas-family SUVs",
+      "href": "/used-volkswagen-atlas-pei"
+    },
+    {
+      "label": "Check a used Volkswagen",
+      "href": "/guides/used-volkswagen-checklist-pei"
+    },
+    {
+      "label": "Compare AWD and FWD",
+      "href": "/guides/awd-vs-fwd-pei"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Volkswagen Canada: 2023 Tiguan buyer guide",
+      "href": "https://www.vw.ca/idhub/content/dam/onehub_pkw/importers/ca/2022/en/showroom/tiguan-2023/Sep22_MY23%20Tiguan%20Buyers%20Guide.pdf"
+    },
+    {
+      "label": "Transport Canada: check recalls before buying a used vehicle",
+      "href": "https://tc.canada.ca/en/road-transportation/defects-recalls-vehicles-tires-child-car-seats/importance-having-recalled-vehicles-repaired"
+    }
+  ],
+  "published": "2026-11-03",
+  "updated": "2026-11-03",
+  "readMinutes": 5
+},
   {
     slug: 'buying-a-used-car-in-pei',
     title: 'How to buy a used car in PEI: a practical checklist',
@@ -195,7 +443,7 @@ export const guides: Guide[] = [
       { heading: 'Test it for your Island routine', paragraphs: ['Try the seating position, controls and visibility before driving. On a safe route similar to your commute, note how the vehicle accelerates, brakes, turns and rides over ordinary pavement. Bring the cargo or child seat you regularly use; a compact car and a larger SUV may suit very different routines.', 'If winter traction is a concern, compare the condition and type of tires as well as the drivetrain. AWD can help a vehicle get moving on slippery surfaces, but it does not replace appropriate tires or shorten stopping distance on ice.'] },
       { heading: 'Ask for the complete written deal', bullets: ['Confirm the current asking price, applicable taxes, fees and any optional products.', 'Ask what inspection, reconditioning or warranty information is available for this VIN.', 'If financing, compare the rate, term, amount financed and total cost of borrowing.', 'Confirm availability and book a viewing before travelling to see it.'] },
     ],
-    relatedPaths: [{ label: 'Shop used Volkswagen in PEI', href: '/used-volkswagen-pei' }, { label: 'Compare current Tiguans', href: '/used-volkswagen-tiguan-pei' }, { label: 'Compare Atlas-family SUVs', href: '/used-volkswagen-atlas-pei' }, { label: 'Read the vehicle-history guide', href: '/guides/read-a-vehicle-history-report' }],
+    relatedPaths: [{"label": "Compare a used Tiguan with Atlas-family SUVs", "href": "/guides/used-tiguan-vs-atlas-pei"}, { label: 'Shop used Volkswagen in PEI', href: '/used-volkswagen-pei' }, { label: 'Compare current Tiguans', href: '/used-volkswagen-tiguan-pei' }, { label: 'Compare Atlas-family SUVs', href: '/used-volkswagen-atlas-pei' }, { label: 'Read the vehicle-history guide', href: '/guides/read-a-vehicle-history-report' }],
   },
   {
     slug: 'questions-to-ask-about-used-car-listing-pei',
@@ -259,7 +507,7 @@ export const guides: Guide[] = [
       { heading: 'Arrange it before making a final commitment', bullets: ['Ask whether the seller will allow an independent inspection and how the vehicle will get to the shop.', 'Choose a mechanic qualified for the type of vehicle, especially if it has a hybrid or other specialized system.', 'Ask for written findings that separate immediate safety concerns from routine future maintenance.', 'Request estimates for significant repairs and compare them with the asking price and your budget.'] },
       { heading: 'Use the findings in the whole decision', paragraphs: ['One minor maintenance item may be manageable; several expensive or unresolved findings may change the value of the vehicle for you. Ask what work the seller will complete and get any agreement in writing. If you are financing, remember that repairs, tires and insurance come out of the same household budget as the payment.', 'If the report raises a serious safety concern or the information you need is unavailable, pause the purchase and get a professional explanation. There are other used vehicles to compare.'] },
     ],
-    relatedPaths: [{ label: 'Browse vehicles with VIN-specific details', href: '/used' }, { label: 'Use the PEI test-drive checklist', href: '/guides/used-car-test-drive-checklist-pei' }, { label: 'Read about vehicle history reports', href: '/guides/read-a-vehicle-history-report' }],
+    relatedPaths: [{"label": "Inspect a used pickup before buying", "href": "/guides/used-truck-inspection-checklist-pei"}, { label: 'Browse vehicles with VIN-specific details', href: '/used' }, { label: 'Use the PEI test-drive checklist', href: '/guides/used-car-test-drive-checklist-pei' }, { label: 'Read about vehicle history reports', href: '/guides/read-a-vehicle-history-report' }],
     sources: [{ label: 'PEI government motor vehicle inspections', href: 'https://www.princeedwardisland.ca/en/information/transportation-and-infrastructure/motor-vehicle-inspections-mvi' }],
   },
   {
@@ -326,7 +574,7 @@ export const guides: Guide[] = [
       { heading: 'A document check before pickup', bullets: ['Confirm the VIN, seller identity, agreed price and sale date on the paperwork.', 'Check that the permit is signed and the bill of sale identifies both parties and the vehicle.', 'Request the MVI form and ask whether any inspection-related work remains.', 'Have your valid insurance card ready for the transfer.', 'Ask who will submit each part of the transfer and keep copies of your records.'] },
       { heading: 'Use official guidance for unusual cases', paragraphs: ['An imported vehicle, estate sale, business-owned vehicle or missing permit may require extra steps. PEI prints instructions on the registration permit and publishes contact details for Access PEI. Use those channels for the current requirements rather than relying on a generic checklist.'] },
     ],
-    relatedPaths: [{ label: 'Shop current used vehicles', href: '/used' }, { label: 'MVI versus pre-purchase inspection', href: '/guides/pei-mvi-vs-prepurchase-inspection' }, { label: 'Dealer versus private sale in PEI', href: '/guides/dealer-vs-kijiji-used-car-pei' }, { label: 'Shop from Summerside', href: '/used-cars-summerside-pei' }],
+    relatedPaths: [{"label": "Review the PEI bill-of-sale checklist", "href": "/guides/pei-used-car-bill-of-sale-checklist"}, { label: 'Shop current used vehicles', href: '/used' }, { label: 'MVI versus pre-purchase inspection', href: '/guides/pei-mvi-vs-prepurchase-inspection' }, { label: 'Dealer versus private sale in PEI', href: '/guides/dealer-vs-kijiji-used-car-pei' }, { label: 'Shop from Summerside', href: '/used-cars-summerside-pei' }],
     sources: [{ label: 'Government of PEI: vehicle registration ownership transfers', href: 'https://www.princeedwardisland.ca/en/information/transportation-and-infrastructure/vehicle-registration-ownership-transfers' }, { label: 'Government of PEI: motor vehicle inspections', href: 'https://www.princeedwardisland.ca/en/information/transportation-and-infrastructure/motor-vehicle-inspections-mvi' }],
   },
   {
@@ -359,7 +607,7 @@ export const guides: Guide[] = [
       { heading: 'Think about recourse before you sign', paragraphs: ['Dealer and private transactions may involve different obligations and paths for resolving a problem. Do not assume a particular refund, warranty or cooling-off right from the advertisement. Ask for every promise in writing and check the contract and any coverage terms before committing.', 'If something is unclear, contact PEI Consumer Affairs or Access PEI about the applicable rule. The federal consumer agency warns that a signed vehicle purchase contract is usually binding and that a cooling-off period may not apply.'] },
       { heading: 'Choose the vehicle and process you can verify', paragraphs: ['A good purchase is supported by a clear seller identity, consistent VIN and paperwork, useful inspection and service information, a test drive and a written total cost. If any of those pieces is missing, pause and ask for it. Use DrivePEI’s live listings to compare specific vehicles, then ask about the exact VIN rather than making a decision from a category label.'] },
     ],
-    relatedPaths: [{ label: 'Browse current used vehicles', href: '/used' }, { label: 'PEI registration and transfer checklist', href: '/guides/pei-used-car-registration-transfer' }, { label: 'Read a vehicle history report', href: '/guides/read-a-vehicle-history-report' }, { label: 'Understand PEI MVI', href: '/guides/pei-mvi-vs-prepurchase-inspection' }],
+    relatedPaths: [{"label": "Prepare a clear bill of sale", "href": "/guides/pei-used-car-bill-of-sale-checklist"}, { label: 'Browse current used vehicles', href: '/used' }, { label: 'PEI registration and transfer checklist', href: '/guides/pei-used-car-registration-transfer' }, { label: 'Read a vehicle history report', href: '/guides/read-a-vehicle-history-report' }, { label: 'Understand PEI MVI', href: '/guides/pei-mvi-vs-prepurchase-inspection' }],
     sources: [{ label: 'Government of Canada: buying or leasing a vehicle', href: 'https://ised-isde.canada.ca/site/office-consumer-affairs/en/buying-and-leasing-big-ticket-items/buying-or-leasing-vehicle' }, { label: 'Government of PEI: vehicle registration ownership transfers', href: 'https://www.princeedwardisland.ca/en/information/transportation-and-infrastructure/vehicle-registration-ownership-transfers' }, { label: 'Government of PEI: vehicle dealer trade licence', href: 'https://www.princeedwardisland.ca/en/information/transportation-infrastructure-and-energy/vehicle-dealers-trade-license' }],
   },
 ];
