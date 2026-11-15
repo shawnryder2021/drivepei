@@ -1,0 +1,80 @@
+[
+  {
+    "slug": "test-drive-scorecard",
+    "title": "Used-car test-drive scorecard",
+    "description": "A free printable test-drive scorecard for PEI used-car shoppers. Record comfort, visibility, parking fit and questions to ask before deciding.",
+    "lead": "Use the same questions on every test drive so the last car you drive does not automatically become your favourite. Print one sheet per vehicle and fill it in while parked.",
+    "format": "scorecard",
+    "updated": "2026-11-15",
+    "howTo": ["Confirm the vehicle is available, agree on the route and ask what licence and insurance arrangements the seller requires.", "Bring the items you use regularly: a child seat, stroller, work bag or other cargo. Test their fit while parked.", "Score each item from 1 (poor fit) to 5 (good fit), or mark N/A. Record observations after stopping safely; never take notes while driving.", "Compare your sheets after the visits. A high comfort score does not establish mechanical condition; unresolved concerns need a separate inspection."],
+    "rows": [
+      ["Driving position", "Can you adjust the seat and wheel comfortably?"],
+      ["Visibility", "Check mirrors, blind spots and sight lines while parked."],
+      ["Passenger access", "Try rear doors, seating and your child-seat arrangement."],
+      ["Cargo fit", "Load your usual items; check the opening and floor height."],
+      ["Parking fit", "Try a safe parking space similar to the one you use."],
+      ["Ride and noise", "Note comfort and unfamiliar sounds on the agreed route."],
+      ["Controls", "Try heat, defrost, audio and phone connection while parked."],
+      ["Everyday confidence", "Does normal steering and braking feel comfortable?"]
+    ],
+    "note": "Record concerns rather than diagnosing them. Stop the drive safely if the vehicle feels unsafe, and ask the seller to arrange professional assessment.",
+    "next": "Keep any unresolved safety or condition question separate from your preference score. Ask for inspection findings and written answers before committing.",
+    "guides": ["used-car-test-drive-checklist-pei", "questions-to-ask-about-used-car-listing-pei", "used-sedan-vs-compact-suv-pei"],
+    "related": [{"label":"Plan your PEI test drive","href":"/guides/used-car-test-drive-checklist-pei"},{"label":"Choose a vehicle to view","href":"/used-cars-charlottetown"},{"label":"Request a test drive","href":"/#test-drive"}],
+    "sources": [{"label":"Office of Consumer Affairs: buying or leasing a vehicle","href":"https://www.ised-isde.canada.ca/site/office-consumer-affairs/en/buying-and-leasing-big-ticket-items/buying-or-leasing-vehicle"}]
+  },
+  {
+    "slug": "used-vehicle-viewing-checklist",
+    "title": "Used-vehicle viewing and inspection checklist",
+    "description": "Download a free used-vehicle checklist for PEI. Record paperwork, tires, visible condition and questions for an independent pre-purchase inspection.",
+    "lead": "Take this checklist to a viewing, then use your notes to brief a qualified mechanic. It helps organize questions and observations; it is not an inspection certificate or a mechanical pass/fail test.",
+    "format": "checklist",
+    "updated": "2026-11-15",
+    "howTo": ["Write down the exact vehicle, VIN or stock number and viewing date. Match the vehicle to the listing before recording observations.", "Mark a box when you have checked or discussed the item, even if the answer raises a concern. Write the concern in the notes column.", "Ask a qualified mechanic to assess areas you cannot safely evaluate. Do not crawl beneath an unsupported vehicle or open a hot cooling system.", "Review the current MVI paperwork separately. PEI's MVI assesses mechanical safety; this worksheet does not replace it or a pre-purchase inspection."],
+    "rows": [
+      ["Vehicle identity", "Compare the VIN, year and model with the listing and records."],
+      ["History and servicing", "Ask for available history, maintenance and repair records."],
+      ["Inspection paperwork", "Ask to see current MVI information and inspection findings."],
+      ["Recalls", "Check by VIN; ask for confirmation of completed recall work."],
+      ["Tires and wheels", "Note visible wear and ask about age, damage and included sets."],
+      ["Body and glass", "Record visible damage, corrosion, cracks or water staining."],
+      ["Cabin and equipment", "Try locks, windows, lights, heat and defrost while parked."],
+      ["Warning lights", "Record messages or lights; request an explanation and diagnosis."],
+      ["Mechanic's review", "Arrange assessment of underbody, leaks, brakes and suspension."],
+      ["Written follow-up", "List promised repairs, included items and unanswered questions."]
+    ],
+    "note": "A checked box means reviewed, not approved. Keep a written list of work needed and ask who will complete and pay for it before purchase.",
+    "next": "Take your observations to an independent mechanic and ask for written findings. Compare any recommended work with your budget and the seller's written agreement.",
+    "guides": ["pei-mvi-vs-prepurchase-inspection", "used-truck-inspection-checklist-pei", "high-kilometre-used-car-pei", "used-car-winter-readiness-pei", "read-a-vehicle-history-report", "used-volkswagen-checklist-pei", "used-subaru-buying-checklist-pei"],
+    "related": [{"label":"Understand MVI versus a pre-purchase inspection","href":"/guides/pei-mvi-vs-prepurchase-inspection"},{"label":"Inspect a used truck","href":"/guides/used-truck-inspection-checklist-pei"},{"label":"Browse current used vehicles","href":"/used"}],
+    "sources": [{"label":"Government of PEI: motor vehicle inspections","href":"https://www.princeedwardisland.ca/en/information/transportation-and-infrastructure/motor-vehicle-inspections-mvi"},{"label":"Transport Canada: checking vehicle recalls","href":"https://tc.canada.ca/en/road-transportation/defects-recalls-vehicles-tires-child-car-seats/importance-having-recalled-vehicles-repaired"}]
+  },
+  {
+    "slug": "used-car-comparison-worksheet",
+    "title": "Used-car comparison worksheet",
+    "description": "Compare three used vehicles with a free printable worksheet: asking price, kilometres, equipment, inspection findings and expected ownership costs.",
+    "lead": "Put three real vehicles beside each other on one sheet. Record the exact year, trim and VIN so you compare the cars you can buy, not general descriptions of their models.",
+    "format": "comparison",
+    "updated": "2026-11-15",
+    "howTo": ["Start with your non-negotiables: budget, passenger space, cargo fit and any equipment you need. Use the same requirements for each vehicle.", "Copy asking prices and kilometres from the current listings, recording the date. Confirm availability and request written purchase quotes.", "Enter unknown details as 'ask', not zero. Keep optional products, immediate repairs and running costs visible so a lower asking price does not hide a larger commitment.", "Use this sheet to shortlist vehicles, then test drive and inspect them. For financing, compare written offers using the same term and down payment where possible; do not judge by the payment alone."],
+    "rows": [
+      ["Year / make / model / trim", "Identify the exact version."],
+      ["VIN / stock / listing date", "Keep each quote tied to one vehicle."],
+      ["Kilometres", "Use the current listing or observed odometer."],
+      ["Asking price (CAD)", "Record the advertised vehicle price."],
+      ["Written total with taxes / fees", "Ask what is included and optional."],
+      ["Passengers / cargo fit", "Try your actual seats and gear."],
+      ["Confirmed equipment", "Verify on the exact vehicle."],
+      ["History / inspection findings", "Record what was supplied and unresolved."],
+      ["Included tires / keys / coverage", "Get the details in writing."],
+      ["Immediate work and cost", "Use written estimates where available."],
+      ["Insurance / fuel / maintenance", "Compare using the same time period."],
+      ["Open questions / next step", "Decide what to confirm before committing."]
+    ],
+    "note": "This worksheet does not calculate a payment or recommend a finance product. Use the actual written purchase and financing documents for a decision.",
+    "next": "Choose the vehicles that meet your requirements, then book viewings. You can also use DrivePEI's online comparison tool to shortlist current listings before printing this sheet.",
+    "guides": ["used-tiguan-vs-atlas-pei", "used-sedan-vs-compact-suv-pei", "used-suv-buying-guide-pei", "buying-a-used-car-in-pei", "compare-used-car-financing-offers", "buying-a-used-hybrid-in-pei", "dealer-vs-kijiji-used-car-pei"],
+    "related": [{"label":"Compare current listings online","href":"/compare"},{"label":"Compare Tiguan and Atlas-family SUVs","href":"/guides/used-tiguan-vs-atlas-pei"},{"label":"Compare written financing offers","href":"/guides/compare-used-car-financing-offers"}],
+    "sources": [{"label":"Office of Consumer Affairs: buying or leasing a vehicle","href":"https://www.ised-isde.canada.ca/site/office-consumer-affairs/en/buying-and-leasing-big-ticket-items/buying-or-leasing-vehicle"}]
+  }
+]

@@ -11,3 +11,19 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Keep the downloadable handouts out of search; index their HTML pages.
+[[headers]]
+  for = "/resources/test-drive-scorecard.pdf"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/resources/used-vehicle-viewing-checklist.pdf"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/resources/used-car-comparison-worksheet.pdf"
+  [headers.values]
+    X-Robots-Tag = "noindex"

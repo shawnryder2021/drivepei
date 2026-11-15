@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { getVehicleGallery, getVehicles, slugFor } from '@/lib/inventory';
 import { guides } from '@/lib/guides';
+import { buyerResources } from '@/lib/buyer-resources';
 export const revalidate = 900;
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = (process.env.NEXT_PUBLIC_SITE_URL || 'https://drivepei.ca').replace(/\/$/, '');
@@ -26,6 +27,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/used-nissan-pei',
     '/used-cars-under-25000-pei',
     '/guides',
+    '/resources',
   ];
   const guideHubUpdated = new Date(`${guides.map((guide) => guide.updated).sort().at(-1)}T12:00:00Z`);
   const vehicles = await getVehicles();
@@ -49,6 +51,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     })),
+    ...buyerResources.map(resource => ({ url: `${base}/resources/${resource.slug}`, lastModified: new Date(`${resource.updated}T12:00:00Z`), changeFrequency: 'monthly' as const, priority: 0.6 })),
     ...vehicleEntries,
   ];
 }

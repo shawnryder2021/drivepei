@@ -4,6 +4,7 @@ import { Fragment } from 'react';
 import { notFound } from 'next/navigation';
 import { ArrowUpRight } from 'lucide-react';
 import { guideBySlug, guides } from '@/lib/guides';
+import { resourcesForGuide } from '@/lib/buyer-resources';
 import { GuideInventory } from '@/components/GuideInventory';
 import { guideShoppingLinks } from '@/lib/guide-shopping-links';
 
@@ -28,6 +29,7 @@ export default async function GuidePage({ params }: Props) {
   const { slug } = await params;
   const guide = guideBySlug(slug);
   if (!guide) notFound();
+  const resources = resourcesForGuide(guide.slug);
   const shopping = guideShoppingLinks[guide.slug];
   const url = `${base}/guides/${guide.slug}`;
   const article = {
@@ -55,6 +57,7 @@ export default async function GuidePage({ params }: Props) {
     </div></section>
     <div className="container article-layout"><article className="guide-article">
       <p className="article-date">By DrivePEI · Published {new Date(`${guide.published}T12:00:00Z`).toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</p>
+      {resources.length > 0 && <aside className="guide-resource-links"><span className="eyebrow">TAKE THIS GUIDE WITH YOU</span><p>Free printable tools for your next viewing:</p>{resources.map(resource => <Link href={`/resources/${resource.slug}`} key={resource.slug}>{resource.title} →</Link>)}</aside>}
       {guide.sections.map((section, index) => <Fragment key={section.heading}>
         <section>
           <h2>{section.heading}</h2>

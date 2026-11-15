@@ -44,6 +44,7 @@ export default function GuidesPage() {
             <div><span className="eyebrow">START WITH THE QUESTION YOU HAVE</span><h2>Useful advice for the road ahead.</h2></div>
             <p>Use these guides to plan your budget, narrow your choices and prepare for the next conversation. Then compare the advice with real vehicles in today’s inventory.</p>
           </div>
+          <div className="resource-promo"><div><span className="eyebrow">TAKE IT WITH YOU</span><h2>Free checklists and worksheets.</h2><p>Print a test-drive scorecard, viewing checklist or three-vehicle comparison sheet. No signup required.</p></div><Link className="button button-lime" href="/resources">Get free resources <ArrowUpRight size={17}/></Link></div>
           <nav className="guide-topic-nav" aria-label="Guide topics">
             {topics.map((topic) => <a href={`#${topic.id}`} key={topic.id}>{topic.heading}</a>)}
           </nav>

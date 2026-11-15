@@ -264,6 +264,7 @@ export default async function Home() {
           </Link>
         </div>
       </section>
+      <section className="section home-resources"><div className="container resource-promo"><div><span className="eyebrow">FREE TO PRINT AND SHARE</span><h2>Bring better questions to your next viewing.</h2><p>Take a test-drive scorecard, vehicle checklist or comparison worksheet with you.</p></div><Link className="button button-lime" href="/resources">Get free buyer resources <ArrowUpRight size={17}/></Link></div></section>
     </main>
   );
 }

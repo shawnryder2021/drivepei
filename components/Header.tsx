@@ -104,6 +104,7 @@ export function Footer() {
           <h3>About DrivePEI</h3>
           <Link href="/why-drivepei">Why buy with us</Link>
           <Link href="/guides">PEI buying guides</Link>
+          <Link href="/resources">Free checklists & worksheets</Link>
           <p>Serving drivers across Prince Edward Island from Charlottetown.</p>
           <div className="footer-viewing-location">
             <h4>Vehicle viewing location</h4>

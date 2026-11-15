@@ -2278,3 +2278,65 @@ h2 em {
 .guide-inventory-note a { text-decoration: underline; }
 .guide-inventory-empty { padding: 28px; background: white; border: 1px solid var(--line); }
 .guide-inventory-empty p { margin: 12px 0 20px; line-height: 1.7; }
+
+/* Buyer resources: readable on screen and useful on paper. */
+.resource-content { max-width: 1100px; padding-top: 36px; padding-bottom: 70px; }
+.resource-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.button-resource { background: white; color: #003f65; border: 1px solid #aebfc9; }
+.resource-action-status { flex-basis: 100%; font-size: 14px; color: #344d60; }
+.resource-action-status:empty { display: none; }
+.resource-format-note { margin: 16px 0 30px; font-size: 14px; color: #344d60; }
+.resource-instructions h2, .resource-sheet h2, .resource-next h2, .resource-hub-note h2 { font-size: clamp(25px, 3vw, 34px); margin-bottom: 18px; }
+.resource-instructions ol { padding-left: 24px; }
+.resource-instructions li, .resource-next p, .resource-hub-note p { line-height: 1.8; margin-bottom: 14px; color: #344d60; }
+.resource-sheet { margin: 36px 0; padding: 28px; border: 1px solid #aebfc9; background: #fff; }
+.resource-blank { line-height: 2; margin: 16px 0; overflow-wrap: anywhere; }
+.resource-table-wrap { overflow-x: auto; margin-top: 22px; }
+.resource-table { width: 100%; min-width: 600px; border-collapse: collapse; text-align: left; }
+.resource-table th, .resource-table td { border: 1px solid #aebfc9; padding: 14px; vertical-align: top; }
+.resource-table thead { background: #003f65; color: white; }
+.resource-table tbody th { width: 42%; font-size: 15px; }
+.resource-table small { display: block; font-weight: 400; line-height: 1.5; margin-top: 6px; color: #344d60; }
+.resource-table tbody tr:nth-child(even) { background: #f2f7f8; }
+.resource-write-line { display: block; min-width: 55px; min-height: 35px; border-bottom: 1px dotted #aebfc9; }
+.resource-check-box { display: block; width: 18px; height: 18px; border: 1px solid #344d60; margin-top: 8px; }
+.resource-caution { margin: 20px 0; font-size: 14px; line-height: 1.7; color: #344d60; }
+.resource-print-credit { font-size: 12px; color: #344d60; overflow-wrap: anywhere; }
+.resource-related { display: flex; flex-wrap: wrap; gap: 14px 26px; margin-top: 18px; }
+.resource-related a { text-decoration: underline; font-weight: 600; }
+.resource-sources { margin-top: 40px; }
+.resource-hub-note { max-width: 800px; margin-top: 50px; }
+.resource-promo { display: flex; justify-content: space-between; align-items: center; gap: 28px; background: #eef5f7; padding: 30px; margin-bottom: 28px; }
+.resource-promo h2 { font-size: clamp(25px, 3vw, 34px); margin: 10px 0; }
+.resource-promo p { line-height: 1.7; max-width: 650px; }
+.resource-promo > .button { flex-shrink: 0; }
+.guide-resource-links { margin: 24px 0; padding: 24px; border-left: 4px solid #20833a; background: #eef5f7; }
+.guide-resource-links a { display: block; font-weight: 600; text-decoration: underline; margin-top: 12px; }
+.home-resources { padding-top: 0; }
+@media (max-width: 760px) {
+  .resource-promo { flex-direction: column; align-items: flex-start; padding: 22px; }
+  .resource-sheet { padding: 16px; }
+  .resource-actions .button { width: 100%; justify-content: center; }
+}
+@media print {
+  body:has(.resource-page) { background: white; color: black; }
+  body:has(.resource-page) .site-header, body:has(.resource-page) .site-footer,
+  .resource-page .resource-actions, .resource-page .breadcrumbs, .resource-page .resource-format-note,
+  .resource-page .resource-instructions, .resource-page .resource-next, .resource-page .resource-sources { display: none !important; }
+  .resource-page .page-hero { background: white !important; color: black !important; padding: 0; }
+  .resource-page .page-hero h1 { font-size: 23pt; color: black; max-width: none; }
+  .resource-page .page-hero p { font-size: 10pt; line-height: 1.4; color: black; max-width: none; }
+  .resource-page .eyebrow { color: black; }
+  .resource-page .container { width: 100%; max-width: none; margin: 0; padding: 0; }
+  .resource-page .resource-sheet { border: 0; padding: 0; margin: 16px 0 0; }
+  .resource-page .resource-sheet h2 { font-size: 14pt; }
+  .resource-page .resource-table-wrap { overflow: visible; }
+  .resource-page .resource-table { min-width: 0; font-size: 9pt; }
+  .resource-page .resource-table th, .resource-page .resource-table td { padding: 6px; }
+  .resource-page .resource-table tbody th { font-size: 9pt; }
+  .resource-page .resource-table thead { color: black; background: white; }
+  .resource-page .resource-table tr { break-inside: avoid; }
+  .resource-page .resource-table small { font-size: 8pt; }
+  .resource-page .resource-blank, .resource-page .resource-caution { font-size: 9pt; margin: 9px 0; line-height: 1.4; }
+  .resource-page .resource-write-line { min-height: 25px; }
+}
